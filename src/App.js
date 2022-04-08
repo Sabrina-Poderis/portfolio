@@ -1,9 +1,9 @@
+import NavBar from './NavBar';
+
 function App() {
   return (
-    <div className="App">
-      <h1 class="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+    <div>
+      <NavBar></NavBar>
     </div>
   );
 }
