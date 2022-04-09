@@ -1,6 +1,7 @@
 import NavBar from './NavBar';
 import MainHero from './MainHero';
 import Skills from './Skills';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <MainHero></MainHero>
       
       <Skills></Skills>
+      <Footer></Footer>
     </div>
   );
 }
