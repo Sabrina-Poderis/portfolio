@@ -33,7 +33,7 @@ const skills = [{
 
 export default function Skills() {
   return (
-    <div class="bg-teal-50">
+    <div id="skills" class="bg-teal-50 p-5">
       <div class="flex items-center justify-center">
         <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skills.map((skillCategory) => (
