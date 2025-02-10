@@ -3,6 +3,7 @@ import MainHero from './MainHero';
 import Skills from './Skills';
 import Projects from './Projects';
 import Footer from './Footer';
+import React from 'react';
 
 function App() {
   return (

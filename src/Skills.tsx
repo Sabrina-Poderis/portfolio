@@ -1,3 +1,5 @@
+import React from "react"
+
 const skills = [{
   name: 'FrontEnd',
   skills: [
@@ -33,26 +35,26 @@ const skills = [{
 
 export default function Skills() {
   return (
-    <div id="skills" class="bg-teal-50 p-5">
-      <div class="flex items-center justify-center">
-        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div id="skills" className="bg-teal-50 p-5">
+      <div className="flex items-center justify-center">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skills.map((skillCategory) => (
             <div>
-              <div class="flex flex-wrap justify-center -mx-4">
-                <div class="w-full px-4">
-                    <div class="text-center mx-auto mb-[60px] mt-[60px] lg:mb-20 max-w-[510px]">
+              <div className="flex flex-wrap justify-center -mx-4">
+                <div className="w-full px-4">
+                    <div className="text-center mx-auto mb-[60px] mt-[60px] lg:mb-20 max-w-[510px]">
                       <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
                         <span className="block xl:inline">{skillCategory.name}</span>
                       </h1>
                     </div>
                 </div>
               </div>
-              <div class="flex items-center justify-center">
-                <div class="grid grid-cols-2 gap-4">
+              <div className="flex items-center justify-center">
+                <div className="grid grid-cols-2 gap-4">
                   {skillCategory.skills.map((skill) => (
-                    <div class="flex items-center justify-center flex-col bg-teal-500 p-4 rounded-lg w-48 space-y-4">
-                      <img class="w-24 h-24" src={skill.src} alt={skill.name}></img>
-                      <h1 class="text-zinc-900 font-semibold">{skill.name}</h1>
+                    <div className="flex items-center justify-center flex-col bg-teal-500 p-4 rounded-lg w-48 space-y-4">
+                      <img className="w-24 h-24" src={skill.src} alt={skill.name}></img>
+                      <h1 className="text-zinc-900 font-semibold">{skill.name}</h1>
                     </div>
                   ))}
                 </div>

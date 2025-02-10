@@ -1,3 +1,5 @@
+import React from "react"
+
 const links = [
     {
         name: 'Email',
@@ -24,15 +26,15 @@ const links = [
 export default function Footer() {
     return (
         <footer>
-            <div class="py-6 bg-white ">
-                <div class="flex justify-center">
+            <div className="py-6 bg-white ">
+                <div className="flex justify-center">
                     {links.map((item) => (
                         <a href={item.link}>
-                            <img src={item.src} alt={item.name} class="h-12 w-12 m-2"></img>
+                            <img src={item.src} alt={item.name} className="h-12 w-12 m-2"></img>
                         </a>
                     ))}
                 </div>
-                <div class="text-center text-base text-gray-500">
+                <div className="text-center text-base text-gray-500">
                     <span>Desenvolvido por Sabrina Poderis</span>
                 </div>
             </div>

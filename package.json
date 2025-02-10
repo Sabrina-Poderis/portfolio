@@ -1,18 +1,23 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
+  "name": "portfolio-sabrina-poderis",
+  "version": "2.0.0",
   "private": true,
+  "description": "Meu portfólio pessoal desenvolvido com React e TailwindCSS",
+  "author": "Sabrina Poderis <sabrina.poderis@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.0",
-    "tailwindcss": "^3.0.23",
-    "web-vitals": "^2.1.4"
+    "tailwindcss": "^3.0.23"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/jest": "^29.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
