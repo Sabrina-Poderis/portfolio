@@ -10,7 +10,7 @@ interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const IconButtonComponent = tv({
-  base: "rounded-full flex items-center justify-center transition-opacity duration-200 focus:outline-none",
+  base: "rounded-full flex items-center justify-center transition-opacity duration-200 focus:outline-none cursor-pointer",
   variants: {
     size: {
       sm: "w-8 h-8 text-lg",

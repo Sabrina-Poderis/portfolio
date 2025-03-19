@@ -1,8 +1,8 @@
-"use client";
 import React, { ReactNode } from "react";
 import Image, { StaticImageData } from "next/image";
 import Button from "../Button";
 import IconButton from "../Button/IconButton";
+import formatText from "@/utils/formatText";
 
 interface PortfolioHeroProps {
   name: string;
@@ -35,9 +35,9 @@ const PortfolioHero = ({
   aboutMeSection,
 }: PortfolioHeroProps) => {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex flex-col md:flex-row min-h-screen">
       {/* Left Section */}
-      <div className="w-1/2 flex flex-col items-center justify-center bg-white p-8">
+      <div className="w-full md:w-1/2 flex flex-col items-center justify-center bg-white p-8">
         <Image
           src={profileImage.image}
           alt={profileImage.altText}
@@ -62,17 +62,13 @@ const PortfolioHero = ({
       </div>
 
       {/* Right Section */}
-      <div className="w-1/2 bg-maize flex flex-col justify-center p-12 border-l-2 border-redwood border-dashed">
+      <div className="w-full md:w-1/2 bg-maize flex flex-col justify-center p-12 border-l-2 border-redwood border-dashed md:border-t-0 border-t-2">
         <h2 className="text-redwood text-3xl font-bold mb-4">
           {aboutMeSection.title}
         </h2>
-        <p className="text-default-black-2">{aboutMeSection.description}</p>
+        <p className="text-default-black-2">{formatText(aboutMeSection.description, 'ul')}</p>
         <div className="mt-6 flex space-x-4">
-          <Button 
-            onClick={resumeButton.onClick}
-          >
-            {resumeButton.text}
-          </Button>
+          <Button onClick={resumeButton.onClick}>{resumeButton.text}</Button>
         </div>
       </div>
     </div>

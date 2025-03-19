@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.1.3
+> ℹ️ Alterando o estilo do hero
+
+- Botões com `cursor-pointer`
+- Utils criado para formatar parágrafos
+- Ajuste de responsividade
+
 ## 2.1.2
 > ℹ️ Alterando o estilo do hero
 
