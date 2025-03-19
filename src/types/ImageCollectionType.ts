@@ -1,5 +1,7 @@
+import { StaticImageData } from "next/image";
+
 interface ImageObject {
-    image: string;
+    image: StaticImageData;
     textAlt: string;
   }
   
