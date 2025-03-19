@@ -1,9 +1,9 @@
 import React from 'react';
-import Container from '../components/Container';
+import PortfolioHero from '../components/PortfolioHero';
 
 function Home() {
   return (
-    <Container>teste</Container>
+    <PortfolioHero/>
   );
 }
 
