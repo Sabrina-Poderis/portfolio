@@ -1,0 +1,10 @@
+{
+  "name": "Sabrina Poderis",
+  "occupation": "Full Stack Developer",
+  "heroSection": {
+    "profileImageAltText": "Profile picture of Sabrina Poderis. I am a brown-skinned woman wearing black glasses, my hair is dyed blonde.",
+    "AboutMeTitle": "About Me",
+    "AboutMeDescription": "I am a Full Stack Developer with a strong focus on process organization and documentation.\nI have experience with React, React Native, and TypeScript.\nI have a special interest in frontend development, but with solid experience in backend and mobile development, constantly expanding my knowledge in the field.\nI possess skills in communication, collaboration, and continuous learning, always striving to optimize productivity and quality in software development.",
+    "ResumeButtonText": "Resume"
+  }
+}

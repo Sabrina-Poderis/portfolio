@@ -1,0 +1,36 @@
+# Changelog
+
+## 2.1.4
+- Arrumando o problema do `server-side`
+- Exportando o Hero como uma `section`
+- Inserindo os eventos ao clicar nos botões das redes sociais e do CV
+
+## 2.1.3
+> ℹ️ Alterando o estilo do hero
+
+- Botões com `cursor-pointer`
+- Utils criado para formatar parágrafos
+- Ajuste de responsividade
+
+## 2.1.2
+> ℹ️ Alterando o estilo do hero
+
+- Usando intercionalização no projeto
+- Pré-definindo o conteúdo do hero
+
+## 2.1.1
+> ℹ️ Alterando o estilo do hero
+
+- Atualizando o texto `description` do `package.json` e do `metadata`
+- Definindo variante de cores do projeto
+- Criado o componente `Button`
+- Atualizado o estilo do `PortfolioHero` 
+
+## 2.1.0
+> ℹ️ Reconstruindo com next
+
+## 2.0.0
+> ℹ️ Reconstruindo com react
+
+## 1.0.0
+> ℹ️ Primeira versão do portfolio, feito com javascript
