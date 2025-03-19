@@ -1,7 +1,9 @@
 # Changelog
 
 ## 2.1.4
-> ℹ️ Alterando o estilo do hero
+- Arrumando o problema do `server-side`
+- Exportando o Hero como uma `section`
+- Inserindo os eventos ao clicar nos botões das redes sociais e do CV
 
 ## 2.1.3
 > ℹ️ Alterando o estilo do hero
