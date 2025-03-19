@@ -1,29 +1,30 @@
 "use client"
-import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const contactList = [
   {
     text: "Email",
     icon: <IoMail />,
     onClick: () => {
-      console.log("Email");
+      window.location.href = "mailto:sabrina.poderis@gmail.com";
     },
   },
   {
     text: "Github",
     icon: <FaGithub />,
     onClick: () => {
-      console.log("Github");
+      window.open("https://github.com/Sabrina-Poderis", "_blank");
     },
   },
   {
     text: "LinkedIn",
     icon: <FaLinkedin />,
     onClick: () => {
-      console.log("LinkedIn");
+      window.open("https://www.linkedin.com/in/sabrina-poderis/", "_blank");
     },
   },
 ];
+
 
 export default contactList;

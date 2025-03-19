@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.4
+> ℹ️ Alterando o estilo do hero
+
 ## 2.1.3
 > ℹ️ Alterando o estilo do hero
 
