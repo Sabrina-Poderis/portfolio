@@ -1,11 +1,7 @@
-import ImageCollectionType from '@/types/ImageCollectionType'
-import DefaultAvatarProfileIcon from './default-avatar-profile-icon.jpg'
+/* eslint-disable import/no-anonymous-default-export */
 
-const images : ImageCollectionType = {
-    DefaultAvatarProfileIcon: {
-        image: DefaultAvatarProfileIcon,
-        textAlt: 'aaa'
-    }
+import ProfileImage from './profile-image.jpg'
+
+export default {
+    ProfileImage
 }
-
-export default images

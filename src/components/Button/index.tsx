@@ -1,27 +1,41 @@
+"use client"; // Garantir que o componente seja tratado no lado do cliente
+import { tv } from "tailwind-variants";
+import { ReactNode, ButtonHTMLAttributes, useState } from "react";
 
-
-import { tv } from 'tailwind-variants';
-import { ReactNode } from 'react';
-import React from 'react';
-
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  className?: string;
-  variant?: 'default' | 'dark';
+  variant?: "default" | "dark";
 }
 
 const ButtonComponent = tv({
-  base: 'px-6 py-2 bg-redwood text-white rounded-md',
+  base: "px-6 py-2 rounded-md transition-opacity duration-200 focus:outline-none",
   variants: {
     variant: {
-      default: 'bg-redwood text-white',
-      dark: 'bg-whine text-white',
+      default: "bg-redwood text-white",
+      dark: "bg-whine text-white",
+    },
+    disabled: {
+      true: "opacity-50 cursor-not-allowed",
     },
   },
 });
 
-const Button = ({ children, className, variant = 'default' }: ButtonProps) => {
-  return <button className={ButtonComponent({ variant, className })}>{children}</button>;
+const Button = ({ children, variant = "default", disabled, onClick, ...props }: ButtonProps) => {
+  const [isFocused, setIsFocused] = useState(false);
+
+  return (
+    <button
+      {...props} // Passa todas as props adicionais, incluindo onClick
+      disabled={disabled}
+      aria-disabled={disabled}
+      className={`${ButtonComponent({ variant, disabled })} ${isFocused ? "opacity-80" : ""}`} // Aplica a opacidade ao focar
+      onFocus={() => setIsFocused(true)} // Foco no botão
+      onBlur={() => setIsFocused(false)} // Perde o foco
+      onClick={onClick} // Lida com o evento de clique, passado como prop
+    >
+      {children}
+    </button>
+  );
 };
 
 export default Button;

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.2
+> ℹ️ Alterando o estilo do hero
+
+- Usando intercionalização no projeto
+- Pré-definindo o conteúdo do hero
 
 ## 2.1.1
 > ℹ️ Alterando o estilo do hero

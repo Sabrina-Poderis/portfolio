@@ -1,0 +1,10 @@
+{
+  "name": "Sabrina Poderis",
+  "occupation": "Desenvolvedora Full Stack",
+  "heroSection": {
+    "profileImageAltText": "Foto de perfil de Sabrina Poderis. Sou uma mulher parda, eu estou usando um óculos preto e meu cabelo está pintado de loiro",
+    "AboutMeTitle": "Sobre mim",
+    "AboutMeDescription": "Sou uma Desenvolvedora Full Stack com forte foco na organização de processos e documentação. Possuo experiência com React, React Native e Typescript. Tenho especial interesse em frontend, mas com sólida atuação em backend e mobile, ampliando constantemente conhecimentos na área. Possuo habilidades em comunicação, colaboração e aprendizado contínuo, sempre buscando otimizar produtividade e qualidade no desenvolvimento de software.",
+    "ResumeButtonText": "Currículo"
+  }
+}
