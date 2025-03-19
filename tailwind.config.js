@@ -7,7 +7,15 @@ module.exports = {
     "./types/**/*.{ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        redwood: "#a54657",
+        whine: "#582630",
+        maize: "#F7EE7F",
+        sandybrown: "#F1A66A",
+        bittersweet: "#F26157",
+      },
+    },
   },
   plugins: [],
 };

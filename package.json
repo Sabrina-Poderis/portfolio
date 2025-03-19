@@ -1,7 +1,7 @@
 {
   "name": "portfolio-sabrina-poderis",
-  "version": "2.1.0",
-  "description": "Meu portfólio pessoal desenvolvido com React e TailwindCSS",
+  "version": "2.1.1",
+  "description": "Meu portfólio pessoal desenvolvido com React, Next e TailwindCSS",
   "author": "Sabrina Poderis <sabrina.poderis@gmail.com>",
   "private": true,
   "scripts": {
