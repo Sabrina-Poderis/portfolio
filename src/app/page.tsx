@@ -1,14 +1,9 @@
 import LocaleEnum from "@/ts/enums/LocalesEnum";
-import { getDictionary } from "./dictionaries";
-import images from "@/assets/images";
 import PortfolioHero from "@/sections/PortfolioHero";
+import { getDictionary } from "./dictionaries";
 
-const HomePage = async ({
-  params,
-}: {
-  params: Promise<{ lang: LocaleEnum }>;
-}) => {
-  const { lang } = await params;
+const HomePage = async () => {
+  const lang = navigator.language as LocaleEnum || LocaleEnum.PORTUGUESE;
   const dict = await getDictionary(lang);
 
   return (
@@ -16,7 +11,7 @@ const HomePage = async ({
       name={dict.name}
       occupation={dict.occupation}
       profileImage={{
-        image: images.ProfileImage,
+        image: './profile-image.jpg',
         altText: dict.heroSection.profileImageAltText,
       }}
       aboutMeSection={{

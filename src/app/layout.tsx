@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import LocaleEnum from "@/ts/enums/LocalesEnum";
 
 export async function generateStaticParams() {
-  return [{ lang: 'en-US' }, { lang: 'nl' }];
+  return Object.values(LocaleEnum).map((lang) => ({ lang }));
 }
 
 const geistSans = Geist({
@@ -26,7 +27,7 @@ export default async function RootLayout({
   params
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ lang: 'en-US' | 'pt' }>
+  params: Promise<{ lang: LocaleEnum }>
 }>) {
   return (
     <html lang={(await params).lang}>
