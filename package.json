@@ -1,6 +1,6 @@
 {
   "name": "portfolio-sabrina-poderis",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "Meu portfólio pessoal desenvolvido com React, Next e TailwindCSS",
   "author": "Sabrina Poderis <sabrina.poderis@gmail.com>",
   "private": true,
@@ -14,9 +14,6 @@
     "deploy": "gh-pages -d out"
   },
   "dependencies": {
-    "@formatjs/intl-localematcher": "^0.6.0",
-    "formatjs": "^0.1.1",
-    "negotiator": "^1.0.0",
     "next": "^15.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -25,7 +22,6 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4.0",
-    "@types/negotiator": "^0.6.3",
     "@types/next": "^9.0",
     "@types/node": "^20",
     "@types/react": "^19",
