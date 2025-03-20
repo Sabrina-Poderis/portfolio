@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.8
+- Criação do componente `Navbar`
+
 ## 2.1.7
 - Atualização da paleta de cores
 

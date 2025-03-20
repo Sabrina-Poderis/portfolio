@@ -70,7 +70,7 @@ const PortfolioHero = ({
 
       {/* Right Section */}
       <div className="w-full md:w-1/2 bg-tertiary flex flex-col justify-center p-12 border-l-4 border-primary border-dashed md:border-t-0 border-t-4">
-        <h2 className="text-primary text-3xl font-bold mb-4">
+        <h2 id="about" className="text-primary text-3xl font-bold mb-4">
           {aboutMeSection.title}
         </h2>
         <div className="text-black-secondary">
