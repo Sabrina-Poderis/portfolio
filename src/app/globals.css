@@ -1,53 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  --default-white: #FFF;
-  --default-white-2: #EDEDED;
-  --default-black: #000;
-  --default-black-2: #171717;
-  --default-black-3: #0A0A0A;
+  --background: #FFF;
   --foreground: #171717;
-  --redwood: #a54657;
-  --whine: #582630;
-  --maize: #F7EE7F;
-  --sandybrown: #F1A66A;
-  --bittersweet: #F26157;
+
+  --white-primary: #FFF;
+  --white-secondary: #FEF9EF;
+  --white-tertiary: #EDEDED;
+  --black-primary: #000;
+  --black-secondary: #171717;
+  --black-tertiary: #0A0A0A;
+  --primary: #227C9D;
+  --secondary: #17C3B2;
+  --tertiary: #FFCB77;
+  --quaternary: #F1A66A;
+  --quinary: #FE6D73;
 }
 
 @theme inline {
-  --color-background: var(--default-white);
-  --color-foreground: var(--default-black-2);
-  --color-default-white: #FFF;
-  --color-default-white-2: #EDEDED;
-  --color-default-black: #000;
-  --color-default-black-2: #171717;
-  --color-default-black-3: #0A0A0A;
-  --color-redwood: var(--redwood);
-  --color-whine: var(--whine);
-  --color-maize: var(--maize);
-  --color-sandybrown: var(--sandybrown);
-  --color-bittersweet: var(--bittersweet);
+  --color-white-primary: var(--white-primary);
+  --color-white-secondary: var(--white-secondary);
+  --color-white-tertiary: var(--white-tertiary);
+  --color-black-primary: var(--black-primary);
+  --color-black-secondary: var(--black-secondary);
+  --color-black-tertiary: var(--black-tertiary);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-quaternary: var(--quaternary);
+  --color-quinary: var(--quinary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--default-black-3);
-    /* --foreground: var(--default-white-2) */
+  html {
+    --background: var(--black-tertiary);
+    --foreground: var(--white-secondary);
   }
 }
 
 body {
-  background: var(--default-white);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s, color 0.3s; /* Para suavizar a troca de temas */
 }
 
-h1 {
-  color: var(--whine);
-}
-
-h2 {
-  color: var(--redwood);
+h1, h2 {
+  color: var(--primary);
 }

@@ -9,11 +9,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        redwood: "#a54657",
-        whine: "#582630",
-        maize: "#F7EE7F",
-        sandybrown: "#F1A66A",
-        bittersweet: "#F26157",
+        primary: "#a54657",
+        secondary: "#582630",
+        tertiary: "#F7EE7F",
+        quaternary: "#F1A66A",
+        quinary: "#F26157",
       },
     },
   },

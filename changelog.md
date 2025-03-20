@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.7
+- Atualização da paleta de cores
+
 ## 2.1.6
 - Atualização de readme e remoção de dependências não utilizadas
 

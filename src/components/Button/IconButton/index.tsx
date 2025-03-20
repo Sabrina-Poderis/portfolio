@@ -18,7 +18,7 @@ const IconButtonComponent = tv({
       lg: "w-12 h-12 text-2xl",
     },
     variant: {
-      default: "text-whine",
+      default: "text-primary",
       dark: "text-gray-800",
     },
     disabled: {

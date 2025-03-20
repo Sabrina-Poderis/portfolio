@@ -38,7 +38,7 @@ const PortfolioHero = ({
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
       {/* Left Section */}
-      <div className="w-full md:w-1/2 flex flex-col items-center justify-center bg-white p-8">
+      <div className="w-full md:w-1/2 flex flex-col items-center justify-center p-8 bg-white-secondary dark:bg-black-secondary">
         <Image
           src={profileImage.image}
           alt={profileImage.altText}
@@ -46,8 +46,8 @@ const PortfolioHero = ({
           width={48}
           height={48}
         />
-        <h1 className="mt-4 text-2xl text-default-black-2 font-bold">{name}</h1>
-        <p className="text-default-black-2">{occupation}</p>
+        <h1 className="mt-4 text-2xl text-black-secondary font-bold">{name}</h1>
+        <p className="text-black-secondary dark:text-white-secondary">{occupation}</p>
         <div className="mt-4 flex space-x-4">
           {contactList && contactList.length > 0 && (
             <>
@@ -69,11 +69,11 @@ const PortfolioHero = ({
       </div>
 
       {/* Right Section */}
-      <div className="w-full md:w-1/2 bg-maize flex flex-col justify-center p-12 border-l-2 border-redwood border-dashed md:border-t-0 border-t-2">
-        <h2 className="text-redwood text-3xl font-bold mb-4">
+      <div className="w-full md:w-1/2 bg-tertiary flex flex-col justify-center p-12 border-l-4 border-primary border-dashed md:border-t-0 border-t-4">
+        <h2 className="text-primary text-3xl font-bold mb-4">
           {aboutMeSection.title}
         </h2>
-        <div className="text-default-black-2">
+        <div className="text-black-secondary">
           {formatText(aboutMeSection.description, 'ul')}
         </div>
         <div className="mt-6 flex space-x-4">

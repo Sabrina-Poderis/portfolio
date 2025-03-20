@@ -11,8 +11,8 @@ const ButtonComponent = tv({
   base: "px-6 py-2 rounded-md transition-opacity duration-200 focus:outline-none cursor-pointer",
   variants: {
     variant: {
-      default: "bg-redwood text-white",
-      dark: "bg-whine text-white",
+      default: "bg-primary text-white",
+      dark: "bg-secondary text-white",
     },
     disabled: {
       true: "opacity-50 cursor-not-allowed",
