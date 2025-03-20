@@ -2,6 +2,7 @@ import LocaleEnum from "@/ts/enums/LocalesEnum";
 import PortfolioHero from "@/sections/PortfolioHero";
 import { getDictionary } from "./dictionaries";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const HomePage = async () => {
   const lang = LocaleEnum.PORTUGUESE;
@@ -32,6 +33,7 @@ const HomePage = async () => {
         }}
         resumeButtonText={dict.heroSection.resumeButtonText}
       />
+      <Footer name={dict.name}/>
     </>
   );
 };

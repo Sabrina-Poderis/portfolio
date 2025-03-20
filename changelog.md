@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.9
+- Criação do componente `Footer`
+
 ## 2.1.8
 - Criação do componente `Navbar`
 

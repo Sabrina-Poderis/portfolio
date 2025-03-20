@@ -19,7 +19,7 @@ const IconButtonComponent = tv({
     },
     variant: {
       default: "text-primary",
-      dark: "text-gray-800",
+      dark: "text-tertiary",
     },
     disabled: {
       true: "opacity-50 cursor-not-allowed",
