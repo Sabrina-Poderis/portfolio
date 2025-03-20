@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.6
+- Atualização de readme e remoção de dependências não utilizadas
+
+## 2.1.5
+- Refatorando os arquivos pro deploy
+
 ## 2.1.4
 - Arrumando o problema do `server-side`
 - Exportando o Hero como uma `section`

@@ -1,4 +1,3 @@
-"use server"; 
 import LocaleEnum from "@/ts/enums/LocalesEnum";
 
 const dictionaries = {

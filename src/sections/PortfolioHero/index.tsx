@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import contactList from "@/data/contactList";
 import formatText from "@/utils/formatText";
 import IconButton from "@/components/Button/IconButton";
@@ -11,7 +11,7 @@ interface PortfolioHeroProps {
   name: string;
   occupation: string;
   profileImage: {
-    image: StaticImageData;
+    image: string;
     altText: string;
   };
   resumeButtonText: string;
@@ -43,6 +43,8 @@ const PortfolioHero = ({
           src={profileImage.image}
           alt={profileImage.altText}
           className="w-48 h-48 rounded-md object-cover"
+          width={48}
+          height={48}
         />
         <h1 className="mt-4 text-2xl text-default-black-2 font-bold">{name}</h1>
         <p className="text-default-black-2">{occupation}</p>
