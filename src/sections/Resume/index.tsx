@@ -12,7 +12,7 @@ interface ResumeSectionProps {
 
 const ResumeSection = ({ dict }: ResumeSectionProps) => {
   const printRef = useRef<HTMLDivElement>(null);
-
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const handlePrint = useReactToPrint({
     contentRef: printRef,
   });
@@ -41,7 +41,7 @@ const ResumeSection = ({ dict }: ResumeSectionProps) => {
 
         <Button
           onClick={() => {
-            window.location.href = "/";
+            window.location.href = `${window.location.origin}${basePath}`;
           }}
         >
           Voltar pra home
