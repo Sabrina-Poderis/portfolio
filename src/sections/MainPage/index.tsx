@@ -5,6 +5,7 @@ import Timeline from "@/components/Timeline";
 import Dictionary from "@/ts/types/Dictionary";
 import ProjectCards from "@/components/ProjectCards";
 import ContactForm from "@/components/ContactForm";
+import RecommendationCards from "@/components/RecommendationCards";
 
 interface MainPageProps {
   dict: Dictionary;
@@ -21,6 +22,7 @@ const MainPage = async ({ dict }: MainPageProps) => {
           { text: dict.sections.about, link: "#about" },
           { text: dict.sections.experience, link: "#experience" },
           { text: dict.sections.projects, link: "#projects" },
+          { text: dict.sections.recommendations, link: "#recommendations" },
           { text: dict.sections.contact, link: "#contact" },
         ]}
       />
@@ -48,6 +50,11 @@ const MainPage = async ({ dict }: MainPageProps) => {
         title={dict.sections.projects}
         buttonText={dict.seeOnGitHub}
         projects={dict.projects}
+      />
+
+      <RecommendationCards
+        title={dict.sections.recommendations}
+        recommendations={dict.recommendations}
       />
 
       <ContactForm

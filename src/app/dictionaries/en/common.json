@@ -18,6 +18,7 @@
     "about": "About Me",
     "experience": "Professional Experience",
     "projects": "Projects",
+    "recommendations": "Recommendations",
     "contact": "Contact"
   },
   "experiences": [
@@ -97,12 +98,58 @@
     "startDate": "2017-01-01",
     "endDate": "2020-12-31"
   },
-  
   "projects": [
     {
       "name": "Detran SP Practice Exam",
       "description": "The Detran SP Practice Exam application was developed with the purpose of simulating the Detran theoretical exam. It allows users to practice official questions and test their knowledge on traffic laws, defensive driving, first aid, and basic mechanics.",
       "href": "https://github.com/Sabrina-Poderis/detran-sp-practice-exam"
     }
-  ] 
+  ],
+  "recommendations": [
+    {
+      "name": "Caio Pereira Mascarenhas",
+      "role": "Software Engineer",
+      "image": {
+        "src": "profile-caio-mascarenhas-image.jpg",
+        "alt": "Profile picture of Caio Mascarenhas"
+      },
+      "text": "I had the pleasure of working with Sabrina, and I can say that she is an extremely committed and inquisitive professional. She always seeks to understand the purpose of what she is developing, contributing ideas and improvements at every stage of the project. Her involvement goes beyond the code: she cares about the impact of the final product and is always willing to make things happen. She is a professional who adds great value and makes a difference in the team!"
+    },
+    {
+      "name": "Yan Victor Chaves Pinheiro",
+      "role": "Software Developer",
+      "image": {
+        "src": "profile-yan-pinheiro-image.jpg",
+        "alt": "Profile picture of Yan Pinheiro"
+      },
+      "text": "Sabrina is an excellent professional who always faced the challenges presented to her with great competence. I learned a lot from her. She is also a very organized and motivated person who never shied away from a challenge, and working with her was truly rewarding."
+    },
+    {
+      "name": "Alessandro L. Menezes",
+      "role": "Full Stack Developer",
+      "image": {
+        "src": "profile-alessandro-menezes-image.jpg",
+        "alt": "Profile picture of Alessandro Menezes"
+      },
+      "text": "I highly recommend Sabrina. Working with her was a transformative experience: her relaxed approach to challenges makes the environment lighter while maintaining seriousness and precision when necessary. I had the opportunity to learn a lot about project organization alongside the most organized person I have ever worked with. Her curiosity in learning and testing new technologies continuously raises the level of our projects. Sabrina is, without a doubt, an inspiring professional and a great asset to any team."
+    },
+    {
+      "name": "Tiffany Cordeiro",
+      "role": "Software Engineer",
+      "image": {
+        "src": "profile-tiffany-cordeiro-image.jpg",
+        "alt": "Profile picture of Tiffany Cordeiro"
+      },
+      "text": "Working with Sabrina was an incredible experience! She is extremely organized, always keeping everything in order and ensuring that work flows in the best possible way. Additionally, her willingness to help makes all the difference in daily tasks—she is the kind of person who is always ready to collaborate and create a lighter, more productive environment. Without a doubt, a professional who adds great value to any team!"
+    },
+    {
+      "name": "Amanda Mastrodomenico",
+      "role": "Product Owner",
+      "image": {
+        "src": "profile-amanda-mastrodomenico-image.jpg",
+        "alt": "Profile picture of Amanda Mastrodomenico"
+      },
+      "text": "Sabrina is a developer committed to delivering results on time and determined to overcome her own challenges, taking on tasks beyond her comfort zone. She communicates clearly and objectively, easily explaining technical issues at a business level. During the time we worked together, she was very dedicated to documenting processes and workflows, ensuring that the entire team had visibility into what was done and how!"
+    }
+  ]
 }

@@ -18,6 +18,7 @@ type Dictionary = {
     about: string;
     experience: string;
     projects: string;
+    recommendations: string;
     contact: string;
   };
   experiences: {
@@ -42,6 +43,15 @@ type Dictionary = {
     description: string;
     href: string;
   }[];
+  recommendations: {
+    text: string;
+    name: string;
+    role: string;
+    image: {
+        src: string;
+        alt: string;
+    }
+  }[]
 };
 
 export default Dictionary;

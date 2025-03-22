@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.16
+- Criação do compoente `RecommendationCards`
+
 ## 2.1.15
 - Criação do componente `ContactForm`
 
