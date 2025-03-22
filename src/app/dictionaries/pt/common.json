@@ -5,6 +5,7 @@
   "techs": "Tecnologias",
   "phone": "Telefone",
   "resume": "Currículo",
+  "seeOnGitHub": "Ver no Github",
   "alt": {
     "hamburguerIcon": "Abrir menu principal",
     "profileImage": "Foto de perfil de Sabrina Poderis. Sou uma mulher parda, eu estou usando um óculos preto e meu cabelo está pintado de loiro"
@@ -92,5 +93,12 @@
     "courseName": "Análise e Desenvolvimento de Sistemas",
     "startDate": "2017-01-01",
     "endDate": "2020-12-31"
-  }
+  },
+  "projects": [
+    {
+      "name": "Simulado Detran SP",
+      "description": "A aplicação Detran SP Practice Exam foi desenvolvida com o objetivo de simular a prova teórica do Detran. Ela permite que os usuários pratiquem questões oficiais e testem seus conhecimentos sobre legislação de trânsito, direção defensiva, primeiros socorros e mecânica básica.",
+      "href": "https://github.com/Sabrina-Poderis/detran-sp-practice-exam"
+    }
+  ] 
 }

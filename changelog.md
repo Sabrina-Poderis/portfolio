@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.14
+- Criação do componente `Projects`
+
 ## 2.1.13
 - Deixando a NabBar fixa
 

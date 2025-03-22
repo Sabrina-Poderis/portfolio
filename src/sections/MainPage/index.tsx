@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Timeline from "@/components/Timeline";
 import Dictionary from "@/ts/types/Dictionary";
+import ProjectCards from "@/components/ProjectCards";
 
 interface MainPageProps {
   dict: Dictionary;
@@ -40,6 +41,12 @@ const MainPage = async ({ dict }: MainPageProps) => {
         title={dict.sections.experience}
         techText={dict.techs}
         experiences={dict.experiences}
+      />
+
+      <ProjectCards
+        title={dict.sections.projects}
+        buttonText={dict.seeOnGitHub}
+        projects={dict.projects}
       />
 
       <Footer name={dict.name} />

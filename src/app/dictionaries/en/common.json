@@ -5,6 +5,7 @@
   "techs": "Technologies",
   "phone": "Phone",
   "resume": "Resume",
+  "seeOnGitHub": "See on Github",
   "alt": {
     "hamburguerIcon": "Open main menu",
     "profileImage": "Profile picture of Sabrina Poderis. I am a woman of mixed-race, wearing black glasses and my hair is dyed blonde."
@@ -92,5 +93,13 @@
     "courseName": "Analysis and Systems Development",
     "startDate": "2017-01-01",
     "endDate": "2020-12-31"
-  }
+  },
+  
+  "projects": [
+    {
+      "name": "Detran SP Practice Exam",
+      "description": "The Detran SP Practice Exam application was developed with the purpose of simulating the Detran theoretical exam. It allows users to practice official questions and test their knowledge on traffic laws, defensive driving, first aid, and basic mechanics.",
+      "href": "https://github.com/Sabrina-Poderis/detran-sp-practice-exam"
+    }
+  ] 
 }
