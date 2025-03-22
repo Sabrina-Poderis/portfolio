@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.18
+- Ajustes na margem do PDF
+
 ## 2.1.17
 - Ajustes no tema claro
 
