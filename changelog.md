@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.15
+- Criação do componente `ContactForm`
+
 ## 2.1.14
 - Criação do componente `Projects`
 

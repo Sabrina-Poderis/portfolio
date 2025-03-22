@@ -6,6 +6,9 @@ type Dictionary = {
   phone: string;
   resume: string;
   seeOnGitHub: string;
+  yourMessage: string;
+  sendWhatsappMessage: string;
+  contactDescription: string;
   alt: {
     hamburguerIcon: string;
     profileImage: string;

@@ -16,8 +16,8 @@ interface TimelineProps {
 
 const Timeline = ({ title, techText, experiences }: TimelineProps) => {
   return (
-    <div className="w-full bg-white-secondary dark:bg-black-secondary flex flex-col items-center justify-center p-12 border-y-4 border-primary border-dashed">
-      <h2 id="experience" className="text-primary text-3xl font-bold mb-4">
+    <section id="experience" className="w-full bg-white-secondary dark:bg-black-secondary flex flex-col items-center justify-center p-12 border-y-4 border-primary border-dashed">
+      <h2 className="text-primary text-3xl font-bold mb-4">
         {title}
       </h2>
       <ol className="relative md:w-lg sm:w-sm border-s-2 border-primary dark:border-tertiary">
@@ -59,7 +59,7 @@ const Timeline = ({ title, techText, experiences }: TimelineProps) => {
           </li>
         ))}
       </ol>
-    </div>
+    </section>
   );
 };
 

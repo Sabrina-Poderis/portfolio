@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Timeline from "@/components/Timeline";
 import Dictionary from "@/ts/types/Dictionary";
 import ProjectCards from "@/components/ProjectCards";
+import ContactForm from "@/components/ContactForm";
 
 interface MainPageProps {
   dict: Dictionary;
@@ -49,6 +50,13 @@ const MainPage = async ({ dict }: MainPageProps) => {
         projects={dict.projects}
       />
 
+      <ContactForm
+        title={dict.sections.contact}
+        description={dict.contactDescription}
+        label={dict.yourMessage}
+        buttonText={dict.sendWhatsappMessage}
+        whatsappNumber={"5511959403583"}
+      />
       <Footer name={dict.name} />
     </>
   );
