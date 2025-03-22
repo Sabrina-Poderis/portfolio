@@ -1,18 +1,96 @@
 {
   "name": "Sabrina Poderis",
-  "occupation": "Full Stack Developer",
-  "menu": {
-    "hamburguerAltText": "Open main manu",
+  "role": "Full Stack Developer",
+  "aboutMe": "- I am a Full Stack Developer with a strong focus on process organization and documentation.\n- Experience with React, React Native, and TypeScript.\n- Special interest in frontend, but with solid experience in backend and mobile, constantly expanding knowledge in the field.\n- Skills in communication, collaboration, and continuous learning, always seeking to optimize productivity and quality in software development.",
+  "techs": "Technologies",
+  "phone": "Phone",
+  "resume": "Resume",
+  "alt": {
+    "hamburguerIcon": "Open main menu",
+    "profileImage": "Profile picture of Sabrina Poderis. I am a woman of mixed-race, wearing black glasses and my hair is dyed blonde."
+  },
+  "sections": {
     "home": "Home",
-    "about": "About",
-    "experience": "Profissional Experience",
+    "about": "About Me",
+    "experience": "Professional Experience",
     "projects": "Projects",
     "contact": "Contact"
   },
-  "heroSection": {
-    "profileImageAltText": "Profile picture of Sabrina Poderis. I am a brown-skinned woman wearing black glasses, my hair is dyed blonde.",
-    "aboutMeTitle": "About Me",
-    "aboutMeDescription": "I am a Full Stack Developer with a strong focus on process organization and documentation.\nI have experience with React, React Native, and TypeScript.\nI have a special interest in frontend development, but with solid experience in backend and mobile development, constantly expanding my knowledge in the field.\nI possess skills in communication, collaboration, and continuous learning, always striving to optimize productivity and quality in software development.",
-    "resumeButtonText": "Resume"
+  "experiences": [
+    {
+      "companyName": "ACT Digital",
+      "website": "https://www.actdigital.com",
+      "role": "Full Stack Developer",
+      "startDate": "2022-04-01",
+      "endDate": "2025-03-01",
+      "description": "I worked on developing solutions for web and mobile platforms using React.js and React Native, focusing on scalability, code quality, and process optimization.\n- I was the main person responsible for controlling and maintaining a website for a premium product aimed at personalized genetic testing, helping identify diseases and recommending the most effective medications for each patient. Besides development, I held frequent alignments with the PO and stakeholders to ensure product evolution.\n- I actively contributed to supporting and evolving the Meu Einstein app, including updating a project with outdated libraries to more modern versions, ensuring compatibility between React and Flutter. I also worked with native code and implemented feature flags for controlled rollouts of new features.\n- I migrated from the patient area to the medical schedule, where I developed several strategic features to optimize the platform usage by secretaries and doctors. This process included integration with other scheduling services, ensuring a connected and efficient ecosystem.\n- My major achievement in this new area was integrating the documentation culture, bringing both technical and business refinement to work items. The impact was positive, resulting in excellent feedback from colleagues and superiors. I am now focused on further enhancing this initiative, expanding it to changelogs and wikis within the team.",
+      "stack": [
+        "React.js",
+        "React Native",
+        "TypeScript",
+        "Redux.js",
+        "Node.js",
+        "HTML",
+        "CSS",
+        "Git",
+        "Agile Methodologies",
+        "Scrum",
+        "Azure DevOps",
+        "AWS",
+        "Datadog",
+        "Docker",
+        "Dynatrace",
+        "Firebase",
+        "Microsoft Office",
+        "MongoDB",
+        "REST",
+        "SQL"
+      ]
+    },
+    {
+      "companyName": "TMontec",
+      "website": "https://www.tmontec.com.br",
+      "role": "Junior Web Developer",
+      "startDate": "2020-09-01",
+      "endDate": "2022-08-01",
+      "description": "I worked on the development and maintenance of systems for a CRM integrated with a POS (Point of Sale) system, focused on solutions for the retail and management sectors.\n\nMain responsibilities:\n- Support and evolution of Laravel applications and legacy PHP systems 🛠️\n- Development of new features to optimize CRM operational workflows\n- Technical documentation for standardization and improvement of internal processes\n\nIn addition to technical activities, I worked in a small team of five people, where I had the opportunity to work with a legacy framework that I mastered, ensuring the stability and evolution of applications.\n\nI also led the production of internal documentation, contributing to the organization and knowledge sharing within the company.",
+      "stack": [
+        "PHP",
+        "Laravel",
+        "JavaScript",
+        "Node.js",
+        "Bootstrap",
+        "HTML",
+        "CSS",
+        "GitLab",
+        "Vue.js",
+        "MySQL",
+        "Microsoft Office"
+      ]
+    },
+    {
+      "companyName": "Turim",
+      "website": "https://site.turimsoft.com.br",
+      "role": "Programming Intern",
+      "startDate": "2020-02-01",
+      "endDate": "2020-05-01",
+      "description": "I worked on developing scripts for automating BPO processes and providing support for legacy PHP systems in a company specializing in fiscal services.\n\nMain responsibilities:\n- Automating BPO processes, optimizing operational workflows\n- Support and maintenance of legacy PHP systems\n- Technical documentation for standardization and knowledge sharing\n\nIt was during this experience that I began learning about software documentation. The company had no detailed records of systems, and the framework introduction was exclusively through videos. As a result, I started documenting everything I learned. My boss approved the initiative, and later the material became internal and was even shared among colleagues.",
+      "stack": [
+        "PHP",
+        "Microsoft Office",
+        "Microsoft SQL Server",
+        "JavaScript",
+        "MySQL",
+        "Python"
+      ]
+    }
+  ],
+  "college": {
+    "name": "Fatec São Caetano do Sul - Antônio Russo",
+    "website": "https://fatecsaocaetano.cps.sp.gov.br",
+    "degree": "Technologist",
+    "courseName": "Analysis and Systems Development",
+    "startDate": "2017-01-01",
+    "endDate": "2020-12-31"
   }
 }

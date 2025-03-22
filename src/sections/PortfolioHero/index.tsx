@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
 import React from "react";
 import Image from "next/image";
-import contactList from "@/data/contactList";
-import formatText from "@/utils/formatText";
+import contactData from "@/app/dictionaries/contactData";
+import formatParagraph from "@/utils/formatParagraph";
 import IconButton from "@/components/Button/IconButton";
 import Button from "@/components/Button";
 
 interface PortfolioHeroProps {
   name: string;
-  occupation: string;
+  role: string;
   profileImage: {
     image: string;
     altText: string;
@@ -23,18 +23,11 @@ interface PortfolioHeroProps {
 
 const PortfolioHero = ({
   name,
-  occupation,
+  role,
   profileImage,
   resumeButtonText,
   aboutMeSection,
 }: PortfolioHeroProps) => {
-  const downloadResume = () => {
-    const link = document.createElement("a");
-    link.href = "/CurrículoPoderis.pdf";
-    link.download = "CurrículoPoderis.pdf";
-    link.click();
-  };  
-  
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
       {/* Left Section */}
@@ -47,22 +40,24 @@ const PortfolioHero = ({
           height={48}
         />
         <h1 className="mt-4 text-2xl text-black-secondary font-bold">{name}</h1>
-        <p className="text-black-secondary dark:text-white-secondary">{occupation}</p>
+        <p className="text-black-secondary dark:text-white-secondary">{role}</p>
         <div className="mt-4 flex space-x-4">
-          {contactList && contactList.length > 0 && (
+          {contactData && contactData.length > 0 && (
             <>
-              {contactList.map((contactItem) => {
-                return (
-                  <IconButton
-                    key={contactItem.text}
-                    title={contactItem.text}
-                    size="lg"
-                    onClick={contactItem.onClick}
-                  >
-                    {contactItem.icon}
-                  </IconButton>
-                );
-              })}
+              {contactData
+                .filter((contact) => contact.key !== "website")
+                .map((contactItem) => {
+                  return (
+                    <IconButton
+                      key={contactItem.title}
+                      title={contactItem.title}
+                      size="lg"
+                      href={contactItem.href}
+                    >
+                      {contactItem.icon}
+                    </IconButton>
+                  );
+                })}
             </>
           )}
         </div>
@@ -74,10 +69,16 @@ const PortfolioHero = ({
           {aboutMeSection.title}
         </h2>
         <div className="text-black-secondary">
-          {formatText(aboutMeSection.description, 'ul')}
+          {formatParagraph(aboutMeSection.description)}
         </div>
         <div className="mt-6 flex space-x-4">
-          <Button onClick={downloadResume}>{resumeButtonText}</Button>
+          <Button
+            onClick={() => {
+              window.location.href = "/resume";
+            }}
+          >
+            {resumeButtonText}
+          </Button>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 "use client"
-import contactList from "@/data/contactList";
+import contactData from "@/app/dictionaries/contactData";
 import IconButton from "../Button/IconButton";
 
 interface FooterProps {
@@ -19,16 +19,16 @@ const Footer = ({ name }: FooterProps) => {
           </a>
         </span>
 
-        {contactList && contactList.length > 0 && (
+        {contactData && contactData.length > 0 && (
           <div className="flex space-x-4">
-            {contactList.map((contactItem) => {
+            {contactData.filter(contact => contact.key !== "website").map((contactItem) => {
               return (
                 <IconButton
-                  key={contactItem.text}
-                  title={contactItem.text}
+                  key={contactItem.title}
+                  title={contactItem.title}
                   size="lg"
                   variant="dark"
-                  onClick={contactItem.onClick}
+                  href={contactItem.href}
                 >
                   {contactItem.icon}
                 </IconButton>

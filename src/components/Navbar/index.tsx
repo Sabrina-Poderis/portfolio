@@ -9,10 +9,11 @@ interface MenuItem {
 
 interface NavbarProps {
   name: string;
+  hamburguerIconAltText: string;
   menuItems: MenuItem[];
 }
 
-const Navbar = ({ name, menuItems }: NavbarProps) => {
+const Navbar = ({ name, hamburguerIconAltText, menuItems }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState<string>(menuItems[0]?.link || "#");
 
@@ -32,8 +33,8 @@ const Navbar = ({ name, menuItems }: NavbarProps) => {
           type="button"
           className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-tertiary rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-tertiary"
           aria-expanded={isOpen}
-          aria-label={"Open main menu"}
-          title={"Open main menu"}
+          aria-label={hamburguerIconAltText}
+          title={hamburguerIconAltText}
         >
           <GiHamburgerMenu size={45}/>
         </button>
