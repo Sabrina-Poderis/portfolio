@@ -26,10 +26,10 @@ const ProjectCards = ({ title, buttonText, projects }: ProjectCardsProps) => {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
+            className="max-w-sm p-6 bg-tertiary border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
           >
             <a href={project.href} target="_blank" rel="noopener noreferrer">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-primary dark:text-white">
                 {project.name}
               </h5>
             </a>

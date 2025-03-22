@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.17
+- Ajustes no tema claro
+
 ## 2.1.16
 - Criação do compoente `RecommendationCards`
 
