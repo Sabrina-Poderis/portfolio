@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.12
+- Mudança do texto de `experiences`
+
 ## 2.1.11
 - Desmockando conteudo da `Timeline`
 - Correção de responsividade da página principal

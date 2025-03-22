@@ -53,7 +53,7 @@
       "role": "Junior Web Developer",
       "startDate": "2020-09-01",
       "endDate": "2022-08-01",
-      "description": "I worked on the development and maintenance of systems for a CRM integrated with a POS (Point of Sale) system, focused on solutions for the retail and management sectors.\n\nMain responsibilities:\n- Support and evolution of Laravel applications and legacy PHP systems 🛠️\n- Development of new features to optimize CRM operational workflows\n- Technical documentation for standardization and improvement of internal processes\n\nIn addition to technical activities, I worked in a small team of five people, where I had the opportunity to work with a legacy framework that I mastered, ensuring the stability and evolution of applications.\n\nI also led the production of internal documentation, contributing to the organization and knowledge sharing within the company.",
+      "description": "I worked on the development and maintenance of systems for a CRM integrated with a POS (Point of Sale) system, focused on solutions for the retail and management sectors.\n- Support and evolution of Laravel applications and legacy PHP systems \n- Development of new features to optimize CRM operational workflows\n- Technical documentation for standardization and improvement of internal processes\n.- In addition to technical activities, I worked in a small team of five people, where I had the opportunity to work with a legacy framework that I mastered, ensuring the stability and evolution of applications.",
       "stack": [
         "PHP",
         "Laravel",
@@ -74,7 +74,7 @@
       "role": "Programming Intern",
       "startDate": "2020-02-01",
       "endDate": "2020-05-01",
-      "description": "I worked on developing scripts for automating BPO processes and providing support for legacy PHP systems in a company specializing in fiscal services.\n\nMain responsibilities:\n- Automating BPO processes, optimizing operational workflows\n- Support and maintenance of legacy PHP systems\n- Technical documentation for standardization and knowledge sharing\n\nIt was during this experience that I began learning about software documentation. The company had no detailed records of systems, and the framework introduction was exclusively through videos. As a result, I started documenting everything I learned. My boss approved the initiative, and later the material became internal and was even shared among colleagues.",
+      "description": "I worked on developing scripts for automating BPO processes and providing support for legacy PHP systems in a company specializing in fiscal services.\nIt was during this experience that I began learning about software documentation. The company had no detailed records of systems, and the framework introduction was exclusively through videos. As a result, I started documenting everything I learned. My boss approved the initiative, and later the material became internal and was even shared among colleagues.",
       "stack": [
         "PHP",
         "Microsoft Office",
