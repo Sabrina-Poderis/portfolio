@@ -28,8 +28,8 @@ const Hero = ({
   resumeButtonText,
   aboutMeSection,
 }: HeroProps) => {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-  
+  // const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <div className="flex flex-col md:flex-row sm:mt-18 md:mt-14">
       {/* Left Section */}
@@ -75,7 +75,7 @@ const Hero = ({
         <div className="mt-6 flex justify-center">
           <Button
             onClick={() => {
-              window.location.href = `${window.location.origin}${basePath}/resume`;
+              window.location.href = `${window.location.origin}/portfolio/resume`;
             }}
           >
             {resumeButtonText}
