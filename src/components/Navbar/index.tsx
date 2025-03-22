@@ -36,7 +36,7 @@ const Navbar = ({ name, hamburguerIconAltText, menuItems }: NavbarProps) => {
           aria-label={hamburguerIconAltText}
           title={hamburguerIconAltText}
         >
-          <GiHamburgerMenu size={45}/>
+          <GiHamburgerMenu size={45} />
         </button>
 
         {/* Menu de navegação */}
@@ -49,7 +49,7 @@ const Navbar = ({ name, hamburguerIconAltText, menuItems }: NavbarProps) => {
                   onClick={() => setActiveLink(item.link)}
                   className={`block py-2 px-3 rounded-sm md:p-0 ${
                     activeLink === item.link ? "text-tertiary" : "text-white-secondary"
-                  } hover:text-tertiary`}
+                  } hover:text-tertiary text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl`}
                 >
                   {item.text}
                 </a>

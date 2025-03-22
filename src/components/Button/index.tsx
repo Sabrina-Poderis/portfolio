@@ -9,7 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 
 const ButtonComponent = tv({
-  base: "px-6 py-2 rounded-md transition-opacity duration-200 focus:outline-none cursor-pointer",
+  base: "px-6 py-2 rounded-md transition-opacity duration-200 focus:outline-none cursor-pointer md:text-lg lg:text-2xl",
   variants: {
     variant: {
       default: "bg-primary text-white",

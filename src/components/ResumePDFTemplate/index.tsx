@@ -8,7 +8,7 @@ interface ResumeProps {
   role: string;
   contacts: ContactType[];
   about: string;
-  experience: {
+  experiences: {
     companyName: string;
     website: string;
     role: string;
@@ -31,7 +31,7 @@ const ResumePDFTemplate: React.FC<ResumeProps> = ({
   role,
   contacts,
   about,
-  experience,
+  experiences,
   college,
 }) => {
   return (
@@ -68,7 +68,7 @@ const ResumePDFTemplate: React.FC<ResumeProps> = ({
         <h2 className="text-2xl w-fit font-bold text-black-tertiary pb-1 border-b-6 border-primary">
           Experiência Profissional
         </h2>
-        {experience.map((exp, index) => (
+        {experiences.map((exp, index) => (
           <div key={index}>
             <h3 className="font-bold text-gray-900">{exp.role}</h3>
             <p className="text-gray-600">

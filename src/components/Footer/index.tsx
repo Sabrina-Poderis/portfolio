@@ -12,7 +12,7 @@ const Footer = ({ name }: FooterProps) => {
   return (
     <footer className="bg-primary">
       <div className="flex flex-row items-center justify-between w-full mx-auto max-w-screen-xl p-4">
-        <span className="text-sm text-tertiary sm:text-center">
+        <span className="text-sm text-tertiary sm:text-center md:text-lg lg:text-2xl">
           © {year}{" "}
           <a href="#" className="hover:underline">
             {name}
@@ -26,7 +26,6 @@ const Footer = ({ name }: FooterProps) => {
                 <IconButton
                   key={contactItem.title}
                   title={contactItem.title}
-                  size="lg"
                   variant="dark"
                   href={contactItem.href}
                 >

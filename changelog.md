@@ -1,11 +1,10 @@
 # Changelog
 
-## 2.1.9
-- Criação da pagina `Resume`
-- Criadas as funcionalidades para criar e exportar um arquivo .pdf
-- Revisado o estilo para aumentar a legibilidade e interpretação dos dados e garantir que seja facilmente compreendido por um sistema de análise de currículos baseado em IA (ATS, Applicant Tracking Systems).
+## 2.1.11
+- Desmockando conteudo da `Timeline`
+- Correção de responsividade da página principal
 
-## 2.1.9
+## 2.1.10
 - Criação do componente `Footer`
 
 ## 2.1.8

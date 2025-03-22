@@ -24,7 +24,7 @@ const formatParagraph = (text: string): React.ReactNode => {
         listType = "ul";
       }
       currentList.push(
-        <li key={`item-${index}`} dangerouslySetInnerHTML={{ __html: formattedLine.slice(2).trim() }} />
+        <li className="mb-1" key={`item-${index}`} dangerouslySetInnerHTML={{ __html: formattedLine.slice(2).trim() }} />
       );
     } else if (/^\d+\. /.test(line)) {
       // Detecta lista ordenada (1. item)
@@ -40,7 +40,7 @@ const formatParagraph = (text: string): React.ReactNode => {
         listType = "ol";
       }
       currentList.push(
-        <li key={`item-${index}`} dangerouslySetInnerHTML={{ __html: formattedLine.replace(/^\d+\. /, "").trim() }} />
+        <li className="mb-1" key={`item-${index}`} dangerouslySetInnerHTML={{ __html: formattedLine.replace(/^\d+\. /, "").trim() }} />
       );
     } else {
       // Fecha a lista antes de um novo parágrafo
