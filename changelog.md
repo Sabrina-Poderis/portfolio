@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.13
+- Deixando a NabBar fixa
+
 ## 2.1.12
 - Mudança do texto de `experiences`
 

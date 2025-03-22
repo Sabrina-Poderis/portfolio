@@ -15,10 +15,12 @@ interface NavbarProps {
 
 const Navbar = ({ name, hamburguerIconAltText, menuItems }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState<string>(menuItems[0]?.link || "#");
+  const [activeLink, setActiveLink] = useState<string>(
+    menuItems[0]?.link || "#"
+  );
 
   return (
-    <nav className="bg-primary border-white-secondary">
+    <nav className="fixed top-0 left-0 w-full bg-primary border-white-secondary z-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Logo */}
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -40,7 +42,9 @@ const Navbar = ({ name, hamburguerIconAltText, menuItems }: NavbarProps) => {
         </button>
 
         {/* Menu de navegação */}
-        <div className={`${isOpen ? "block" : "hidden"} w-full md:block md:w-auto`}>
+        <div
+          className={`${isOpen ? "block" : "hidden"} w-full md:block md:w-auto`}
+        >
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border-2 border-tertiary border-dashed md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
             {menuItems.map((item) => (
               <li key={item.link}>
@@ -48,7 +52,9 @@ const Navbar = ({ name, hamburguerIconAltText, menuItems }: NavbarProps) => {
                   href={item.link}
                   onClick={() => setActiveLink(item.link)}
                   className={`block py-2 px-3 rounded-sm md:p-0 ${
-                    activeLink === item.link ? "text-tertiary" : "text-white-secondary"
+                    activeLink === item.link
+                      ? "text-tertiary"
+                      : "text-white-secondary"
                   } hover:text-tertiary text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl`}
                 >
                   {item.text}

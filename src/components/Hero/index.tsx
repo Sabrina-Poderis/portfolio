@@ -29,7 +29,7 @@ const Hero = ({
   aboutMeSection,
 }: HeroProps) => {
   return (
-    <div className="flex flex-col md:flex-row min-h-screen">
+    <div className="flex flex-col md:flex-row sm:mt-18 md:mt-14">
       {/* Left Section */}
       <div className="w-full md:w-1/2 flex flex-col items-center justify-center p-8 md:p-16 bg-white-secondary dark:bg-black-secondary border-r-0 md:border-r-4 border-primary border-dashed md:border-b-0 border-b-4">
         <Image
