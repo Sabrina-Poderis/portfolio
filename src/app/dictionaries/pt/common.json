@@ -1,7 +1,7 @@
 {
   "name": "Sabrina Poderis",
   "role": "Desenvolvedora Full Stack",
-  "aboutMe": "- Sou uma Desenvolvedora Full Stack com forte foco na organização de processos e documentação.\n- Experiência com React, React Native e Typescript.\n- Especial interesse em frontend, mas com sólida atuação em backend e mobile, ampliando constantemente conhecimentos na área.\n- Habilidades em comunicação, colaboração e aprendizado contínuo, sempre buscando otimizar produtividade e qualidade no desenvolvimento de software.",
+  "aboutMe": "- Sou uma Desenvolvedora Full Stack com sólida experiência no ecossistema JavaScript/TypeScript, atuando com React, React Native e Node.js.\n- Minha paixão está no desenvolvimento frontend, mas possuo forte atuação em backend e mobile, permitindo-me entregar soluções completas e escaláveis.\n- Tenho um perfil analítico e organizado, priorizando a otimização de processos, documentação eficiente e a criação de código limpo e sustentável.\n- Além do conhecimento técnico, me destaco pela comunicação clara e colaboração ativa com times multidisciplinares, facilitando a integração entre tecnologia e negócio.\n- Estou sempre buscando novos desafios e oportunidades para aprimorar minhas habilidades, explorando novas tecnologias e aprimorando boas práticas para entregar produtos de alta qualidade.",
   "techs": "Tecnologias",
   "frontend": "Frontend",
   "backend": "Backend",
@@ -35,7 +35,7 @@
       "role": "Desenvolvedora Full Stack",
       "startDate": "2022-04-01",
       "endDate": "2025-03-01",
-      "description": "- Atuei no desenvolvimento de soluções para plataformas web e mobile, utilizando React.js e React Native, com foco em escalabilidade, qualidade de código e otimização de processos.\n- Fui a principal responsável pelo controle e manutenção de um site de um produto premium voltado para exames genéticos personalizados, auxiliando na identificação de doenças e na recomendação de medicamentos mais eficazes para cada paciente. Além do desenvolvimento, fazia alinhamentos frequentes com PO e stakeholders para garantir a evolução do produto.\n- Participei ativamente no suporte e evolução do aplicativo Meu Einstein, incluindo a atualização de um projeto com bibliotecas desatualizadas para versões mais modernas, garantindo compatibilidade entre React e Flutter. Trabalhei também com código nativo e implementei feature flags para um rollout controlado de novas funcionalidades.\n- Migrei da área do paciente para a agenda médica, onde desenvolvi diversas features estratégicas para otimizar o uso da plataforma por secretárias e médicos. Esse processo incluiu a integração com outros serviços de agenda, garantindo um ecossistema conectado e eficiente.\n- Meu maior destaque nessa nova área foi a integração da cultura de documentação, trazendo refinamento técnico e de negócio para os work-items. O impacto foi positivo, resultando em feedbacks excelentes de colegas e superiores. Atualmente, busco aprimorar ainda mais essa iniciativa, expandindo para a documentação de changelogs e wikis dentro da equipe.",
+      "description": "- Desenvolvi soluções para plataformas web e mobile com React.js, React Native e TypeScript, garantindo escalabilidade, qualidade de código e otimização de processos.\n- Liderei a manutenção e evolução de um site para exames genéticos personalizados, colaborando diretamente com POs e stakeholders para alinhar objetivos técnicos e de negócio.\n- Atuei na modernização do app Meu Einstein, garantindo compatibilidade entre React e Flutter e implementando feature flags para um rollout seguro.\n- Desenvolvi features estratégicas para a agenda médica, otimizando o fluxo de trabalho para secretárias e médicos e integrando novos serviços ao ecossistema.\n- Implementei e expandi a cultura de documentação técnica dentro da equipe, estruturando changelogs e wikis para facilitar a manutenção e onboarding de novos membros.",
       "stack": {
         "frontend": [
           "React.js",
@@ -67,7 +67,7 @@
       "role": "Desenvolvedora Web Júnior",
       "startDate": "2020-09-01",
       "endDate": "2022-08-01",
-      "description": "- Atuei no desenvolvimento e manutenção de sistemas para um CRM integrado a um sistema de PDV (Ponto de Venda), focado em soluções para o setor de varejo e gestão.\n- Sustentação e evolução de aplicações Laravel e sistemas legados em PHP \n- Documentação técnica para padronização e melhoria dos processos internos\n- Além das atividades técnicas, atuei em uma equipe enxuta de cinco pessoas, onde tive a oportunidade de trabalhar com um framework legado que dominava, garantindo estabilidade e evolução das aplicações.",
+      "description": "- Desenvolvi e mantive sistemas para um CRM integrado a um sistema de PDV (Ponto de Venda), otimizando a gestão no setor de varejo.\n- Sustentei e evoluí aplicações em Laravel e PHP, garantindo estabilidade e performance.\n- Estruturei a documentação técnica dos sistemas, padronizando processos internos e melhorando a eficiência da equipe.\n- Atuei em uma equipe reduzida, sendo responsável por garantir a continuidade e modernização de sistemas legados.",
       "stack": {
         "frontend": ["Vue.js", "JavaScript", "HTML", "CSS", "Bootstrap"],
         "backend": ["PHP", "Laravel"],
@@ -82,7 +82,7 @@
       "role": "Estagiária de Programação",
       "startDate": "2020-02-01",
       "endDate": "2020-05-01",
-      "description": "- Atuei no desenvolvimento de scripts para automação de processos de BPO, além de prestar sustentação a sistemas legados em PHP em uma empresa especializada em serviços fiscais.\n- Sustentação e manutenção de sistemas legados em PHP.\n- Foi nessa experiência que iniciei meu aprendizado com documentação de software. A empresa não possuía registros detalhados sobre os sistemas, e a introdução ao framework utilizado era feita exclusivamente por vídeos. Meu chefe aprovou a iniciativa e, posteriormente, o material passou a ser adotado internamente.",
+      "description": "- Desenvolvi scripts para automação de processos de BPO, otimizando fluxos operacionais internos.\n- Prestei suporte e manutenção a sistemas PHP legados em uma empresa do setor fiscal.\n- Iniciei a formalização da documentação técnica dos sistemas, estruturando um material interno que foi adotado pela empresa.",
       "stack": {
         "frontend": ["JavaScript", "HTML", "CSS"],
         "backend": ["PHP", "Python"],
@@ -102,7 +102,7 @@
   "projects": [
     {
       "name": "Simulado Detran SP",
-      "description": "A aplicação Detran SP Practice Exam foi desenvolvida com o objetivo de simular a prova teórica do Detran. Ela permite que os usuários pratiquem questões oficiais e testem seus conhecimentos sobre legislação de trânsito, direção defensiva, primeiros socorros e mecânica básica.",
+      "description": "A aplicação foi desenvolvida com o objetivo de simular a prova teórica do Detran. Ela permite que os usuários pratiquem questões oficiais e testem seus conhecimentos sobre legislação de trânsito, direção defensiva, primeiros socorros e mecânica básica.",
       "href": "https://github.com/Sabrina-Poderis/detran-sp-practice-exam"
     }
   ],

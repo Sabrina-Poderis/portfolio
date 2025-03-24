@@ -1,7 +1,7 @@
 {
   "name": "Sabrina Poderis",
   "role": "Full Stack Developer",
-  "aboutMe": "- I am a Full Stack Developer with a strong focus on process organization and documentation.\n- Experience with React, React Native, and TypeScript.\n- Special interest in frontend, but with solid experience in backend and mobile, constantly expanding knowledge in the field.\n- Skills in communication, collaboration, and continuous learning, always seeking to optimize productivity and quality in software development.",
+  "aboutMe": "- I am a Full Stack Developer with solid experience in the JavaScript/TypeScript ecosystem, working with React, React Native, and Node.js.\n- My passion lies in frontend development, but I have strong expertise in backend and mobile, allowing me to deliver complete and scalable solutions.\n- I have an analytical and organized mindset, prioritizing process optimization, efficient documentation, and writing clean and sustainable code.\n- Besides my technical skills, I stand out for my clear communication and active collaboration with multidisciplinary teams, facilitating integration between technology and business.\n- I am always looking for new challenges and opportunities to enhance my skills, exploring new technologies and refining best practices to deliver high-quality products.",
   "techs": "Technologies",
   "frontend": "Frontend",
   "backend": "Backend",
@@ -35,7 +35,7 @@
       "role": "Full Stack Developer",
       "startDate": "2022-04-01",
       "endDate": "2025-03-01",
-      "description": "- I worked on developing solutions for web and mobile platforms using React.js and React Native, focusing on scalability, code quality, and process optimization.\n- I was the main person responsible for controlling and maintaining a website for a premium product aimed at personalized genetic testing, helping identify diseases and recommending the most effective medications for each patient. Besides development, I held frequent alignments with the PO and stakeholders to ensure product evolution.\n- I actively contributed to supporting and evolving the Meu Einstein app, including updating a project with outdated libraries to more modern versions, ensuring compatibility between React and Flutter. I also worked with native code and implemented feature flags for controlled rollouts of new features.\n- I migrated from the patient area to the medical schedule, where I developed several strategic features to optimize the platform usage by secretaries and doctors. This process included integration with other scheduling services, ensuring a connected and efficient ecosystem.\n- My major achievement in this new area was integrating the documentation culture, bringing both technical and business refinement to work items. The impact was positive, resulting in excellent feedback from colleagues and superiors. I am now focused on further enhancing this initiative, expanding it to changelogs and wikis within the team.",
+      "description": "- Developed web and mobile solutions using React.js, React Native, and TypeScript, ensuring scalability, code quality, and process optimization.\n- Led the maintenance and enhancement of a website for personalized genetic testing, collaborating directly with POs and stakeholders to align technical and business objectives.\n- Worked on modernizing the Meu Einstein app, ensuring compatibility between React and Flutter and implementing feature flags for a safe rollout.\n- Developed strategic features for the medical scheduling system, optimizing workflow for secretaries and doctors, integrating new services into the ecosystem.\n- Implemented and expanded the technical documentation culture within the team, structuring changelogs and wikis to facilitate maintenance and onboarding of new members.",
       "stack": {
         "frontend": [
           "React.js",
@@ -67,7 +67,7 @@
       "role": "Junior Web Developer",
       "startDate": "2020-09-01",
       "endDate": "2022-08-01",
-      "description": "- I worked on the development and maintenance of systems for a CRM integrated with a POS (Point of Sale) system, focused on solutions for the retail and management sectors.\n- Support and evolution of Laravel applications and legacy PHP systems.\n- Development of new features to optimize CRM operational workflows.\n- Technical documentation for standardization and improvement of internal processes.\n- In addition to technical activities, I worked in a small team of five people, where I had the opportunity to work with a legacy framework that I mastered, ensuring the stability and evolution of applications.",
+      "description": "- Developed and maintained systems for a CRM integrated with a POS (Point of Sale) system, optimizing retail management.\n- Sustained and evolved applications in Laravel and PHP, ensuring stability and performance.\n- Structured the technical documentation of systems, standardizing internal processes and improving team efficiency.\n- Worked in a small team, being responsible for ensuring the continuity and modernization of legacy systems.",
       "stack": {
         "frontend": ["Vue.js", "JavaScript", "HTML", "CSS", "Bootstrap"],
         "backend": ["PHP", "Laravel"],
@@ -82,7 +82,7 @@
       "role": "Programming Intern",
       "startDate": "2020-02-01",
       "endDate": "2020-05-01",
-      "description": "- I worked on developing scripts for automating BPO processes and providing support for legacy PHP systems in a company specializing in fiscal services.\n- It was during this experience that I began learning about software documentation. The company had no detailed records of systems, and the framework introduction was exclusively through videos. As a result, I started documenting everything I learned. My boss approved the initiative, and later the material became internal and was even shared among colleagues.",
+      "description": "- Developed scripts for automation of processes in BPO, optimizing operational flows internally.\n- Provided support and maintenance to legacy PHP systems in a company from the tax sector.\n- Initiated the formalization of the technical documentation for the systems, structuring an internal material that was adopted by the company.",
       "stack": {
         "frontend": ["JavaScript", "HTML", "CSS"],
         "backend": ["PHP", "Python"],
@@ -102,7 +102,7 @@
   "projects": [
     {
       "name": "Detran SP Practice Exam",
-      "description": "The Detran SP Practice Exam application was developed with the purpose of simulating the Detran theoretical exam. It allows users to practice official questions and test their knowledge on traffic laws, defensive driving, first aid, and basic mechanics.",
+      "description": "The application was developed with the purpose of simulating the Detran theoretical exam. It allows users to practice official questions and test their knowledge on traffic laws, defensive driving, first aid, and basic mechanics.",
       "href": "https://github.com/Sabrina-Poderis/detran-sp-practice-exam"
     }
   ],
