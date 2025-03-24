@@ -3,6 +3,9 @@
   "role": "Full Stack Developer",
   "aboutMe": "- I am a Full Stack Developer with a strong focus on process organization and documentation.\n- Experience with React, React Native, and TypeScript.\n- Special interest in frontend, but with solid experience in backend and mobile, constantly expanding knowledge in the field.\n- Skills in communication, collaboration, and continuous learning, always seeking to optimize productivity and quality in software development.",
   "techs": "Technologies",
+  "databases": "Databases",
+  "infrastructure": "Infrastructure",
+  "others": "Others",
   "phone": "Phone",
   "resume": "Resume",
   "seeOnGitHub": "See on Github",
@@ -19,7 +22,8 @@
     "experience": "Professional Experience",
     "projects": "Projects",
     "recommendations": "Recommendations",
-    "contact": "Contact"
+    "contact": "Contact",
+    "education": "Education"
   },
   "experiences": [
     {

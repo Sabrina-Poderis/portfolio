@@ -27,6 +27,10 @@ const ResumeSection = ({ dict }: ResumeSectionProps) => {
           about={dict.aboutMe}
           experiences={dict.experiences}
           college={dict.college}
+          contactTitle={dict.sections.contact}
+          aboutTitle={dict.sections.about}
+          experienceTitle={dict.sections.experience}
+          educationTitle={dict.sections.education}
         />
       </div>
 

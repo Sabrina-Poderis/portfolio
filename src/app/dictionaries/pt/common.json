@@ -3,6 +3,9 @@
   "role": "Desenvolvedora Full Stack",
   "aboutMe": "- Sou uma Desenvolvedora Full Stack com forte foco na organização de processos e documentação.\n- Experiência com React, React Native e Typescript.\n- Especial interesse em frontend, mas com sólida atuação em backend e mobile, ampliando constantemente conhecimentos na área.\n- Habilidades em comunicação, colaboração e aprendizado contínuo, sempre buscando otimizar produtividade e qualidade no desenvolvimento de software.",
   "techs": "Tecnologias",
+  "databases": "Banco de Dados",
+  "infrastructure": "Infraestrutura",
+  "others": "Outros",
   "phone": "Telefone",
   "resume": "Currículo",
   "seeOnGitHub": "Ver no Github",
@@ -19,7 +22,8 @@
     "experience": "Experiência Profissional",
     "projects": "Projetos",
     "recommendations": "Recomendações",
-    "contact": "Contato"
+    "contact": "Contato",
+    "education": "Formação Acadêmica"
   },
   "experiences": [
     {

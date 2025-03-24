@@ -6,8 +6,11 @@ import ContactType from "@/ts/types/ContactType";
 interface ResumeProps {
   name: string;
   role: string;
+  contactTitle: string;
   contacts: ContactType[];
+  aboutTitle: string;
   about: string;
+  experienceTitle: string;
   experiences: {
     companyName: string;
     website: string;
@@ -17,8 +20,10 @@ interface ResumeProps {
     description: string;
     stack: string[];
   }[];
+  educationTitle: string;
   college: {
     name: string;
+    website: string;
     degree: string;
     courseName: string;
     startDate: string;
@@ -29,9 +34,13 @@ interface ResumeProps {
 const ResumePDFTemplate: React.FC<ResumeProps> = ({
   name,
   role,
+  contactTitle,
   contacts,
+  aboutTitle,
   about,
+  experienceTitle,
   experiences,
+  educationTitle,
   college,
 }) => {
   return (
@@ -44,13 +53,13 @@ const ResumePDFTemplate: React.FC<ResumeProps> = ({
 
       {/* Contato */}
       <section id={"Contato"} className="space-y-2">
-        <h2 className="text-2xl text-black-tertiary font-bold mb-2">Contato</h2>
+        <h2 className="text-2xl text-black-tertiary font-bold mb-2">
+          {contactTitle}
+        </h2>
         <div className="flex flex-col">
           {contacts.map((contact) => (
-            <p key={`contact${contact.title}`}>
-              <a className="text-primary underline" href={contact.href}>
-                {contact.value}
-              </a>
+            <p key={`contact${contact.title}`} className="text-gray-600">
+              <span className="text-primary font-bold">{contact.title}:</span> {contact.value}
             </p>
           ))}
         </div>
@@ -59,32 +68,33 @@ const ResumePDFTemplate: React.FC<ResumeProps> = ({
       {/* Main Content - Sobre e Experiência */}
       <section id={"SobreMim"} className="space-y-6">
         <h2 className="text-2xl w-fit font-bold text-black-tertiary pb-1 border-b-6 border-primary">
-          Sobre mim
+          {aboutTitle}
         </h2>
         <div className="text-gray-700 mx-5">{formatParagraph(about)}</div>
       </section>
 
       <section id={"ExperienciaProfissional"} className="space-y-6">
         <h2 className="text-2xl w-fit font-bold text-black-tertiary pb-1 border-b-6 border-primary">
-          Experiência Profissional
+          {experienceTitle}
         </h2>
-        {experiences.map((exp, index) => (
+        {experiences.map((experience, index) => (
           <div key={index}>
-            <h3 className="font-bold text-gray-900">{exp.role}</h3>
-            <p className="text-gray-600">
-              <span className="font-semibold">{exp.companyName}</span> -{" "}
-              <a className="text-primary underline" href={exp.website}>
-                {exp.website}
-              </a>
+            <h3 className="font-bold text-gray-900">{experience.role}</h3>
+            <p className="text-gray-600 font-semibold">
+              {experience.companyName}
+              <span className="font-normal">
+                {" - "}
+                {experience.website}
+              </span>
             </p>
             <p className="text-gray-600 italic">
-              {formatDateRangeText(exp.startDate, exp.endDate)}
+              {formatDateRangeText(experience.startDate, experience.endDate)}
             </p>
             <div className="text-gray-700 mx-5">
-              {formatParagraph(exp.description)}
+              {formatParagraph(experience.description)}
             </div>
             <p className="text-gray-700">
-              <strong>Stack:</strong> {exp.stack.join(", ")}
+              <strong>Stack:</strong> {experience.stack.join(", ")}
             </p>
           </div>
         ))}
@@ -92,12 +102,16 @@ const ResumePDFTemplate: React.FC<ResumeProps> = ({
 
       <section id={"FormaçaoAcademica"} className="space-y-6">
         <h2 className="text-2xl w-fit font-bold text-black-tertiary pb-1 border-b-6 border-primary">
-          Formação Acadêmica
+          {educationTitle}
         </h2>
         <div className="space-y-1">
           <h3 className="font-bold text-gray-900">{college.courseName}</h3>
-          <p className="text-gray-600">
-            <span className="font-semibold">{college.name}</span>
+          <p className="text-gray-600 font-semibold">
+            {college.name}
+            <span className="font-normal">
+              {" - "}
+              {college.website}
+            </span>
           </p>
           <p className="text-gray-600 italic">
             {formatDateRangeText(college.startDate, college.endDate)}

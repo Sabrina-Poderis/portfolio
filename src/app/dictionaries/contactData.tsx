@@ -8,7 +8,7 @@ const contactData: ContactType[] = [
   {
     key: "github",
     title: "Github",
-    value: "Github",
+    value: "https://github.com/Sabrina-Poderis",
     href: "https://github.com/Sabrina-Poderis",
     icon: <FaGithub />,
   }, {
@@ -28,14 +28,14 @@ const contactData: ContactType[] = [
   {
     key: "linkedIn",
     title: "LinkedIn",
-    value: "LinkedIn",
+    value: "https://www.linkedin.com/in/sabrina-poderis",
     href: "https://www.linkedin.com/in/sabrina-poderis",
     icon: <FaLinkedin />,
   },
   {
     key: "website",
-    title: "Portfolio",
-    value: "Portfolio",
+    title: "Site",
+    value: "https://sabrina-poderis.github.io/portfolio",
     href: "https://sabrina-poderis.github.io/portfolio",
     icon: <FaGlobe />,
   },

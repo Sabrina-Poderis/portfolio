@@ -20,6 +20,7 @@ type Dictionary = {
     projects: string;
     recommendations: string;
     contact: string;
+    education: string;
   };
   experiences: {
     companyName: string;
