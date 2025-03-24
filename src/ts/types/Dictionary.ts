@@ -3,6 +3,12 @@ type Dictionary = {
   role: string;
   aboutMe: string;
   techs: string;
+  frontend: string;
+  backend: string;
+  databases: string;
+  infrastructure: string;
+  methodologies: string;
+  tools: string;
   phone: string;
   resume: string;
   seeOnGitHub: string;
@@ -29,7 +35,14 @@ type Dictionary = {
     startDate: string;
     endDate: string;
     description: string;
-    stack: string[];
+    stack: {
+      frontend?: string[];
+      backend?: string[];
+      databases?: string[];
+      infrastructure?: string[];
+      methodologies?: string[];
+      tools?: string[];
+    };
   }[];
   college: {
     name: string;

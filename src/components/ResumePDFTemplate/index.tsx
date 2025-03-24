@@ -11,6 +11,12 @@ interface ResumeProps {
   aboutTitle: string;
   about: string;
   experienceTitle: string;
+  frontend: string;
+  backend: string;
+  databases: string;
+  infrastructure: string;
+  methodologies: string;
+  tools: string;
   experiences: {
     companyName: string;
     website: string;
@@ -18,7 +24,14 @@ interface ResumeProps {
     startDate: string;
     endDate?: string;
     description: string;
-    stack: string[];
+    stack: {
+      frontend?: string[];
+      backend?: string[];
+      databases?: string[];
+      infrastructure?: string[];
+      methodologies?: string[];
+      tools?: string[];
+    };
   }[];
   educationTitle: string;
   college: {
@@ -38,6 +51,12 @@ const ResumePDFTemplate: React.FC<ResumeProps> = ({
   contacts,
   aboutTitle,
   about,
+  frontend,
+  backend,
+  databases,
+  infrastructure,
+  methodologies,
+  tools,
   experienceTitle,
   experiences,
   educationTitle,
@@ -59,7 +78,8 @@ const ResumePDFTemplate: React.FC<ResumeProps> = ({
         <div className="flex flex-col">
           {contacts.map((contact) => (
             <p key={`contact${contact.title}`} className="text-gray-600">
-              <span className="text-primary font-bold">{contact.title}:</span> {contact.value}
+              <span className="text-primary font-bold">{contact.title}:</span>{" "}
+              {contact.value}
             </p>
           ))}
         </div>
@@ -93,9 +113,42 @@ const ResumePDFTemplate: React.FC<ResumeProps> = ({
             <div className="text-gray-700 mx-5">
               {formatParagraph(experience.description)}
             </div>
-            <p className="text-gray-700">
-              <strong>Stack:</strong> {experience.stack.join(", ")}
-            </p>
+            {experience.stack?.frontend && experience.stack?.frontend?.length > 0 && (
+              <p className="text-gray-700">
+                <strong className="text-primary">{frontend}:</strong>{" "}
+                {experience.stack.frontend.join(", ")}
+              </p>
+            )}
+            {experience.stack?.backend && experience.stack?.backend?.length > 0 && (
+              <p className="text-gray-700">
+                <strong className="text-primary">{backend}:</strong>{" "}
+                {experience.stack.backend.join(", ")}
+              </p>
+            )}
+            {experience.stack?.databases && experience.stack?.databases?.length > 0 && (
+              <p className="text-gray-700">
+                <strong className="text-primary">{databases}:</strong>{" "}
+                {experience.stack.databases.join(", ")}
+              </p>
+            )}
+            {experience.stack?.infrastructure && experience.stack?.infrastructure?.length > 0 && (
+              <p className="text-gray-700">
+                <strong className="text-primary">{infrastructure}:</strong>{" "}
+                {experience.stack.infrastructure.join(", ")}
+              </p>
+            )}
+            {experience.stack?.methodologies && experience.stack?.methodologies?.length > 0 && (
+              <p className="text-gray-700">
+                <strong className="text-primary">{methodologies}:</strong>{" "}
+                {experience.stack.methodologies.join(", ")}
+              </p>
+            )}
+            {experience.stack?.tools && experience.stack?.tools?.length > 0 && (
+              <p className="text-gray-700">
+                <strong className="text-primary">{tools}:</strong>{" "}
+                {experience.stack.tools.join(", ")}
+              </p>
+            )}
           </div>
         ))}
       </section>

@@ -3,9 +3,12 @@
   "role": "Desenvolvedora Full Stack",
   "aboutMe": "- Sou uma Desenvolvedora Full Stack com forte foco na organização de processos e documentação.\n- Experiência com React, React Native e Typescript.\n- Especial interesse em frontend, mas com sólida atuação em backend e mobile, ampliando constantemente conhecimentos na área.\n- Habilidades em comunicação, colaboração e aprendizado contínuo, sempre buscando otimizar produtividade e qualidade no desenvolvimento de software.",
   "techs": "Tecnologias",
+  "frontend": "Frontend",
+  "backend": "Backend",
   "databases": "Banco de Dados",
   "infrastructure": "Infraestrutura",
-  "others": "Outros",
+  "methodologies": "Metodologias",
+  "tools": "Ferramentas",
   "phone": "Telefone",
   "resume": "Currículo",
   "seeOnGitHub": "Ver no Github",
@@ -33,28 +36,30 @@
       "startDate": "2022-04-01",
       "endDate": "2025-03-01",
       "description": "- Atuei no desenvolvimento de soluções para plataformas web e mobile, utilizando React.js e React Native, com foco em escalabilidade, qualidade de código e otimização de processos.\n- Fui a principal responsável pelo controle e manutenção de um site de um produto premium voltado para exames genéticos personalizados, auxiliando na identificação de doenças e na recomendação de medicamentos mais eficazes para cada paciente. Além do desenvolvimento, fazia alinhamentos frequentes com PO e stakeholders para garantir a evolução do produto.\n- Participei ativamente no suporte e evolução do aplicativo Meu Einstein, incluindo a atualização de um projeto com bibliotecas desatualizadas para versões mais modernas, garantindo compatibilidade entre React e Flutter. Trabalhei também com código nativo e implementei feature flags para um rollout controlado de novas funcionalidades.\n- Migrei da área do paciente para a agenda médica, onde desenvolvi diversas features estratégicas para otimizar o uso da plataforma por secretárias e médicos. Esse processo incluiu a integração com outros serviços de agenda, garantindo um ecossistema conectado e eficiente.\n- Meu maior destaque nessa nova área foi a integração da cultura de documentação, trazendo refinamento técnico e de negócio para os work-items. O impacto foi positivo, resultando em feedbacks excelentes de colegas e superiores. Atualmente, busco aprimorar ainda mais essa iniciativa, expandindo para a documentação de changelogs e wikis dentro da equipe.",
-      "stack": [
-        "React.js",
-        "React Native",
-        "TypeScript",
-        "Redux.js",
-        "Node.js",
-        "HTML",
-        "CSS",
-        "Git",
-        "Metodologias Agile",
-        "Scrum",
-        "Azure DevOps",
-        "AWS",
-        "Datadog",
-        "Docker",
-        "Dynatrace",
-        "Firebase",
-        "Microsoft Office",
-        "MongoDB",
-        "REST",
-        "SQL"
-      ]
+      "stack": {
+        "frontend": [
+          "React.js",
+          "React Native",
+          "TypeScript",
+          "Redux.js",
+          "Storybook",
+          "Styled Components",
+          "HTML",
+          "CSS"
+        ],
+        "backend": ["Node.js", "REST"],
+        "databases": ["MongoDB", "SQL", "MySQL"],
+        "infrastructure": [
+          "Azure DevOps",
+          "AWS",
+          "Docker",
+          "Dynatrace",
+          "Datadog",
+          "Git"
+        ],
+        "methodologies": ["Agile", "Scrum"],
+        "tools": ["Firebase", "Microsoft Office", "Figma", "Adobe XD"]
+      }
     },
     {
       "companyName": "TMontec",
@@ -63,19 +68,13 @@
       "startDate": "2020-09-01",
       "endDate": "2022-08-01",
       "description": "- Atuei no desenvolvimento e manutenção de sistemas para um CRM integrado a um sistema de PDV (Ponto de Venda), focado em soluções para o setor de varejo e gestão.\n- Sustentação e evolução de aplicações Laravel e sistemas legados em PHP \n- Documentação técnica para padronização e melhoria dos processos internos\n- Além das atividades técnicas, atuei em uma equipe enxuta de cinco pessoas, onde tive a oportunidade de trabalhar com um framework legado que dominava, garantindo estabilidade e evolução das aplicações.",
-      "stack": [
-        "PHP",
-        "Laravel",
-        "JavaScript",
-        "Node.js",
-        "Bootstrap",
-        "HTML",
-        "CSS",
-        "GitLab",
-        "Vue.js",
-        "MySQL",
-        "Microsoft Office"
-      ]
+      "stack": {
+        "frontend": ["Vue.js", "JavaScript", "HTML", "CSS", "Bootstrap"],
+        "backend": ["PHP", "Laravel"],
+        "databases": ["SQL", "MySQL", "Microsoft SQL Server"],
+        "infrastructure": ["Git", "GitLab"],
+        "tools": ["Microsoft Office"]
+      }
     },
     {
       "companyName": "Turim",
@@ -84,14 +83,12 @@
       "startDate": "2020-02-01",
       "endDate": "2020-05-01",
       "description": "- Atuei no desenvolvimento de scripts para automação de processos de BPO, além de prestar sustentação a sistemas legados em PHP em uma empresa especializada em serviços fiscais.\n- Sustentação e manutenção de sistemas legados em PHP.\n- Foi nessa experiência que iniciei meu aprendizado com documentação de software. A empresa não possuía registros detalhados sobre os sistemas, e a introdução ao framework utilizado era feita exclusivamente por vídeos. Meu chefe aprovou a iniciativa e, posteriormente, o material passou a ser adotado internamente.",
-      "stack": [
-        "PHP",
-        "Microsoft Office",
-        "Microsoft SQL Server",
-        "JavaScript",
-        "MySQL",
-        "Python"
-      ]
+      "stack": {
+        "frontend": ["JavaScript", "HTML", "CSS"],
+        "backend": ["PHP", "Python"],
+        "databases": ["SQL", "MySQL", "Microsoft SQL Server"],
+        "tools": ["Microsoft Office"]
+      }
     }
   ],
   "college": {

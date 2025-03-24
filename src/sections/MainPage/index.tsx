@@ -43,6 +43,12 @@ const MainPage = async ({ dict }: MainPageProps) => {
       <Timeline
         title={dict.sections.experience}
         techText={dict.techs}
+        frontend={dict.frontend}
+        backend={dict.backend}
+        databases={dict.databases}
+        infrastructure={dict.infrastructure}
+        methodologies={dict.methodologies}
+        tools={dict.tools}
         experiences={dict.experiences}
       />
 

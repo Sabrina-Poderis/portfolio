@@ -26,6 +26,12 @@ const ResumeSection = ({ dict }: ResumeSectionProps) => {
           contacts={contactData}
           about={dict.aboutMe}
           experiences={dict.experiences}
+          frontend={dict.frontend}
+          backend={dict.backend}
+          databases={dict.databases}
+          infrastructure={dict.infrastructure}
+          methodologies={dict.methodologies}
+          tools={dict.tools}
           college={dict.college}
           contactTitle={dict.sections.contact}
           aboutTitle={dict.sections.about}
