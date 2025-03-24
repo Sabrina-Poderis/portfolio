@@ -19,7 +19,7 @@ import { ptBR, enUS } from "date-fns/locale";
 const formatDateRangeText = (lang: LocaleEnum = LocaleEnum.PORTUGUESE, startDate: string, endDate?: string) => {
   const newStartDate = new Date(startDate);
   const newEndDate = endDate ? new Date(endDate) : new Date();
-  
+
   const translations = {
     [LocaleEnum.PORTUGUESE]: {
       locale: { locale: ptBR },
@@ -48,8 +48,14 @@ const formatDateRangeText = (lang: LocaleEnum = LocaleEnum.PORTUGUESE, startDate
     ? format(newEndDate, `MMMM ${translations[lang].from} yyyy`, translations[lang].locale)
     : translations[lang].now;
 
-  // Adicionando +1 para contar corretamente os meses completos
-  const months = differenceInMonths(newEndDate, newStartDate) + 1;
+  // Ajustando a contagem de meses e garantindo que a diferença de meses seja correta
+  let months = differenceInMonths(newEndDate, newStartDate);
+  if (newEndDate.getDate() < newStartDate.getDate()) {
+    months--; // Subtrai um mês se a data final for antes do dia de início
+  }
+
+  // Adicionando +1 para meses completos, se necessário
+  months += 1;
 
   let duration: string;
   if (months >= 12) {
@@ -61,5 +67,6 @@ const formatDateRangeText = (lang: LocaleEnum = LocaleEnum.PORTUGUESE, startDate
 
   return `${formattedStart} ${translations[lang].to} ${formattedEnd} (${duration})`;
 };
+
 
 export default formatDateRangeText;
