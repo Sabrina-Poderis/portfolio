@@ -33,8 +33,8 @@
       "companyName": "ACT Digital",
       "website": "https://www.actdigital.com",
       "role": "Full Stack Developer",
-      "startDate": "2022-04-01",
-      "endDate": "2025-03-01",
+      "startDate": "2022-04-01T12:00:00",
+      "endDate": "2025-03-01T12:00:00",
       "description": "- Developed web and mobile solutions using React.js, React Native, and TypeScript, ensuring scalability, code quality, and process optimization.\n- Led the maintenance and enhancement of a website for personalized genetic testing, collaborating directly with POs and stakeholders to align technical and business objectives.\n- Worked on modernizing the Meu Einstein app, ensuring compatibility between React and Flutter and implementing feature flags for a safe rollout.\n- Developed strategic features for the medical scheduling system, optimizing workflow for secretaries and doctors, integrating new services into the ecosystem.\n- Implemented and expanded the technical documentation culture within the team, structuring changelogs and wikis to facilitate maintenance and onboarding of new members.",
       "stack": {
         "frontend": [
@@ -65,8 +65,8 @@
       "companyName": "TMontec",
       "website": "https://www.tmontec.com.br",
       "role": "Junior Web Developer",
-      "startDate": "2020-09-01",
-      "endDate": "2022-08-01",
+      "startDate": "2020-09-01T12:00:00",
+      "endDate": "2022-08-01T12:00:00",
       "description": "- Developed and maintained systems for a CRM integrated with a POS (Point of Sale) system, optimizing retail management.\n- Sustained and evolved applications in Laravel and PHP, ensuring stability and performance.\n- Structured the technical documentation of systems, standardizing internal processes and improving team efficiency.\n- Worked in a small team, being responsible for ensuring the continuity and modernization of legacy systems.",
       "stack": {
         "frontend": ["Vue.js", "JavaScript", "HTML", "CSS", "Bootstrap"],
@@ -80,8 +80,8 @@
       "companyName": "Turim",
       "website": "https://site.turimsoft.com.br",
       "role": "Programming Intern",
-      "startDate": "2020-02-01",
-      "endDate": "2020-05-01",
+      "startDate": "2020-02-01T12:00:00",
+      "endDate": "2020-05-01T12:00:00",
       "description": "- Developed scripts for automation of processes in BPO, optimizing operational flows internally.\n- Provided support and maintenance to legacy PHP systems in a company from the tax sector.\n- Initiated the formalization of the technical documentation for the systems, structuring an internal material that was adopted by the company.",
       "stack": {
         "frontend": ["JavaScript", "HTML", "CSS"],
@@ -96,8 +96,8 @@
     "website": "https://fatecsaocaetano.cps.sp.gov.br",
     "degree": "Technologist",
     "courseName": "Analysis and Systems Development",
-    "startDate": "2017-01-01",
-    "endDate": "2020-12-31"
+    "startDate": "2017-01-01T12:00:00",
+    "endDate": "2020-12-31T12:00:00"
   },
   "projects": [
     {

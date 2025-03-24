@@ -33,8 +33,8 @@
       "companyName": "ACT Digital",
       "website": "https://www.actdigital.com",
       "role": "Desenvolvedora Full Stack",
-      "startDate": "2022-04-01",
-      "endDate": "2025-03-01",
+      "startDate": "2022-04-01T12:00:00",
+      "endDate": "2025-03-01T12:00:00",
       "description": "- Desenvolvi soluções para plataformas web e mobile com React.js, React Native e TypeScript, garantindo escalabilidade, qualidade de código e otimização de processos.\n- Liderei a manutenção e evolução de um site para exames genéticos personalizados, colaborando diretamente com POs e stakeholders para alinhar objetivos técnicos e de negócio.\n- Atuei na modernização do app Meu Einstein, garantindo compatibilidade entre React e Flutter e implementando feature flags para um rollout seguro.\n- Desenvolvi features estratégicas para a agenda médica, otimizando o fluxo de trabalho para secretárias e médicos e integrando novos serviços ao ecossistema.\n- Implementei e expandi a cultura de documentação técnica dentro da equipe, estruturando changelogs e wikis para facilitar a manutenção e onboarding de novos membros.",
       "stack": {
         "frontend": [
@@ -65,8 +65,8 @@
       "companyName": "TMontec",
       "website": "https://www.tmontec.com.br",
       "role": "Desenvolvedora Web Júnior",
-      "startDate": "2020-09-01",
-      "endDate": "2022-08-01",
+      "startDate": "2020-09-01T12:00:00",
+      "endDate": "2022-08-01T12:00:00",
       "description": "- Desenvolvi e mantive sistemas para um CRM integrado a um sistema de PDV (Ponto de Venda), otimizando a gestão no setor de varejo.\n- Sustentei e evoluí aplicações em Laravel e PHP, garantindo estabilidade e performance.\n- Estruturei a documentação técnica dos sistemas, padronizando processos internos e melhorando a eficiência da equipe.\n- Atuei em uma equipe reduzida, sendo responsável por garantir a continuidade e modernização de sistemas legados.",
       "stack": {
         "frontend": ["Vue.js", "JavaScript", "HTML", "CSS", "Bootstrap"],
@@ -80,8 +80,8 @@
       "companyName": "Turim",
       "website": "https://site.turimsoft.com.br",
       "role": "Estagiária de Programação",
-      "startDate": "2020-02-01",
-      "endDate": "2020-05-01",
+      "startDate": "2020-02-01T12:00:00",
+      "endDate": "2020-05-01T12:00:00",
       "description": "- Desenvolvi scripts para automação de processos de BPO, otimizando fluxos operacionais internos.\n- Prestei suporte e manutenção a sistemas PHP legados em uma empresa do setor fiscal.\n- Iniciei a formalização da documentação técnica dos sistemas, estruturando um material interno que foi adotado pela empresa.",
       "stack": {
         "frontend": ["JavaScript", "HTML", "CSS"],
@@ -96,8 +96,8 @@
     "website": "https://fatecsaocaetano.cps.sp.gov.br",
     "degree": "Tecnólogo",
     "courseName": "Análise e Desenvolvimento de Sistemas",
-    "startDate": "2017-01-01",
-    "endDate": "2020-12-31"
+    "startDate": "2017-01-01T12:00:00",
+    "endDate": "2020-12-01T12:00:00"
   },
   "projects": [
     {
