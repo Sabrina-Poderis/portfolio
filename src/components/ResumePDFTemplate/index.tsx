@@ -2,8 +2,10 @@ import React from "react";
 import formatDateRangeText from "@/utils/formatDateRangeText";
 import formatParagraph from "@/utils/formatParagraph";
 import ContactType from "@/ts/types/ContactType";
+import LocaleEnum from "@/ts/enums/LocalesEnum";
 
 interface ResumeProps {
+  lang: LocaleEnum,
   name: string;
   role: string;
   contactTitle: string;
@@ -45,6 +47,7 @@ interface ResumeProps {
 }
 
 const ResumePDFTemplate: React.FC<ResumeProps> = ({
+  lang,
   name,
   role,
   contactTitle,
@@ -78,8 +81,10 @@ const ResumePDFTemplate: React.FC<ResumeProps> = ({
         <div className="flex flex-col">
           {contacts.map((contact) => (
             <p key={`contact${contact.title}`} className="text-gray-600">
-              <span className="text-primary font-bold">{contact.title}:</span>{" "}
-              {contact.value}
+              <span className="font-bold">{contact.title}:</span>{" "}
+              <a href={contact.href} className="text-primary underline">
+                {contact.value}
+              </a>
             </p>
           ))}
         </div>
@@ -104,11 +109,13 @@ const ResumePDFTemplate: React.FC<ResumeProps> = ({
               {experience.companyName}
               <span className="font-normal">
                 {" - "}
+                <a href={experience.website} className="text-primary underline">
                 {experience.website}
+                </a>
               </span>
             </p>
             <p className="text-gray-600 italic">
-              {formatDateRangeText(experience.startDate, experience.endDate)}
+              {formatDateRangeText(lang, experience.startDate, experience.endDate)}
             </p>
             <div className="text-gray-700 mx-5">
               {formatParagraph(experience.description)}
@@ -153,7 +160,7 @@ const ResumePDFTemplate: React.FC<ResumeProps> = ({
         ))}
       </section>
 
-      <section id={"FormaçaoAcademica"} className="space-y-6">
+      <section id={"FormacaoAcademica"} className="space-y-6">
         <h2 className="text-2xl w-fit font-bold text-black-tertiary pb-1 border-b-6 border-primary">
           {educationTitle}
         </h2>
@@ -163,11 +170,13 @@ const ResumePDFTemplate: React.FC<ResumeProps> = ({
             {college.name}
             <span className="font-normal">
               {" - "}
-              {college.website}
+              <a href={college.website} className="text-primary underline">
+                {college.website}
+              </a>
             </span>
           </p>
           <p className="text-gray-600 italic">
-            {formatDateRangeText(college.startDate, college.endDate)}
+            {formatDateRangeText(lang, college.startDate, college.endDate)}
           </p>
         </div>
       </section>

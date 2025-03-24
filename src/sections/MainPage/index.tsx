@@ -6,12 +6,14 @@ import Dictionary from "@/ts/types/Dictionary";
 import ProjectCards from "@/components/ProjectCards";
 import ContactForm from "@/components/ContactForm";
 import RecommendationCards from "@/components/RecommendationCards";
+import LocaleEnum from "@/ts/enums/LocalesEnum";
 
 interface MainPageProps {
   dict: Dictionary;
+  lang: LocaleEnum
 }
 
-const MainPage = async ({ dict }: MainPageProps) => {
+const MainPage = async ({ dict, lang }: MainPageProps) => {
   return (
     <>
       <Navbar
@@ -41,6 +43,7 @@ const MainPage = async ({ dict }: MainPageProps) => {
       />
 
       <Timeline
+        lang={lang}
         title={dict.sections.experience}
         techText={dict.techs}
         frontend={dict.frontend}

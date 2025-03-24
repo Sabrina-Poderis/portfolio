@@ -2,15 +2,17 @@
 import contactData from "@/app/dictionaries/contactData";
 import Button from "@/components/Button";
 import ResumePDFTemplate from "@/components/ResumePDFTemplate";
+import LocaleEnum from "@/ts/enums/LocalesEnum";
 import Dictionary from "@/ts/types/Dictionary";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
 interface ResumeSectionProps {
   dict: Dictionary;
+  lang: LocaleEnum;
 }
 
-const ResumeSection = ({ dict }: ResumeSectionProps) => {
+const ResumeSection = ({ dict, lang }: ResumeSectionProps) => {
   const printRef = useRef<HTMLDivElement>(null);
   // const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const handlePrint = useReactToPrint({
@@ -21,6 +23,7 @@ const ResumeSection = ({ dict }: ResumeSectionProps) => {
     <div className="flex justify-center items-start p-8 bg-gray-500 gap-5">
       <div ref={printRef} className="bg-white p-6 w-[800px]">
         <ResumePDFTemplate
+          lang={lang}
           name={dict.name}
           role={dict.role}
           contacts={contactData}

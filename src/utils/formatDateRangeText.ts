@@ -1,5 +1,6 @@
+import LocaleEnum from "@/ts/enums/LocalesEnum";
 import { format, differenceInMonths } from "date-fns";
-import { ptBR } from "date-fns/locale";
+import { ptBR, enUS } from "date-fns/locale";
 
 /*
   formatDateRangeText("2022-03-01", "2023-02-01"); 
@@ -15,14 +16,37 @@ import { ptBR } from "date-fns/locale";
   // "janeiro de 2020 até abril de 2020 (4 meses)"
 */
 
-const formatDateRangeText = (startDate: string, endDate?: string) => {
+const formatDateRangeText = (lang: LocaleEnum = LocaleEnum.PORTUGUESE, startDate: string, endDate?: string) => {
   const newStartDate = new Date(startDate);
   const newEndDate = endDate ? new Date(endDate) : new Date();
+  
+  const translations = {
+    [LocaleEnum.PORTUGUESE]: {
+      locale: { locale: ptBR },
+      now: "o momento",
+      from: "'de'",
+      to: "até",
+      year: "ano",
+      years: "anos",
+      month: "mês",
+      months: "meses"
+    },
+    [LocaleEnum.ENGLISH]: {
+      locale: { locale: enUS },
+      now: "now",
+      from: "",
+      to: " - ",
+      year: "year",
+      years: "years",
+      month: "month",
+      months: "months"
+    }
+  };
 
-  const formattedStart = format(newStartDate, "MMMM 'de' yyyy", { locale: ptBR });
+  const formattedStart = format(newStartDate, `MMMM ${translations[lang].from} yyyy`, translations[lang].locale);
   const formattedEnd = endDate
-    ? format(newEndDate, "MMMM 'de' yyyy", { locale: ptBR })
-    : "o momento";
+    ? format(newEndDate, `MMMM ${translations[lang].from} yyyy`, translations[lang].locale)
+    : translations[lang].now;
 
   // Adicionando +1 para contar corretamente os meses completos
   const months = differenceInMonths(newEndDate, newStartDate) + 1;
@@ -30,12 +54,12 @@ const formatDateRangeText = (startDate: string, endDate?: string) => {
   let duration: string;
   if (months >= 12) {
     const years = Math.round(months / 12);
-    duration = `${years} ${years === 1 ? "ano" : "anos"}`;
+    duration = `${years} ${years === 1 ? translations[lang].year : translations[lang].years}`;
   } else {
-    duration = `${months} ${months === 1 ? "mês" : "meses"}`;
+    duration = `${months} ${months === 1 ? translations[lang].month : translations[lang].months}`;
   }
 
-  return `${formattedStart} até ${formattedEnd} (${duration})`;
+  return `${formattedStart} ${translations[lang].to} ${formattedEnd} (${duration})`;
 };
 
 export default formatDateRangeText;

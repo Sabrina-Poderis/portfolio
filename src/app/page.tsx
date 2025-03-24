@@ -7,7 +7,7 @@ const HomePage = async () => {
   const dict = await getDictionary(lang);
 
   return (
-    <MainPage dict={dict}/>
+    <MainPage dict={dict} lang={lang}/>
   );
 };
 

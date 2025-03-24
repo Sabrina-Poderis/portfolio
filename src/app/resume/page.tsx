@@ -9,7 +9,7 @@ const Resume = async () => {
   const dict: Dictionary = await getDictionary(lang);
 
   return (
-    <ResumeSection dict={dict}/>
+    <ResumeSection dict={dict} lang={lang}/>
   );
 };
 

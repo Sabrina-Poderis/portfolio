@@ -1,6 +1,8 @@
+import LocaleEnum from "@/ts/enums/LocalesEnum";
 import formatDateRangeText from "@/utils/formatDateRangeText";
 import formatParagraph from "@/utils/formatParagraph";
 interface TimelineProps {
+  lang: LocaleEnum,
   title: string;
   techText: string;
   frontend: string;
@@ -28,6 +30,7 @@ interface TimelineProps {
 }
 
 const Timeline = ({
+  lang,
   title,
   frontend,
   backend,
@@ -48,7 +51,7 @@ const Timeline = ({
           <li key={index} className="mb-10 ms-4">
             <div className="absolute w-3 h-3 bg-primary dark:bg-tertiary rounded-full mt-1.5 -start-1.5"></div>
             <time className="mb-1 text-sm font-normal leading-none text-primary dark:text-tertiary">
-              {formatDateRangeText(experience.startDate, experience.endDate)}
+              {formatDateRangeText(lang, experience.startDate, experience.endDate)}
             </time>
             <h3 className="text-lg font-semibold text-primary">
               {experience.role}
