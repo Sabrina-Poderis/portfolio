@@ -1,0 +1,156 @@
+{
+  "name": "Sabrina Poderis",
+  "role": "Desenvolvedora Full Stack",
+  "aboutMe": "- Sou uma Desenvolvedora Full Stack com sólida experiência no ecossistema JavaScript/TypeScript, atuando com React, React Native e Node.js.\n- Minha paixão está no desenvolvimento frontend, mas possuo forte atuação em backend e mobile, permitindo-me entregar soluções completas e escaláveis.\n- Tenho um perfil analítico e organizado, priorizando a otimização de processos, documentação eficiente e a criação de código limpo e sustentável.\n- Além do conhecimento técnico, me destaco pela comunicação clara e colaboração ativa com times multidisciplinares, facilitando a integração entre tecnologia e negócio.\n- Estou sempre buscando novos desafios e oportunidades para aprimorar minhas habilidades, explorando novas tecnologias e aprimorando boas práticas para entregar produtos de alta qualidade.",
+  "techs": "Tecnologias",
+  "frontend": "Frontend",
+  "backend": "Backend",
+  "databases": "Banco de Dados",
+  "infrastructure": "Infraestrutura",
+  "methodologies": "Metodologias",
+  "tools": "Ferramentas",
+  "phone": "Telefone",
+  "resume": "Currículo",
+  "seeOnGitHub": "Ver no Github",
+  "yourMessage": "Sua mensagem",
+  "sendWhatsappMessage": "Enviar mensagem por whatsapp",
+  "contactDescription": "Gostaria de entrar em contato? Me mande uma mensagem e eu irei retornar assim que possível!",
+  "alt": {
+    "hamburguerIcon": "Abrir menu principal",
+    "profileImage": "Foto de perfil de Sabrina Poderis. Sou uma mulher parda, eu estou usando um óculos preto e meu cabelo está pintado de loiro"
+  },
+  "sections": {
+    "home": "Home",
+    "about": "Sobre mim",
+    "experience": "Experiência Profissional",
+    "projects": "Projetos",
+    "recommendations": "Recomendações",
+    "contact": "Contato",
+    "education": "Formação Acadêmica"
+  },
+  "experiences": [
+    {
+      "companyName": "ACT Digital",
+      "website": "https://www.actdigital.com",
+      "role": "Desenvolvedora Full Stack",
+      "startDate": "2022-04-01T12:00:00",
+      "endDate": "2025-03-01T12:00:00",
+      "description": "- Desenvolvi soluções para plataformas web e mobile com React.js, React Native e TypeScript, garantindo escalabilidade, qualidade de código e otimização de processos.\n- Liderei a manutenção e evolução de um site para exames genéticos personalizados, colaborando diretamente com POs e stakeholders para alinhar objetivos técnicos e de negócio.\n- Atuei na modernização do app Meu Einstein, garantindo compatibilidade entre React e Flutter e implementando feature flags para um rollout seguro.\n- Desenvolvi features estratégicas para a agenda médica, otimizando o fluxo de trabalho para secretárias e médicos e integrando novos serviços ao ecossistema.\n- Implementei e expandi a cultura de documentação técnica dentro da equipe, estruturando changelogs e wikis para facilitar a manutenção e onboarding de novos membros.",
+      "stack": {
+        "frontend": [
+          "React.js",
+          "React Native",
+          "TypeScript",
+          "Redux.js",
+          "Storybook",
+          "Styled Components",
+          "HTML",
+          "CSS"
+        ],
+        "backend": ["Node.js", "REST"],
+        "databases": ["MongoDB", "SQL", "MySQL"],
+        "infrastructure": [
+          "Azure DevOps",
+          "AWS",
+          "Docker",
+          "Dynatrace",
+          "Datadog",
+          "Git"
+        ],
+        "methodologies": ["Agile", "Scrum"],
+        "tools": ["Firebase", "Microsoft Office", "Figma", "Adobe XD"]
+      }
+    },
+    {
+      "companyName": "TMontec",
+      "website": "https://www.tmontec.com.br",
+      "role": "Desenvolvedora Web Júnior",
+      "startDate": "2020-09-01T12:00:00",
+      "endDate": "2022-08-01T12:00:00",
+      "description": "- Desenvolvi e mantive sistemas para um CRM integrado a um sistema de PDV (Ponto de Venda), otimizando a gestão no setor de varejo.\n- Sustentei e evoluí aplicações em Laravel e PHP, garantindo estabilidade e performance.\n- Estruturei a documentação técnica dos sistemas, padronizando processos internos e melhorando a eficiência da equipe.\n- Atuei em uma equipe reduzida, sendo responsável por garantir a continuidade e modernização de sistemas legados.",
+      "stack": {
+        "frontend": ["Vue.js", "JavaScript", "HTML", "CSS", "Bootstrap"],
+        "backend": ["PHP", "Laravel"],
+        "databases": ["SQL", "MySQL", "Microsoft SQL Server"],
+        "infrastructure": ["Git", "GitLab"],
+        "tools": ["Microsoft Office"]
+      }
+    },
+    {
+      "companyName": "Turim",
+      "website": "https://site.turimsoft.com.br",
+      "role": "Estagiária de Programação",
+      "startDate": "2020-02-01T12:00:00",
+      "endDate": "2020-05-01T12:00:00",
+      "description": "- Desenvolvi scripts para automação de processos de BPO, otimizando fluxos operacionais internos.\n- Prestei suporte e manutenção a sistemas PHP legados em uma empresa do setor fiscal.\n- Iniciei a formalização da documentação técnica dos sistemas, estruturando um material interno que foi adotado pela empresa.",
+      "stack": {
+        "frontend": ["JavaScript", "HTML", "CSS"],
+        "backend": ["PHP", "Python"],
+        "databases": ["SQL", "MySQL", "Microsoft SQL Server"],
+        "tools": ["Microsoft Office"]
+      }
+    }
+  ],
+  "college": {
+    "name": "Fatec São Caetano do Sul - Antônio Russo",
+    "website": "https://fatecsaocaetano.cps.sp.gov.br",
+    "degree": "Tecnólogo",
+    "courseName": "Análise e Desenvolvimento de Sistemas",
+    "startDate": "2017-01-01T12:00:00",
+    "endDate": "2020-12-01T12:00:00"
+  },
+  "projects": [
+    {
+      "name": "Simulado Detran SP",
+      "description": "A aplicação foi desenvolvida com o objetivo de simular a prova teórica do Detran. Ela permite que os usuários pratiquem questões oficiais e testem seus conhecimentos sobre legislação de trânsito, direção defensiva, primeiros socorros e mecânica básica.",
+      "href": "https://github.com/Sabrina-Poderis/detran-sp-practice-exam"
+    }
+  ],
+  "recommendations": [
+    {
+      "name": "Caio Pereira Mascarenhas",
+      "role": "Engenheiro de Software",
+      "image": {
+        "src": "profile-caio-mascarenhas-image.jpg",
+        "alt": "Foto de perfil de Caio Mascarenhas"
+      },
+      "text": "Tive o prazer de trabalhar com a Sabrina e posso dizer que ela é uma profissional extremamente comprometida e exploradora. Sempre busca entender o propósito do que está desenvolvendo, contribuindo com ideias e melhorias em todas as etapas do projeto. Seu envolvimento vai além do código: ela se preocupa com o impacto do produto final e está sempre disposta a fazer acontecer. É uma profissional que agrega muito valor e faz a diferença no time!"
+    },
+    {
+      "name": "Yan Victor Chaves Pinheiro",
+      "role": "Desenvolvedor de Software",
+      "image": {
+        "src": "profile-yan-pinheiro-image.jpg",
+        "alt": "Foto de perfil de Yan Pinheiro"
+      },
+      "text": "A Sabrina é uma excelente profissional, no qual sempre encarava os desafios que lhe eram impostos com bastante competência, aprendi bastante com ela. Ela também é uma pessoa muito organizada e motivada que nunca fugia de um desafio e é muito gratificante trabalhar com ela."
+    },
+    {
+      "name": "Alessandro L. Menezes",
+      "role": "Desenvolvedor Full Stask",
+      "image": {
+        "src": "profile-alessandro-menezes-image.jpg",
+        "alt": "Foto de perfil de Alessandro Menezes"
+      },
+      "text": "Recomendo a Sabrina. Trabalhar com ela foi uma experiência transformadora: sua maneira descontraída de lidar com os desafios torna o ambiente mais leve, sem jamais perder a seriedade e a precisão quando necessário. Tive a oportunidade de aprender muito sobre organização de projetos ao lado da pessoa mais organizada com quem já trabalhei, e sua curiosidade em aprender e testar novas tecnologias continuamente eleva o nível dos nossos projetos. Sabrina é, sem dúvida, uma profissional inspiradora e um grande trunfo para qualquer equipe."
+    },
+    {
+      "name": "Tiffany Cordeiro",
+      "role": "Engenheira de Softwate",
+      "image": {
+        "src": "profile-tiffany-cordeiro-image.jpg",
+        "alt": "Foto de perfil de Tiffany Cordeiro"
+      },
+      "text": "Trabalhar com a Sabrina foi uma experiência incrível! Ela é extremamente organizada, sempre mantendo tudo em ordem e garantindo que o trabalho flua da melhor maneira possível. Além disso, sua disposição para ajudar faz toda a diferença no dia a dia – é o tipo de pessoa que está sempre pronta para colaborar e tornar o ambiente mais leve e produtivo. Sem dúvida, uma profissional que agrega muito valor a qualquer equipe!"
+    },
+    {
+      "name": "Amanda Mastrodomenico",
+      "role": "Product Owner",
+      "image": {
+        "src": "profile-amanda-mastrodomenico-image.jpg",
+        "alt": "Foto de perfil de Amanda Mastrodomenico"
+      },
+      "text": "Sabrina é uma desenvolvedora comprometida com entregas e prazos e muito determinada a superar os próprios desafios, assumindo demandas fora da sua zona de conforto. Se comunica com clareza e de forma objetiva, sabendo explicar problemas técnicos a nível de negócio sem dificuldades. O período que trabalhamos juntas esteve muito dedicada em documentar processos e fluxos garantindo que todos do time teriam visibilidade do que e como foi feito!"
+    }
+  ]
+}

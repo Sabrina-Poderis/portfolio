@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FFF;
+  --foreground: #171717;
+
+  --white-primary: #FFF;
+  --white-secondary: #FEF9EF;
+  --white-tertiary: #EDEDED;
+  --black-primary: #000;
+  --black-secondary: #171717;
+  --black-tertiary: #0A0A0A;
+  --primary: #227C9D;
+  --secondary: #17C3B2;
+  --tertiary: #FFCB77;
+  --quaternary: #F1A66A;
+  --quinary: #FE6D73;
+}
+
+@theme inline {
+  --color-white-primary: var(--white-primary);
+  --color-white-secondary: var(--white-secondary);
+  --color-white-tertiary: var(--white-tertiary);
+  --color-black-primary: var(--black-primary);
+  --color-black-secondary: var(--black-secondary);
+  --color-black-tertiary: var(--black-tertiary);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-quaternary: var(--quaternary);
+  --color-quinary: var(--quinary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --background: var(--black-tertiary);
+    --foreground: var(--white-secondary);
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 2cm;
+  }
+}

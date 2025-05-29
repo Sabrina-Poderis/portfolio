@@ -1,0 +1,40 @@
+{
+  "name": "portfolio-sabrina-poderis",
+  "version": "2.1.18",
+  "description": "Meu portfólio pessoal desenvolvido com React, Next e TailwindCSS",
+  "author": "Sabrina Poderis <sabrina.poderis@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start",
+    "lint": "next lint",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d out"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "next": "^15.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5",
+    "react-to-print": "^3.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4.0",
+    "@types/next": "^9.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4",
+    "eslint": "^9",
+    "eslint-config-next": "15.2",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.5",
+    "tailwind-variants": "^1.0",
+    "tailwindcss": "^4.0",
+    "typescript": "^5"
+  }
+}

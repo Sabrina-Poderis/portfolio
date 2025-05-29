@@ -1,0 +1,156 @@
+{
+  "name": "Sabrina Poderis",
+  "role": "Full Stack Developer",
+  "aboutMe": "- I am a Full Stack Developer with solid experience in the JavaScript/TypeScript ecosystem, working with React, React Native, and Node.js.\n- My passion lies in frontend development, but I have strong expertise in backend and mobile, allowing me to deliver complete and scalable solutions.\n- I have an analytical and organized mindset, prioritizing process optimization, efficient documentation, and writing clean and sustainable code.\n- Besides my technical skills, I stand out for my clear communication and active collaboration with multidisciplinary teams, facilitating integration between technology and business.\n- I am always looking for new challenges and opportunities to enhance my skills, exploring new technologies and refining best practices to deliver high-quality products.",
+  "techs": "Technologies",
+  "frontend": "Frontend",
+  "backend": "Backend",
+  "databases": "Databases",
+  "infrastructure": "Infrastructure",
+  "methodologies": "Methodologies",
+  "tools": "Tools",
+  "phone": "Phone",
+  "resume": "Resume",
+  "seeOnGitHub": "See on Github",
+  "yourMessage": "Your message",
+  "sendWhatsappMessage": "Send message via WhatsApp",
+  "contactDescription": "Would you like to get in touch? Send me a message and I will get back to you as soon as possible!",
+  "alt": {
+    "hamburguerIcon": "Open main menu",
+    "profileImage": "Profile picture of Sabrina Poderis. I am a woman of mixed-race, wearing black glasses and my hair is dyed blonde."
+  },
+  "sections": {
+    "home": "Home",
+    "about": "About Me",
+    "experience": "Professional Experience",
+    "projects": "Projects",
+    "recommendations": "Recommendations",
+    "contact": "Contact",
+    "education": "Education"
+  },
+  "experiences": [
+    {
+      "companyName": "ACT Digital",
+      "website": "https://www.actdigital.com",
+      "role": "Full Stack Developer",
+      "startDate": "2022-04-01T12:00:00",
+      "endDate": "2025-03-01T12:00:00",
+      "description": "- Developed web and mobile solutions using React.js, React Native, and TypeScript, ensuring scalability, code quality, and process optimization.\n- Led the maintenance and enhancement of a website for personalized genetic testing, collaborating directly with POs and stakeholders to align technical and business objectives.\n- Worked on modernizing the Meu Einstein app, ensuring compatibility between React and Flutter and implementing feature flags for a safe rollout.\n- Developed strategic features for the medical scheduling system, optimizing workflow for secretaries and doctors, integrating new services into the ecosystem.\n- Implemented and expanded the technical documentation culture within the team, structuring changelogs and wikis to facilitate maintenance and onboarding of new members.",
+      "stack": {
+        "frontend": [
+          "React.js",
+          "React Native",
+          "TypeScript",
+          "Redux.js",
+          "Storybook",
+          "Styled Components",
+          "HTML",
+          "CSS"
+        ],
+        "backend": ["Node.js", "REST"],
+        "databases": ["MongoDB", "SQL", "MySQL"],
+        "infrastructure": [
+          "Azure DevOps",
+          "AWS",
+          "Docker",
+          "Dynatrace",
+          "Datadog",
+          "Git"
+        ],
+        "methodologies": ["Agile", "Scrum"],
+        "tools": ["Firebase", "Microsoft Office", "Figma", "Adobe XD"]
+      }
+    },
+    {
+      "companyName": "TMontec",
+      "website": "https://www.tmontec.com.br",
+      "role": "Junior Web Developer",
+      "startDate": "2020-09-01T12:00:00",
+      "endDate": "2022-08-01T12:00:00",
+      "description": "- Developed and maintained systems for a CRM integrated with a POS (Point of Sale) system, optimizing retail management.\n- Sustained and evolved applications in Laravel and PHP, ensuring stability and performance.\n- Structured the technical documentation of systems, standardizing internal processes and improving team efficiency.\n- Worked in a small team, being responsible for ensuring the continuity and modernization of legacy systems.",
+      "stack": {
+        "frontend": ["Vue.js", "JavaScript", "HTML", "CSS", "Bootstrap"],
+        "backend": ["PHP", "Laravel"],
+        "databases": ["SQL", "MySQL", "Microsoft SQL Server"],
+        "infrastructure": ["Git", "GitLab"],
+        "tools": ["Microsoft Office"]
+      }
+    },
+    {
+      "companyName": "Turim",
+      "website": "https://site.turimsoft.com.br",
+      "role": "Programming Intern",
+      "startDate": "2020-02-01T12:00:00",
+      "endDate": "2020-05-01T12:00:00",
+      "description": "- Developed scripts for automation of processes in BPO, optimizing operational flows internally.\n- Provided support and maintenance to legacy PHP systems in a company from the tax sector.\n- Initiated the formalization of the technical documentation for the systems, structuring an internal material that was adopted by the company.",
+      "stack": {
+        "frontend": ["JavaScript", "HTML", "CSS"],
+        "backend": ["PHP", "Python"],
+        "databases": ["SQL", "MySQL", "Microsoft SQL Server"],
+        "tools": ["Microsoft Office"]
+      }
+    }
+  ],
+  "college": {
+    "name": "Fatec São Caetano do Sul - Antônio Russo",
+    "website": "https://fatecsaocaetano.cps.sp.gov.br",
+    "degree": "Technologist",
+    "courseName": "Analysis and Systems Development",
+    "startDate": "2017-01-01T12:00:00",
+    "endDate": "2020-12-31T12:00:00"
+  },
+  "projects": [
+    {
+      "name": "Detran SP Practice Exam",
+      "description": "The application was developed with the purpose of simulating the Detran theoretical exam. It allows users to practice official questions and test their knowledge on traffic laws, defensive driving, first aid, and basic mechanics.",
+      "href": "https://github.com/Sabrina-Poderis/detran-sp-practice-exam"
+    }
+  ],
+  "recommendations": [
+    {
+      "name": "Caio Pereira Mascarenhas",
+      "role": "Software Engineer",
+      "image": {
+        "src": "profile-caio-mascarenhas-image.jpg",
+        "alt": "Profile picture of Caio Mascarenhas"
+      },
+      "text": "I had the pleasure of working with Sabrina, and I can say that she is an extremely committed and inquisitive professional. She always seeks to understand the purpose of what she is developing, contributing ideas and improvements at every stage of the project. Her involvement goes beyond the code: she cares about the impact of the final product and is always willing to make things happen. She is a professional who adds great value and makes a difference in the team!"
+    },
+    {
+      "name": "Yan Victor Chaves Pinheiro",
+      "role": "Software Developer",
+      "image": {
+        "src": "profile-yan-pinheiro-image.jpg",
+        "alt": "Profile picture of Yan Pinheiro"
+      },
+      "text": "Sabrina is an excellent professional who always faced the challenges presented to her with great competence. I learned a lot from her. She is also a very organized and motivated person who never shied away from a challenge, and working with her was truly rewarding."
+    },
+    {
+      "name": "Alessandro L. Menezes",
+      "role": "Full Stack Developer",
+      "image": {
+        "src": "profile-alessandro-menezes-image.jpg",
+        "alt": "Profile picture of Alessandro Menezes"
+      },
+      "text": "I highly recommend Sabrina. Working with her was a transformative experience: her relaxed approach to challenges makes the environment lighter while maintaining seriousness and precision when necessary. I had the opportunity to learn a lot about project organization alongside the most organized person I have ever worked with. Her curiosity in learning and testing new technologies continuously raises the level of our projects. Sabrina is, without a doubt, an inspiring professional and a great asset to any team."
+    },
+    {
+      "name": "Tiffany Cordeiro",
+      "role": "Software Engineer",
+      "image": {
+        "src": "profile-tiffany-cordeiro-image.jpg",
+        "alt": "Profile picture of Tiffany Cordeiro"
+      },
+      "text": "Working with Sabrina was an incredible experience! She is extremely organized, always keeping everything in order and ensuring that work flows in the best possible way. Additionally, her willingness to help makes all the difference in daily tasks—she is the kind of person who is always ready to collaborate and create a lighter, more productive environment. Without a doubt, a professional who adds great value to any team!"
+    },
+    {
+      "name": "Amanda Mastrodomenico",
+      "role": "Product Owner",
+      "image": {
+        "src": "profile-amanda-mastrodomenico-image.jpg",
+        "alt": "Profile picture of Amanda Mastrodomenico"
+      },
+      "text": "Sabrina is a developer committed to delivering results on time and determined to overcome her own challenges, taking on tasks beyond her comfort zone. She communicates clearly and objectively, easily explaining technical issues at a business level. During the time we worked together, she was very dedicated to documenting processes and workflows, ensuring that the entire team had visibility into what was done and how!"
+    }
+  ]
+}
