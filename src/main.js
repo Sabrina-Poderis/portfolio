@@ -5,7 +5,7 @@ import { PortfolioScene } from './game/scenes/PortfolioScene.js'
 
 document.querySelector('#app').innerHTML = `
   <header class="site-header"><div class="brand"><span class="brand-mark">✦</span><span>portfolio.exe</span></div><div class="status"><span class="status-dot"></span> disponível para criar</div></header>
-  <main class="game-shell"><div class="intro-copy"><p class="eyebrow">um portfólio explorável</p><h1>Entre na minha<br><em>sala de trabalho.</em></h1><p class="intro-text">Cada objeto guarda uma parte da minha história profissional. Explore com o teclado e descubra o que faço.</p></div><div id="game-container" aria-label="Sala de trabalho interativa"></div><div class="controls-hint"><span>W A S D</span> mover <span class="key-enter">E</span> interagir</div></main>
+  <main class="game-shell"><div class="intro-copy"><p class="eyebrow">um portfólio explorável</p><h1>Chega aí<br><em>na minha salinha!</em></h1><p class="intro-text">Interaja com os objetos para me conhecer melhor</p></div><div id="game-container" aria-label="Sala de trabalho interativa"></div><div class="controls-hint"><span>W A S D</span> mover <span class="key-enter">E</span> interagir</div></main>
   <footer class="site-footer"><span>São Paulo, BR</span><span>v. 01 / sala inicial</span></footer>
   <div id="portfolio-modal" class="modal" aria-hidden="true"><div class="modal-backdrop" data-close-modal></div><section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" type="button" data-close-modal aria-label="Fechar">×</button><p class="modal-kicker" id="modal-kicker"></p><h2 id="modal-title"></h2><div id="modal-content"></div></section></div>
 `

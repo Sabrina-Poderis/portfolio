@@ -1,0 +1,37 @@
+{
+  "type": "map",
+  "version": "1.10",
+  "tiledversion": "1.11.0",
+  "orientation": "orthogonal",
+  "renderorder": "right-down",
+  "width": 44,
+  "height": 27,
+  "tilewidth": 32,
+  "tileheight": 32,
+  "infinite": false,
+  "tilesets": [],
+  "layers": [
+    {
+      "type": "objectgroup",
+      "id": 1,
+      "name": "interactions",
+      "draworder": "topdown",
+      "objects": [
+        { "id": 1, "name": "north-wall", "type": "wall", "x": 62, "y": 62, "width": 1284, "height": 10 },
+        { "id": 2, "name": "south-wall", "type": "wall", "x": 62, "y": 792, "width": 1284, "height": 10 },
+        { "id": 3, "name": "west-wall", "type": "wall", "x": 62, "y": 62, "width": 10, "height": 730 },
+        { "id": 4, "name": "east-wall", "type": "wall", "x": 1332, "y": 62, "width": 10, "height": 730 },
+        { "id": 5, "name": "about-desk", "type": "station", "x": 275, "y": 215, "width": 110, "height": 90, "properties": [{ "name": "id", "type": "string", "value": "about" }, { "name": "label", "type": "string", "value": "SOBRE MIM" }, { "name": "color", "type": "string", "value": "e5a852" }] },
+        { "id": 6, "name": "projects-shelf", "type": "station", "x": 650, "y": 205, "width": 110, "height": 90, "properties": [{ "name": "id", "type": "string", "value": "projects" }, { "name": "label", "type": "string", "value": "PROJETOS" }, { "name": "color", "type": "string", "value": "d97958" }] },
+        { "id": 7, "name": "resume-cabinet", "type": "station", "x": 980, "y": 245, "width": 110, "height": 90, "properties": [{ "name": "id", "type": "string", "value": "resume" }, { "name": "label", "type": "string", "value": "CURRÍCULO" }, { "name": "color", "type": "string", "value": "7eafa0" }] },
+        { "id": 8, "name": "contact-terminal", "type": "station", "x": 965, "y": 590, "width": 110, "height": 90, "properties": [{ "name": "id", "type": "string", "value": "contact" }, { "name": "label", "type": "string", "value": "CONTATO" }, { "name": "color", "type": "string", "value": "c68aaf" }] }
+      ]
+    }
+  ],
+  "properties": [
+    { "name": "playerStartX", "type": "int", "value": 470 },
+    { "name": "playerStartY", "type": "int", "value": 560 }
+  ],
+  "nextlayerid": 2,
+  "nextobjectid": 9
+}
