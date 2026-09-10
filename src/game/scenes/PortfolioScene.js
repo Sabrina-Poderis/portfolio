@@ -51,6 +51,9 @@ export class PortfolioScene extends Phaser.Scene {
     this.cameras.main.startFollow(this.player, true, 0.08, 0.08);
     this.physics.world.setBounds(62, 62, this.map.widthInPixels - 124, this.map.heightInPixels - 124);
   }
+  init() {
+    this.profile = window.selectedPortfolioProfile;
+  }
   createPlayerTexture() {
     const source = this.textures.get("player-source").getSourceImage();
     const texture = this.textures.createCanvas("player", PLAYER_FRAME.width, PLAYER_FRAME.height);
@@ -124,11 +127,17 @@ export class PortfolioScene extends Phaser.Scene {
         const color = STATION_COLORS[properties.id] ?? COLORS.aqua;
         const x = object.x + width / 2;
         const y = object.y + height / 2;
-        const station = { id: properties.id, label: properties.label, x, y, color };
+        const station = {
+          id: properties.id,
+          label: this.profile?.stations[properties.id] ?? properties.label,
+          x,
+          y,
+          color,
+        };
         const body = this.add.rectangle(x, y, width, height, color, 0.95).setStrokeStyle(4, COLORS.ink);
         this.physics.add.existing(body, true);
         this.walls.add(body);
-        this.add.text(x, object.y + height + 17, properties.label, { fontFamily: "DM Sans", fontSize: "14px", color: "#ffc857" }).setOrigin(0.5);
+        this.add.text(x, object.y + height + 17, station.label, { fontFamily: "DM Sans", fontSize: "14px", color: "#ffc857" }).setOrigin(0.5);
         this.add.circle(x, object.y - 11, 6, color).setStrokeStyle(2, COLORS.yellow);
         this.stationObjects.push({ ...station, body });
       }

@@ -1,12 +1,13 @@
 import Phaser from "phaser";
 import "./style.css";
-import { portfolioItems } from "./data/portfolio.js";
+import { portfolioProfiles } from "./data/portfolio.js";
 import { PortfolioScene } from "./game/scenes/PortfolioScene.js";
 
 document.querySelector("#app").innerHTML = `
-  <header class="site-header"><div class="brand"><span class="brand-mark">✦</span><span>portfolio.exe</span></div><div class="status"><span class="status-dot"></span> disponível para criar</div></header>
-  <main class="game-shell"><div class="intro-copy"><p class="eyebrow">um portfólio explorável</p><h1>Chega aí<br><em>na minha salinha!</em></h1><p class="intro-text">Interaja com os objetos para me conhecer melhor</p></div><div id="game-container" aria-label="Sala de trabalho interativa"></div><div class="controls-hint"><span>W A S D</span> mover <span class="key-enter">E</span> interagir</div></main>
-  <footer class="site-footer"><span>São Paulo, BR</span><span>v. 01 / sala inicial</span></footer>
+  <header class="site-header"><div class="brand"><span class="brand-mark">✦</span><span id="brand-name">portfolio.exe</span></div><button class="status" id="profile-switcher" type="button"><span class="status-dot"></span> escolha sua versão</button></header>
+  <main class="profile-select" aria-labelledby="profile-title"><div class="selection-intro"><p class="eyebrow">selecione sua classe</p><h1 id="profile-title">Duas formas<br><em>de me conhecer.</em></h1><p>Escolha uma porta de entrada. O cenário muda de tom, mas a salinha continua sendo minha.</p></div><div class="profile-options"><button class="profile-card profile-card--corporate" type="button" data-profile="corporate"><span class="profile-symbol">✦</span><span class="profile-label">versão profissional</span><strong>Poderis, Sabrina</strong><span class="profile-class">estrategista digital</span><small>projetos · currículo · contato</small><span class="profile-cta">entrar na sala <b>↗</b></span></button><button class="profile-card profile-card--personal" type="button" data-profile="personal"><span class="profile-symbol">☼</span><span class="profile-label">versão pessoal</span><strong>Sasá</strong><span class="profile-class">criativa errante</span><small>interesses · criações · redes</small><span class="profile-cta">entrar na sala <b>↗</b></span></button></div></main>
+  <main class="game-shell" hidden><div class="intro-copy"><p class="eyebrow">um portfólio explorável</p><h1>Chega aí<br><em>na minha salinha!</em></h1><p class="intro-text">Interaja com os objetos para me conhecer melhor</p></div><div id="game-container" aria-label="Sala de trabalho interativa"></div><div class="controls-hint"><span>W A S D</span> mover <span class="key-enter">E</span> interagir</div></main>
+  <footer class="site-footer"><span>São Paulo, BR</span><span id="footer-version">v. 01 / escolha inicial</span></footer>
   <div id="portfolio-modal" class="modal" aria-hidden="true"><div class="modal-backdrop" data-close-modal></div><section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" type="button" data-close-modal aria-label="Fechar">×</button><p class="modal-kicker" id="modal-kicker"></p><h2 id="modal-title"></h2><div id="modal-content"></div></section></div>
 `;
 
@@ -14,13 +15,18 @@ const modal = document.querySelector("#portfolio-modal");
 const modalTitle = document.querySelector("#modal-title");
 const modalKicker = document.querySelector("#modal-kicker");
 const modalContent = document.querySelector("#modal-content");
+const profileSelect = document.querySelector(".profile-select");
+const gameShell = document.querySelector(".game-shell");
+const profileSwitcher = document.querySelector("#profile-switcher");
+let activeProfile;
+let game;
 
 function closeModal() {
   modal.classList.remove("is-open");
   modal.setAttribute("aria-hidden", "true");
 }
 window.openPortfolioModal = (itemId) => {
-  const item = portfolioItems.find((entry) => entry.id === itemId);
+  const item = activeProfile?.items.find((entry) => entry.id === itemId);
   if (!item) return;
   modalKicker.textContent = item.kicker;
   modalTitle.textContent = item.title;
@@ -37,19 +43,45 @@ document.addEventListener("keydown", (event) => {
     closeModal();
 });
 
-new Phaser.Game({
-  type: Phaser.AUTO,
-  parent: "game-container",
-  width: 960,
-  height: 600,
-  backgroundColor: "#4b3f72",
-  render: { pixelArt: true, antialias: false },
-  physics: { default: "arcade", arcade: { gravity: { y: 0 }, debug: false } },
-  scale: {
-    mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH,
+function selectProfile(profileId) {
+  activeProfile = portfolioProfiles[profileId];
+  window.selectedPortfolioProfile = activeProfile;
+  document.querySelector("#brand-name").textContent = activeProfile.brandName;
+  document.querySelector("#footer-version").textContent = `v. 01 / ${activeProfile.className}`;
+  profileSelect.hidden = true;
+  gameShell.hidden = false;
+
+  game = new Phaser.Game({
+    type: Phaser.AUTO,
+    parent: "game-container",
     width: 960,
     height: 600,
-  },
-  scene: [PortfolioScene],
+    backgroundColor: "#4b3f72",
+    render: { pixelArt: true, antialias: false },
+    physics: { default: "arcade", arcade: { gravity: { y: 0 }, debug: false } },
+    scale: {
+      mode: Phaser.Scale.FIT,
+      autoCenter: Phaser.Scale.CENTER_BOTH,
+      width: 960,
+      height: 600,
+    },
+    scene: [PortfolioScene],
+  });
+}
+
+function returnToProfileSelection() {
+  game?.destroy(true);
+  game = undefined;
+  activeProfile = undefined;
+  window.selectedPortfolioProfile = undefined;
+  closeModal();
+  profileSelect.hidden = false;
+  gameShell.hidden = true;
+  document.querySelector("#brand-name").textContent = "portfolio.exe";
+  document.querySelector("#footer-version").textContent = "v. 01 / escolha inicial";
+}
+
+document.querySelectorAll("[data-profile]").forEach((button) => {
+  button.addEventListener("click", () => selectProfile(button.dataset.profile));
 });
+profileSwitcher.addEventListener("click", returnToProfileSelection);
