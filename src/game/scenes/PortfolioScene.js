@@ -15,6 +15,8 @@ const STATION_COLORS = {
   contact: COLORS.yellow,
 };
 
+const PLAYER_FRAME = { width: 32, height: 40 };
+
 export class PortfolioScene extends Phaser.Scene {
   constructor() {
     super("PortfolioScene");
@@ -22,9 +24,11 @@ export class PortfolioScene extends Phaser.Scene {
   preload() {
     this.load.tilemapTiledJSON("studio-01", "maps/studio-01.json");
     this.load.image("player", "assets/player.svg");
+    // this.load.image("player-source", "assets/player2.png");
   }
   create() {
     this.map = this.make.tilemap({ key: "studio-01" });
+    // this.createPlayerTexture();
     this.drawRoom();
     this.createPlayer();
     this.createMapObjects();
@@ -46,6 +50,23 @@ export class PortfolioScene extends Phaser.Scene {
     this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
     this.cameras.main.startFollow(this.player, true, 0.08, 0.08);
     this.physics.world.setBounds(62, 62, this.map.widthInPixels - 124, this.map.heightInPixels - 124);
+  }
+  createPlayerTexture() {
+    const source = this.textures.get("player-source").getSourceImage();
+    const texture = this.textures.createCanvas("player", PLAYER_FRAME.width, PLAYER_FRAME.height);
+    const scale = Math.min(PLAYER_FRAME.width / source.width, PLAYER_FRAME.height / source.height);
+    const width = source.width * scale;
+    const height = source.height * scale;
+
+    texture.context.clearRect(0, 0, PLAYER_FRAME.width, PLAYER_FRAME.height);
+    texture.context.drawImage(
+      source,
+      (PLAYER_FRAME.width - width) / 2,
+      (PLAYER_FRAME.height - height) / 2,
+      width,
+      height,
+    );
+    texture.refresh();
   }
   drawRoom() {
     const roomWidth = this.map.widthInPixels;
