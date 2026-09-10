@@ -1,5 +1,20 @@
 import Phaser from "phaser";
 
+const COLORS = {
+  aqua: 0x119da4,
+  blue: 0x19647e,
+  yellow: 0xffc857,
+  ink: 0x1f2041,
+  purple: 0x4b3f72,
+};
+
+const STATION_COLORS = {
+  about: COLORS.yellow,
+  projects: COLORS.purple,
+  resume: COLORS.aqua,
+  contact: COLORS.yellow,
+};
+
 export class PortfolioScene extends Phaser.Scene {
   constructor() {
     super("PortfolioScene");
@@ -21,8 +36,8 @@ export class PortfolioScene extends Phaser.Scene {
       .text(0, 0, "", {
         fontFamily: "monospace",
         fontSize: "16px",
-        color: "#173231",
-        backgroundColor: "#f4e9cf",
+        color: "#1f2041",
+        backgroundColor: "#ffc857",
         padding: { x: 12, y: 8 },
       })
       .setDepth(10)
@@ -36,29 +51,29 @@ export class PortfolioScene extends Phaser.Scene {
     const roomWidth = this.map.widthInPixels;
     const roomHeight = this.map.heightInPixels;
     const art = this.add.graphics();
-    art.fillStyle(0x173231).fillRect(0, 0, roomWidth, roomHeight);
+    art.fillStyle(COLORS.ink).fillRect(0, 0, roomWidth, roomHeight);
     art
-      .fillStyle(0x214744)
+      .fillStyle(COLORS.blue)
       .fillRect(62, 62, roomWidth - 124, roomHeight - 124);
     art
-      .lineStyle(4, 0x46736a)
+      .lineStyle(4, COLORS.aqua)
       .strokeRect(62, 62, roomWidth - 124, roomHeight - 124);
-    art.lineStyle(1, 0x2c5953, 0.7);
+    art.lineStyle(1, COLORS.purple, 0.7);
     for (let x = 90; x < roomWidth - 70; x += 48)
       art.lineBetween(x, 90, x, roomHeight - 90);
     for (let y = 90; y < roomHeight - 70; y += 48)
       art.lineBetween(90, y, roomWidth - 90, y);
-    art.fillStyle(0x102625).fillRect(86, 86, roomWidth - 172, 70);
+    art.fillStyle(COLORS.ink).fillRect(86, 86, roomWidth - 172, 70);
     this.add.text(116, 105, "STUDIO 01", {
       fontFamily: "monospace",
       fontSize: "18px",
-      color: "#c8dfc8",
+      color: "#ffc857",
       letterSpacing: 3,
     });
     this.add.text(roomWidth - 194, 106, "LOCAL / 2026", {
       fontFamily: "monospace",
       fontSize: "14px",
-      color: "#8eb9a9",
+      color: "#119da4",
     });
     this.walls = this.physics.add.staticGroup();
   }
@@ -79,21 +94,21 @@ export class PortfolioScene extends Phaser.Scene {
       const width = object.width || 10;
       const height = object.height || 10;
       if (object.type === "wall") {
-        const wall = this.add.rectangle(object.x + width / 2, object.y + height / 2, width, height, 0x102625);
+        const wall = this.add.rectangle(object.x + width / 2, object.y + height / 2, width, height, COLORS.ink);
         this.physics.add.existing(wall, true);
         this.walls.add(wall);
         return;
       }
       if (object.type === "station") {
-        const color = Number.parseInt(properties.color, 16);
+        const color = STATION_COLORS[properties.id] ?? COLORS.aqua;
         const x = object.x + width / 2;
         const y = object.y + height / 2;
         const station = { id: properties.id, label: properties.label, x, y, color };
-        const body = this.add.rectangle(x, y, width, height, color, 0.95).setStrokeStyle(4, 0x173231);
+        const body = this.add.rectangle(x, y, width, height, color, 0.95).setStrokeStyle(4, COLORS.ink);
         this.physics.add.existing(body, true);
         this.walls.add(body);
-        this.add.text(x, object.y + height + 17, properties.label, { fontFamily: "monospace", fontSize: "14px", color: "#c8dfc8" }).setOrigin(0.5);
-        this.add.circle(x, object.y - 11, 6, color).setStrokeStyle(2, 0xf4e9cf);
+        this.add.text(x, object.y + height + 17, properties.label, { fontFamily: "monospace", fontSize: "14px", color: "#ffc857" }).setOrigin(0.5);
+        this.add.circle(x, object.y - 11, 6, color).setStrokeStyle(2, COLORS.yellow);
         this.stationObjects.push({ ...station, body });
       }
     });
