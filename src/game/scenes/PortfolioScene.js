@@ -34,7 +34,7 @@ export class PortfolioScene extends Phaser.Scene {
     this.input.keyboard.on("keydown-ENTER", () => this.interact());
     this.prompt = this.add
       .text(0, 0, "", {
-        fontFamily: "monospace",
+        fontFamily: "DM Sans",
         fontSize: "16px",
         color: "#1f2041",
         backgroundColor: "#ffc857",
@@ -65,13 +65,13 @@ export class PortfolioScene extends Phaser.Scene {
       art.lineBetween(90, y, roomWidth - 90, y);
     art.fillStyle(COLORS.ink).fillRect(86, 86, roomWidth - 172, 70);
     this.add.text(116, 105, "STUDIO 01", {
-      fontFamily: "monospace",
+      fontFamily: "DM Sans",
       fontSize: "18px",
       color: "#ffc857",
       letterSpacing: 3,
     });
     this.add.text(roomWidth - 194, 106, "LOCAL / 2026", {
-      fontFamily: "monospace",
+      fontFamily: "DM Sans",
       fontSize: "14px",
       color: "#119da4",
     });
@@ -107,7 +107,7 @@ export class PortfolioScene extends Phaser.Scene {
         const body = this.add.rectangle(x, y, width, height, color, 0.95).setStrokeStyle(4, COLORS.ink);
         this.physics.add.existing(body, true);
         this.walls.add(body);
-        this.add.text(x, object.y + height + 17, properties.label, { fontFamily: "monospace", fontSize: "14px", color: "#ffc857" }).setOrigin(0.5);
+        this.add.text(x, object.y + height + 17, properties.label, { fontFamily: "DM Sans", fontSize: "14px", color: "#ffc857" }).setOrigin(0.5);
         this.add.circle(x, object.y - 11, 6, color).setStrokeStyle(2, COLORS.yellow);
         this.stationObjects.push({ ...station, body });
       }
