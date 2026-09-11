@@ -2,17 +2,13 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import Phaser from "phaser";
 import {
   portfolioProfiles,
-  resumeData,
+  recommendations,
+  type ContentBlock,
+  type PortfolioItem,
+  type PortfolioProfile,
+  type ProfileId,
 } from "./data/portfolio";
-import type {
-  ContentBlock,
-  PortfolioItem,
-  PortfolioProfile,
-  ProfileId,
-} from "./types/portfolio";
 import { PortfolioScene } from "./game/scenes/PortfolioScene";
-import { ResumePage } from "./resume/ResumePage";
-import { openResumePdf } from "./resume/createResumePdf";
 
 type ModalItem = PortfolioItem | null;
 
@@ -27,22 +23,8 @@ function dispatchTouchEvent(name: string, detail?: unknown): void {
   window.dispatchEvent(new CustomEvent(name, { detail }));
 }
 
-function renderBlock(block: ContentBlock, onDownloadResume: () => void): ReactNode {
+function renderBlock(block: ContentBlock): ReactNode {
   if (block.type === "paragraph") return <p key={block.text}>{block.text}</p>;
-  if (block.type === "list") {
-    return (
-      <ul className="modal-list" key={block.items.join("|")}>
-        {block.items.map((item) => <li key={item}>{item}</li>)}
-      </ul>
-    );
-  }
-  if (block.type === "resume") {
-    return (
-      <button className="modal-action resume-download" type="button" onClick={onDownloadResume} key="resume-download">
-        Baixar currículo em PDF <span>↓</span>
-      </button>
-    );
-  }
   if (block.type === "project") {
     const projectContent = (
       <>
@@ -141,11 +123,9 @@ function ProfileSelection({
 function PortfolioModal({
   item,
   onClose,
-  onDownloadResume,
 }: {
   item: ModalItem;
   onClose: () => void;
-  onDownloadResume: () => void;
 }): ReactNode {
   return (
     <div
@@ -171,9 +151,51 @@ function PortfolioModal({
           <>
             <p className="modal-kicker">{item.kicker}</p>
             <h2 id="modal-title">{item.title}</h2>
-            <div>{item.blocks.map((block) => renderBlock(block, onDownloadResume))}</div>
+            <div className="modal-body">{item.blocks.map(renderBlock)}</div>
           </>
         )}
+      </section>
+    </div>
+  );
+}
+
+function RecommendationsModal({
+  index,
+  onChange,
+  onClose,
+}: {
+  index: number;
+  onChange: (nextIndex: number) => void;
+  onClose: () => void;
+}): ReactNode {
+  const recommendation = recommendations[index];
+  return (
+    <div className="modal is-open" aria-hidden="false">
+      <div className="modal-backdrop" onClick={onClose} />
+      <section className="modal-card recommendations-modal" role="dialog" aria-modal="true" aria-labelledby="recommendations-title">
+        <button className="modal-close" type="button" onClick={onClose} aria-label="Fechar">×</button>
+        <p className="modal-kicker">cartas / recomendações</p>
+        <h2 id="recommendations-title">Quem já trabalhou comigo</h2>
+        <div className="recommendation-deck" aria-live="polite">
+          {recommendations.map((card, cardIndex) => {
+            const offset = (cardIndex - index + recommendations.length) % recommendations.length;
+            return (
+              <article className={`recommendation-card recommendation-card--${offset}`} key={card.name} aria-hidden={offset !== 0}>
+                <img src={`/assets/recommendations/${card.image.src}`} alt={card.image.alt} />
+                <div className="recommendation-card__content">
+                  <p className="recommendation-card__role">{card.role}</p>
+                  <h3>{card.name}</h3>
+                  <blockquote>“{card.text}”</blockquote>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+        <div className="recommendations-controls">
+          <button type="button" onClick={() => onChange((index - 1 + recommendations.length) % recommendations.length)} aria-label="Recomendação anterior">←</button>
+          <span>{String(index + 1).padStart(2, "0")} / {String(recommendations.length).padStart(2, "0")}</span>
+          <button type="button" onClick={() => onChange((index + 1) % recommendations.length)} aria-label="Próxima recomendação">→</button>
+        </div>
       </section>
     </div>
   );
@@ -184,18 +206,14 @@ export function App(): ReactNode {
     null,
   );
   const [modalItem, setModalItem] = useState<ModalItem>(null);
+  const [recommendationIndex, setRecommendationIndex] = useState<number | null>(null);
   const gameRef = useRef<Phaser.Game | null>(null);
-  const resumePageRef = useRef<HTMLElement | null>(null);
-
-  const downloadResume = (): void => {
-    if (resumePageRef.current) void openResumePdf(resumePageRef.current);
-  };
 
   useEffect(() => {
     window.openPortfolioModal = (itemId: string) =>
-      setModalItem(
-        activeProfile?.items.find((item) => item.id === itemId) ?? null,
-      );
+      itemId === "recommendations"
+        ? setRecommendationIndex(0)
+        : setModalItem(activeProfile?.items.find((item) => item.id === itemId) ?? null);
     return () => {
       window.openPortfolioModal = undefined;
     };
@@ -232,6 +250,7 @@ export function App(): ReactNode {
 
   const resetProfile = (): void => {
     setModalItem(null);
+    setRecommendationIndex(null);
     setActiveProfile(null);
   };
 
@@ -287,10 +306,14 @@ export function App(): ReactNode {
         <span>São Paulo, BR</span>
         <span>v. 01 / {activeProfile?.className ?? "escolha inicial"}</span>
       </footer>
-      <div className="resume-render-source" aria-hidden="true">
-        <ResumePage pageRef={(element) => { resumePageRef.current = element; }} data={resumeData} />
-      </div>
-      <PortfolioModal item={modalItem} onClose={() => setModalItem(null)} onDownloadResume={downloadResume} />
+      <PortfolioModal item={modalItem} onClose={() => setModalItem(null)} />
+      {recommendationIndex !== null && (
+        <RecommendationsModal
+          index={recommendationIndex}
+          onChange={setRecommendationIndex}
+          onClose={() => setRecommendationIndex(null)}
+        />
+      )}
     </>
   );
 }

@@ -25,6 +25,7 @@
         { "id": 6, "name": "projects-shelf", "type": "station", "x": 650, "y": 205, "width": 110, "height": 90, "properties": [{ "name": "id", "type": "string", "value": "projects" }, { "name": "label", "type": "string", "value": "PROJETOS" }, { "name": "color", "type": "string", "value": "d97958" }] },
         { "id": 7, "name": "resume-cabinet", "type": "station", "x": 980, "y": 245, "width": 110, "height": 90, "properties": [{ "name": "id", "type": "string", "value": "resume" }, { "name": "label", "type": "string", "value": "CURRÍCULO" }, { "name": "color", "type": "string", "value": "7eafa0" }] },
         { "id": 8, "name": "contact-terminal", "type": "station", "x": 965, "y": 590, "width": 110, "height": 90, "properties": [{ "name": "id", "type": "string", "value": "contact" }, { "name": "label", "type": "string", "value": "CONTATO" }, { "name": "color", "type": "string", "value": "c68aaf" }] }
+        ,{ "id": 9, "name": "recommendations-wall", "type": "station", "x": 430, "y": 650, "width": 150, "height": 70, "properties": [{ "name": "id", "type": "string", "value": "recommendations" }, { "name": "label", "type": "string", "value": "RECOMENDAÇÕES" }, { "name": "color", "type": "string", "value": "119da4" }] }
       ]
     }
   ],

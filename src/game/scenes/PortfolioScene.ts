@@ -1,8 +1,8 @@
 import Phaser from "phaser";
-import type { PortfolioProfile } from "../../data/portfolio";
+import type { PortfolioProfile } from "../../types/portfolio";
 
 const COLORS = { aqua: 0x119da4, blue: 0x19647e, yellow: 0xffc857, ink: 0x1f2041, purple: 0x4b3f72 };
-const STATION_COLORS = { about: COLORS.yellow, projects: COLORS.purple, resume: COLORS.aqua, contact: COLORS.yellow };
+const STATION_COLORS = { about: COLORS.yellow, projects: COLORS.purple, resume: COLORS.aqua, contact: COLORS.yellow, recommendations: COLORS.aqua };
 const PLAYER_FRAME = { width: 32, height: 40 };
 
 export class PortfolioScene extends Phaser.Scene {
@@ -100,6 +100,7 @@ export class PortfolioScene extends Phaser.Scene {
         return;
       }
       if (object.type === "station") {
+        if (!this.profile?.stations[properties.id]) return;
         const color = STATION_COLORS[properties.id as keyof typeof STATION_COLORS] ?? COLORS.aqua;
         const x = object.x + width / 2;
         const y = object.y + height / 2;
