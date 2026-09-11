@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { formatPeriod, type ResumeData } from "../data/portfolio";
+import { formatPeriod } from "../data/resume";
+import type { ResumeData } from "../types/portfolio";
 
 type ResumePageProps = {
   data: ResumeData;

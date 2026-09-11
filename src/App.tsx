@@ -1,17 +1,18 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import Phaser from "phaser";
-import html2canvas from "html2canvas";
-import { jsPDF } from "jspdf";
 import {
   portfolioProfiles,
   resumeData,
-  type ContentBlock,
-  type PortfolioItem,
-  type PortfolioProfile,
-  type ProfileId,
 } from "./data/portfolio";
+import type {
+  ContentBlock,
+  PortfolioItem,
+  PortfolioProfile,
+  ProfileId,
+} from "./types/portfolio";
 import { PortfolioScene } from "./game/scenes/PortfolioScene";
 import { ResumePage } from "./resume/ResumePage";
+import { openResumePdf } from "./resume/createResumePdf";
 
 type ModalItem = PortfolioItem | null;
 
@@ -186,94 +187,8 @@ export function App(): ReactNode {
   const gameRef = useRef<Phaser.Game | null>(null);
   const resumePageRef = useRef<HTMLElement | null>(null);
 
-  const downloadResume = async (): Promise<void> => {
-    if (!resumePageRef.current) return;
-    const previewWindow = window.open("", "_blank");
-    if (!previewWindow) return;
-
-    try {
-      await document.fonts.ready;
-      const sourceCanvas = await html2canvas(resumePageRef.current, {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: "#fff8e7",
-        ignoreElements: (element) => element.id === "game-container" || element.tagName === "CANVAS",
-      });
-      const pdf = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
-      const pageWidth = 210;
-      const pageHeight = 297;
-      const topMargin = 12;
-      const bottomMargin = 12;
-      const contentHeight = pageHeight - topMargin - bottomMargin;
-      const sourcePageHeight = sourceCanvas.width * (contentHeight / pageWidth);
-      const sourceElement = resumePageRef.current;
-      const sourceScale = sourceCanvas.width / sourceElement.getBoundingClientRect().width;
-      const sourceTop = sourceElement.getBoundingClientRect().top;
-      const pageBoundaries = [
-        ...Array.from(
-          sourceElement.querySelectorAll<HTMLElement>(
-            ".resume-header, .resume-summary, .resume-experience, .resume-education",
-          ),
-        ).map((element) => {
-          const rect = element.getBoundingClientRect();
-          return (rect.bottom - sourceTop) * sourceScale;
-        }),
-        sourceCanvas.height,
-      ].sort((first, second) => first - second);
-      let sourceOffset = 0;
-      let pageNumber = 0;
-
-      while (sourceOffset < sourceCanvas.height) {
-        if (pageNumber > 0) pdf.addPage();
-        const pageLimit = Math.min(sourceOffset + sourcePageHeight, sourceCanvas.height);
-        const nextBoundary = pageBoundaries
-          .filter((boundary) => boundary > sourceOffset + 1 && boundary <= pageLimit)
-          .at(-1);
-        const sliceHeight = nextBoundary
-          ? nextBoundary - sourceOffset
-          : pageLimit - sourceOffset;
-        const pageCanvas = document.createElement("canvas");
-        pageCanvas.width = sourceCanvas.width;
-        pageCanvas.height = sliceHeight;
-        const pageContext = pageCanvas.getContext("2d");
-        if (!pageContext) throw new Error("Não foi possível preparar a página do currículo.");
-        pageContext.fillStyle = "#fff8e7";
-        pageContext.fillRect(0, 0, pageCanvas.width, pageCanvas.height);
-        pageContext.drawImage(
-          sourceCanvas,
-          0,
-          sourceOffset,
-          sourceCanvas.width,
-          sliceHeight,
-          0,
-          0,
-          pageCanvas.width,
-          pageCanvas.height,
-        );
-        pdf.setFillColor("#fff8e7");
-        pdf.rect(0, 0, pageWidth, pageHeight, "F");
-        pdf.addImage(
-          pageCanvas,
-          "JPEG",
-          0,
-          topMargin,
-          pageWidth,
-          (sliceHeight * pageWidth) / sourceCanvas.width,
-          undefined,
-          "FAST",
-        );
-        sourceOffset += sliceHeight;
-        pageNumber += 1;
-      }
-
-      const pdfUrl = URL.createObjectURL(pdf.output("blob"));
-      previewWindow.document.title = "Currículo - Sabrina Poderis";
-      previewWindow.location.href = pdfUrl;
-      window.setTimeout(() => URL.revokeObjectURL(pdfUrl), 60_000);
-    } catch (error) {
-      previewWindow.close();
-      throw error;
-    }
+  const downloadResume = (): void => {
+    if (resumePageRef.current) void openResumePdf(resumePageRef.current);
   };
 
   useEffect(() => {

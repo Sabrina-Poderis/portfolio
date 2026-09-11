@@ -1,4 +1,4 @@
-import type { PortfolioProfile } from "./data/portfolio";
+import type { PortfolioProfile } from "./types/portfolio";
 
 declare global {
   interface Window {
