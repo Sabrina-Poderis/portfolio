@@ -37,7 +37,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100dvh;
-  overflow: hidden;
+  overflow-x: hidden;
   background: var(--color-ink);
 }
 
@@ -55,7 +55,7 @@ button {
 }
 
 #app {
-  height: 100dvh;
+  min-height: 100dvh;
   min-height: 0;
   display: flex;
   flex-direction: column;
@@ -127,6 +127,7 @@ button {
   gap: var(--space-10);
   align-items: center;
   flex: 1;
+  overflow-y: auto;
 }
 .intro-copy {
   align-self: start;
@@ -314,6 +315,9 @@ h1 em {
 .controls-hint .key-enter {
   margin-left: var(--space-5);
 }
+.touch-controls {
+  display: none;
+}
 .site-footer {
   flex: 0 0 auto;
   padding: var(--space-4) 0 var(--space-6);
@@ -440,6 +444,7 @@ h1 em {
     grid-template-columns: 1fr;
     padding-top: var(--space-6);
     gap: var(--space-6);
+    align-content: start;
   }
   .intro-copy {
     padding-top: 0;
@@ -465,6 +470,7 @@ h1 em {
   }
   .game-shell {
     width: calc(100% - 24px);
+    padding-bottom: var(--space-8);
   }
   .profile-select {
     width: calc(100% - 24px);
@@ -496,5 +502,55 @@ h1 em {
   .site-footer {
     width: calc(100% - 32px);
     font-size: 10px;
+  }
+  .touch-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-5);
+    width: min(100%, 300px);
+    margin: 0 auto;
+    touch-action: none;
+  }
+  .touch-pad {
+    display: grid;
+    gap: 3px;
+  }
+  .touch-pad > button,
+  .touch-pad div {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+  }
+  .touch-pad > button {
+    justify-self: center;
+  }
+  .touch-controls button {
+    width: 42px;
+    height: 38px;
+    padding: 0;
+    color: var(--color-ink);
+    background: var(--color-yellow);
+    border: 2px solid var(--color-ink);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    touch-action: none;
+    user-select: none;
+  }
+  .touch-controls button:active {
+    color: var(--color-surface);
+    background: var(--color-aqua);
+    transform: translateY(2px);
+  }
+  .touch-action {
+    width: 58px !important;
+    height: 58px !important;
+    border-radius: 50% !important;
+    color: var(--color-surface) !important;
+    background: var(--color-purple) !important;
+  }
+  .controls-hint {
+    display: none;
   }
 }
