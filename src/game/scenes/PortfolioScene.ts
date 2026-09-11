@@ -22,8 +22,8 @@ export class PortfolioScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.tilemapTiledJSON("studio-01", "maps/studio-01.json");
-    this.load.image("player", "assets/player.svg");
+    this.load.tilemapTiledJSON("studio-01", `${import.meta.env.BASE_URL}maps/studio-01.json`);
+    this.load.image("player", `${import.meta.env.BASE_URL}assets/player.svg`);
   }
 
   init(): void {

@@ -181,7 +181,7 @@ function RecommendationsModal({
             const offset = (cardIndex - index + recommendations.length) % recommendations.length;
             return (
               <article className={`recommendation-card recommendation-card--${offset}`} key={card.name} aria-hidden={offset !== 0}>
-                <img src={`/assets/recommendations/${card.image.src}`} alt={card.image.alt} />
+                <img src={`${import.meta.env.BASE_URL}assets/recommendations/${card.image.src}`} alt={card.image.alt} />
                 <div className="recommendation-card__content">
                   <p className="recommendation-card__role">{card.role}</p>
                   <h3>{card.name}</h3>
