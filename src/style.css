@@ -331,7 +331,10 @@ h1 em {
   z-index: 20;
   display: grid;
   place-items: center;
+  width: 100%;
+  height: 100%;
   padding: var(--space-6);
+  overflow: auto;
   visibility: hidden;
   opacity: 0;
   transition:
@@ -351,12 +354,23 @@ h1 em {
 .modal-card {
   position: relative;
   width: min(560px, 100%);
+  max-width: 100%;
+  max-height: calc(100dvh - (var(--space-6) * 2));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   padding: var(--space-10);
   border-radius: 22px;
   color: var(--color-ink);
   background: var(--color-surface);
   border: 4px solid var(--color-purple);
   box-shadow: 12px 14px 0 var(--color-yellow);
+}
+.modal-body {
+  min-height: 0;
+  overflow-y: auto;
+  overflow-y: overlay;
+  overflow-wrap: anywhere;
 }
 .modal-close {
   position: absolute;
@@ -383,8 +397,9 @@ h1 em {
 }
 .recommendation-deck {
   position: relative;
-  min-height: 360px;
-  margin: var(--space-6) 0 var(--space-5);
+  height: min(390px, calc(100dvh - 270px));
+  min-height: 0;
+  margin: 30px;
   perspective: 1000px;
 }
 .recommendation-card {
@@ -401,6 +416,9 @@ h1 em {
   box-shadow: 8px 10px 0 var(--color-yellow);
   transform-origin: 50% 90%;
   transition: transform 0.35s ease, opacity 0.35s ease;
+  min-width: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
 }
 .recommendation-card img {
   width: 132px;
@@ -411,6 +429,21 @@ h1 em {
 }
 .recommendation-card__content {
   min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: var(--space-2);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-purple) transparent;
+}
+.recommendation-card__content::-webkit-scrollbar {
+  width: 6px;
+}
+.recommendation-card__content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.recommendation-card__content::-webkit-scrollbar-thumb {
+  background: var(--color-purple);
+  border-radius: 999px;
 }
 .recommendation-card__role {
   margin: 0 0 var(--space-2);
@@ -425,12 +458,15 @@ h1 em {
   font-family: "Fraunces", serif;
   font-size: 26px;
   line-height: 1.05;
+  overflow-wrap: anywhere;
 }
 .recommendation-card blockquote {
   margin: 0;
   color: var(--color-ink-soft);
   font-size: 15px;
   line-height: 1.55;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .recommendation-card--0 {
   z-index: 5;
@@ -454,16 +490,23 @@ h1 em {
   transform: translate3d(0, 25px, -100px) rotate(6deg) scale(0.9);
 }
 .recommendations-controls {
+  /* position: sticky; */
+  bottom: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 46px;
+  padding: var(--space-1) 0;
   color: var(--color-purple);
   font-family: "DM Mono", monospace;
   font-size: 12px;
+  background: var(--color-surface);
 }
 .recommendations-controls button {
   width: 42px;
   height: 38px;
+  flex: 0 0 auto;
   color: var(--color-ink);
   background: var(--color-yellow);
   border: 2px solid var(--color-ink);
@@ -597,16 +640,23 @@ h1 em {
     font-size: 10px;
   }
   .modal-card {
+    width: 100%;
+    max-width: 100%;
+    max-height: calc(100dvh - (var(--space-4) * 2));
     padding: var(--space-8) var(--space-6);
   }
   .recommendations-modal {
+    width: 100%;
     padding: var(--space-8) var(--space-4);
   }
   .recommendation-deck {
-    min-height: 520px;
+    height: min(520px, calc(100dvh - 270px));
+    min-height: 0;
+    margin-inline: 0;
   }
   .recommendation-card {
     grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
     gap: var(--space-4);
     padding: var(--space-5);
   }
@@ -616,6 +666,9 @@ h1 em {
   }
   .recommendation-card h3 {
     font-size: 23px;
+  }
+  .recommendation-card blockquote {
+    font-size: 14px;
   }
   .site-footer {
     width: calc(100% - 32px);

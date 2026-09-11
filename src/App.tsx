@@ -151,7 +151,7 @@ function PortfolioModal({
           <>
             <p className="modal-kicker">{item.kicker}</p>
             <h2 id="modal-title">{item.title}</h2>
-            <div>{item.blocks.map(renderBlock)}</div>
+            <div className="modal-body">{item.blocks.map(renderBlock)}</div>
           </>
         )}
       </section>
