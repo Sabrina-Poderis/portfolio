@@ -2,7 +2,7 @@ export type ProfileId = "corporate" | "personal";
 
 export type ContentBlock =
   | { type: "paragraph"; text: string }
-  | { type: "project"; number: string; title: string; meta: string }
+  | { type: "project"; number: string; title: string; meta: string, url?: string; }
   | { type: "link"; label: string; url: string; external?: boolean };
 
 export interface PortfolioItem {
@@ -46,8 +46,9 @@ const corporateItems: PortfolioItem[] = [
       {
         type: "project",
         number: "01",
-        title: "Projeto em destaque",
-        meta: "em breve / estudo de caso",
+        title: "Código Sujo",
+        meta: "Tutorial reverso de 'más' práticas de programação",
+        url: "https://sabrina-poderis.github.io/dirty-code/"
       },
       {
         type: "project",
@@ -76,19 +77,19 @@ const corporateItems: PortfolioItem[] = [
     blocks: [
       {
         type: "paragraph",
-        text: "Tem um projeto, uma ideia ou uma sala que precisa ser construída? Me encontre pelos canais abaixo.",
+        text: "Tem um projeto ou uma ideia que gostaria de conversar? Me encontre pelos canais abaixo.",
       },
-      { type: "link", label: "Email", url: "mailto:oi@seuemail.com" },
+      { type: "link", label: "Email", url: "mailto:sabrina.poderis@gmail.com" },
       {
         type: "link",
         label: "GitHub",
-        url: "https://github.com",
+        url: "https://github.com/Sabrina-Poderis",
         external: true,
       },
       {
         type: "link",
         label: "LinkedIn",
-        url: "https://linkedin.com",
+        url: "https://www.linkedin.com/in/sabrina-poderis",
         external: true,
       },
     ],
@@ -120,7 +121,7 @@ const personalItems: PortfolioItem[] = [
         type: "project",
         number: "01",
         title: "Salinha interativa",
-        meta: "um cantinho feito à mão",
+        meta: "um cantinho feito à mão (esse site aqui!)",
       },
       {
         type: "project",
@@ -152,20 +153,8 @@ const personalItems: PortfolioItem[] = [
       },
       {
         type: "link",
-        label: "GitHub",
-        url: "https://github.com",
-        external: true,
-      },
-      {
-        type: "link",
-        label: "LinkedIn",
-        url: "https://linkedin.com",
-        external: true,
-      },
-      {
-        type: "link",
         label: "Instagram",
-        url: "https://instagram.com",
+        url: "https://www.instagram.com/sabrina.poderis",
         external: true,
       },
     ],

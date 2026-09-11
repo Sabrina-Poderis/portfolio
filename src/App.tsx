@@ -14,11 +14,32 @@ type ModalItem = PortfolioItem | null;
 function renderBlock(block: ContentBlock): ReactNode {
   if (block.type === "paragraph") return <p key={block.text}>{block.text}</p>;
   if (block.type === "project") {
-    return (
-      <div className="project-link" key={block.number}>
+    const projectContent = (
+      <>
         <span>{block.number}</span>
         <strong>{block.title}</strong>
         <small>{block.meta}</small>
+      </>
+    );
+    const isExternal = block.url?.startsWith("http");
+
+    if (block.url) {
+      return (
+        <a
+          className="modal-action project-link"
+          href={block.url}
+          target={isExternal ? "_blank" : undefined}
+          rel={isExternal ? "noreferrer" : undefined}
+          key={block.number}
+        >
+          {projectContent}
+        </a>
+      );
+    }
+
+    return (
+      <div className="project-link" key={block.number}>
+        {projectContent}
       </div>
     );
   }
@@ -45,13 +66,12 @@ function ProfileSelection({
       <div className="selection-intro">
         <p className="eyebrow">selecione sua classe</p>
         <h1 id="profile-title">
-          Duas formas
+          Eaí!
           <br />
-          <em>de me conhecer.</em>
+          <em>bem vindo(a)</em>
         </h1>
         <p>
-          Escolha uma "classe". O cenário muda de tom, mas a salinha
-          continua sendo minha 😊
+          Escolha uma "classe" pra gente começar
         </p>
       </div>
       <div className="profile-options">
@@ -186,7 +206,7 @@ export function App(): ReactNode {
           <span>{activeProfile?.brandName ?? "portfolio.exe"}</span>
         </div>
         <button className="status" type="button" onClick={resetProfile}>
-          <span className="status-dot" /> escolha sua versão
+          <span className="status-dot" /> escolha sua classe
         </button>
       </header>
       {activeProfile ? (

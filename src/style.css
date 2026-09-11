@@ -379,7 +379,7 @@ h1 em {
   line-height: 1.55;
 }
 .project-link {
-  display: grid;
+  display: grid !important;
   grid-template-columns: 34px 1fr;
   padding: var(--space-4) 0;
   border-radius: 10px;
