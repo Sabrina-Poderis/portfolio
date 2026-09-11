@@ -15,6 +15,7 @@ export class PortfolioScene extends Phaser.Scene {
   private keys: any;
   private prompt: any;
   private profile?: PortfolioProfile;
+  private touchDirection = { x: 0, y: 0 };
 
   constructor() {
     super("PortfolioScene");
@@ -38,11 +39,29 @@ export class PortfolioScene extends Phaser.Scene {
     this.keys = this.input.keyboard?.addKeys("W,A,S,D,E,ENTER");
     this.input.keyboard?.on("keydown-E", () => this.interact());
     this.input.keyboard?.on("keydown-ENTER", () => this.interact());
+    window.addEventListener("portfolio-touch-move", this.handleTouchMove);
+    window.addEventListener("portfolio-touch-stop", this.handleTouchStop);
+    window.addEventListener("portfolio-touch-interact", this.interact);
     this.prompt = this.add.text(0, 0, "", { fontFamily: "DM Sans", fontSize: "16px", color: "#1f2041", backgroundColor: "#ffc857", padding: { x: 12, y: 8 } }).setDepth(10).setOrigin(0.5).setVisible(false);
     this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
     this.cameras.main.startFollow(this.player, true, 0.08, 0.08);
     this.physics.world.setBounds(62, 62, this.map.widthInPixels - 124, this.map.heightInPixels - 124);
   }
+
+  shutdown(): void {
+    window.removeEventListener("portfolio-touch-move", this.handleTouchMove);
+    window.removeEventListener("portfolio-touch-stop", this.handleTouchStop);
+    window.removeEventListener("portfolio-touch-interact", this.interact);
+  }
+
+  private handleTouchMove = (event: Event): void => {
+    const direction = (event as CustomEvent<{ x: number; y: number }>).detail;
+    this.touchDirection = direction;
+  };
+
+  private handleTouchStop = (): void => {
+    this.touchDirection = { x: 0, y: 0 };
+  };
 
   private drawRoom(): void {
     const roomWidth = this.map.widthInPixels;
@@ -106,6 +125,8 @@ export class PortfolioScene extends Phaser.Scene {
     if (this.cursors.right.isDown || this.keys.D.isDown) velocity.x = 1;
     if (this.cursors.up.isDown || this.keys.W.isDown) velocity.y = -1;
     if (this.cursors.down.isDown || this.keys.S.isDown) velocity.y = 1;
+    velocity.x ||= this.touchDirection.x;
+    velocity.y ||= this.touchDirection.y;
     velocity.normalize().scale(190);
     this.player.setVelocity(velocity.x, velocity.y);
     this.nearbyStation = this.stationObjects.find((station) => Phaser.Math.Distance.Between(this.player.x, this.player.y, station.x, station.y) < 125);

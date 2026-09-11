@@ -11,6 +11,17 @@ import { PortfolioScene } from "./game/scenes/PortfolioScene";
 
 type ModalItem = PortfolioItem | null;
 
+const touchDirections = {
+  up: { x: 0, y: -1 },
+  left: { x: -1, y: 0 },
+  down: { x: 0, y: 1 },
+  right: { x: 1, y: 0 },
+} as const;
+
+function dispatchTouchEvent(name: string, detail?: unknown): void {
+  window.dispatchEvent(new CustomEvent(name, { detail }));
+}
+
 function renderBlock(block: ContentBlock): ReactNode {
   if (block.type === "paragraph") return <p key={block.text}>{block.text}</p>;
   if (block.type === "project") {
@@ -223,6 +234,17 @@ export function App(): ReactNode {
             </p>
           </div>
           <div id="game-container" aria-label="Sala de trabalho interativa" />
+          <div className="touch-controls" aria-label="Controles da sala">
+            <div className="touch-pad">
+              <button type="button" aria-label="Mover para cima" onPointerDown={() => dispatchTouchEvent("portfolio-touch-move", touchDirections.up)} onPointerUp={() => dispatchTouchEvent("portfolio-touch-stop")} onPointerLeave={() => dispatchTouchEvent("portfolio-touch-stop")}>▲</button>
+              <div>
+                <button type="button" aria-label="Mover para esquerda" onPointerDown={() => dispatchTouchEvent("portfolio-touch-move", touchDirections.left)} onPointerUp={() => dispatchTouchEvent("portfolio-touch-stop")} onPointerLeave={() => dispatchTouchEvent("portfolio-touch-stop")}>◀</button>
+                <button type="button" aria-label="Mover para baixo" onPointerDown={() => dispatchTouchEvent("portfolio-touch-move", touchDirections.down)} onPointerUp={() => dispatchTouchEvent("portfolio-touch-stop")} onPointerLeave={() => dispatchTouchEvent("portfolio-touch-stop")}>▼</button>
+                <button type="button" aria-label="Mover para direita" onPointerDown={() => dispatchTouchEvent("portfolio-touch-move", touchDirections.right)} onPointerUp={() => dispatchTouchEvent("portfolio-touch-stop")} onPointerLeave={() => dispatchTouchEvent("portfolio-touch-stop")}>▶</button>
+              </div>
+            </div>
+            <button className="touch-action" type="button" aria-label="Interagir" onClick={() => dispatchTouchEvent("portfolio-touch-interact")}>E</button>
+          </div>
           <div className="controls-hint">
             <span>W A S D</span> mover <span className="key-enter">E</span>{" "}
             interagir
