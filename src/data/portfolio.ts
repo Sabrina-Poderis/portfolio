@@ -1,26 +1,8 @@
-export type ProfileId = "corporate" | "personal";
+import { resumeData } from "./resume";
+import type { ContentBlock, PortfolioItem, PortfolioProfile, ProfileId } from "../types/portfolio";
 
-export type ContentBlock =
-  | { type: "paragraph"; text: string }
-  | { type: "project"; number: string; title: string; meta: string, url?: string; }
-  | { type: "link"; label: string; url: string; external?: boolean };
-
-export interface PortfolioItem {
-  id: string;
-  kicker: string;
-  title: string;
-  blocks: ContentBlock[];
-}
-
-export interface PortfolioProfile {
-  id: ProfileId;
-  brandName: string;
-  name: string;
-  className: string;
-  description: string;
-  items: PortfolioItem[];
-  stations: Record<string, string>;
-}
+export type { ContentBlock, PortfolioItem, PortfolioProfile, ProfileId } from "../types/portfolio";
+export { resumeData } from "./resume";
 
 const corporateItems: PortfolioItem[] = [
   {
@@ -29,8 +11,8 @@ const corporateItems: PortfolioItem[] = [
     title: "Sobre mim",
     blocks: [
       {
-        type: "paragraph",
-        text: "Desenvolvedora que transforma ideias em experiências digitais claras, cuidadosas e cheias de personalidade.",
+        type: "list",
+        items: resumeData.summary,
       },
     ],
   },
@@ -53,7 +35,13 @@ const corporateItems: PortfolioItem[] = [
       {
         type: "project",
         number: "02",
-        title: "Experimento visual",
+        title: "Salinha interativa",
+        meta: "um cantinho feito à mão (esse site aqui!)",
+      },
+      {
+        type: "project",
+        number: "03",
+        title: "Experimentos gerais",
         meta: "em breve / laboratório",
       },
     ],
@@ -67,7 +55,7 @@ const corporateItems: PortfolioItem[] = [
         type: "paragraph",
         text: "Experiências, habilidades e caminhos profissionais reunidos em um só lugar.",
       },
-      { type: "link", label: "Abrir currículo", url: "/curriculo.pdf" },
+      { type: "resume", data: resumeData },
     ],
   },
   {

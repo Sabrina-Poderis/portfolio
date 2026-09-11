@@ -2,12 +2,17 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import Phaser from "phaser";
 import {
   portfolioProfiles,
-  type ContentBlock,
-  type PortfolioItem,
-  type PortfolioProfile,
-  type ProfileId,
+  resumeData,
 } from "./data/portfolio";
+import type {
+  ContentBlock,
+  PortfolioItem,
+  PortfolioProfile,
+  ProfileId,
+} from "./types/portfolio";
 import { PortfolioScene } from "./game/scenes/PortfolioScene";
+import { ResumePage } from "./resume/ResumePage";
+import { openResumePdf } from "./resume/createResumePdf";
 
 type ModalItem = PortfolioItem | null;
 
@@ -22,8 +27,22 @@ function dispatchTouchEvent(name: string, detail?: unknown): void {
   window.dispatchEvent(new CustomEvent(name, { detail }));
 }
 
-function renderBlock(block: ContentBlock): ReactNode {
+function renderBlock(block: ContentBlock, onDownloadResume: () => void): ReactNode {
   if (block.type === "paragraph") return <p key={block.text}>{block.text}</p>;
+  if (block.type === "list") {
+    return (
+      <ul className="modal-list" key={block.items.join("|")}>
+        {block.items.map((item) => <li key={item}>{item}</li>)}
+      </ul>
+    );
+  }
+  if (block.type === "resume") {
+    return (
+      <button className="modal-action resume-download" type="button" onClick={onDownloadResume} key="resume-download">
+        Baixar currículo em PDF <span>↓</span>
+      </button>
+    );
+  }
   if (block.type === "project") {
     const projectContent = (
       <>
@@ -122,9 +141,11 @@ function ProfileSelection({
 function PortfolioModal({
   item,
   onClose,
+  onDownloadResume,
 }: {
   item: ModalItem;
   onClose: () => void;
+  onDownloadResume: () => void;
 }): ReactNode {
   return (
     <div
@@ -150,7 +171,7 @@ function PortfolioModal({
           <>
             <p className="modal-kicker">{item.kicker}</p>
             <h2 id="modal-title">{item.title}</h2>
-            <div>{item.blocks.map(renderBlock)}</div>
+            <div>{item.blocks.map((block) => renderBlock(block, onDownloadResume))}</div>
           </>
         )}
       </section>
@@ -164,6 +185,11 @@ export function App(): ReactNode {
   );
   const [modalItem, setModalItem] = useState<ModalItem>(null);
   const gameRef = useRef<Phaser.Game | null>(null);
+  const resumePageRef = useRef<HTMLElement | null>(null);
+
+  const downloadResume = (): void => {
+    if (resumePageRef.current) void openResumePdf(resumePageRef.current);
+  };
 
   useEffect(() => {
     window.openPortfolioModal = (itemId: string) =>
@@ -261,7 +287,10 @@ export function App(): ReactNode {
         <span>São Paulo, BR</span>
         <span>v. 01 / {activeProfile?.className ?? "escolha inicial"}</span>
       </footer>
-      <PortfolioModal item={modalItem} onClose={() => setModalItem(null)} />
+      <div className="resume-render-source" aria-hidden="true">
+        <ResumePage pageRef={(element) => { resumePageRef.current = element; }} data={resumeData} />
+      </div>
+      <PortfolioModal item={modalItem} onClose={() => setModalItem(null)} onDownloadResume={downloadResume} />
     </>
   );
 }
