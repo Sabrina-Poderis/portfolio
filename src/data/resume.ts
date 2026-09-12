@@ -52,7 +52,7 @@ export const resumeData: ResumeData = {
   ],
   experience: [
     {
-      role: "Desenvolvedora Full Stack", company: "ACT Digital (cliente: Globo)", companyUrl: "https://www.actdigital.com",
+      role: "Desenvolvedora Full Stack (plena)", company: "ACT Digital (cliente: Globo)", companyUrl: "https://www.actdigital.com",
       period: { start: "05/2025", end: null },
       summary: "Desenvolvi soluções para plataformas web, com foco em performance, acessibilidade e escalabilidade, utilizando React.js, TypeScript e Go.",
       bullets: [
@@ -67,7 +67,7 @@ export const resumeData: ResumeData = {
       },
     },
     {
-      role: "Desenvolvedora Full Stack", company: "ACT Digital (cliente: Albert Einstein)", companyUrl: "https://www.actdigital.com",
+      role: "Desenvolvedora Full Stack (junior)", company: "ACT Digital (cliente: Albert Einstein)", companyUrl: "https://www.actdigital.com",
       period: { start: "04/2022", end: "03/2025" },
       summary: "Desenvolvi soluções para plataformas web e mobile com React.js, React Native e TypeScript, garantindo escalabilidade, qualidade de código e otimização de processos.",
       bullets: [
