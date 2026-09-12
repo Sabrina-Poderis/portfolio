@@ -9,6 +9,9 @@ import {
   type ProfileId,
 } from "./data/portfolio";
 import { PortfolioScene } from "./game/scenes/PortfolioScene";
+import { resumeData } from "./data/resume";
+import { ResumePage } from "./resume/ResumePage";
+import { openResumePdf } from "./resume/createResumePdf";
 
 type ModalItem = PortfolioItem | null;
 
@@ -23,7 +26,7 @@ function dispatchTouchEvent(name: string, detail?: unknown): void {
   window.dispatchEvent(new CustomEvent(name, { detail }));
 }
 
-function renderBlock(block: ContentBlock): ReactNode {
+function renderBlock(block: ContentBlock, onResumeClick: () => void): ReactNode {
   if (block.type === "paragraph") return <p key={block.text}>{block.text}</p>;
   if (block.type === "project") {
     const projectContent = (
@@ -55,12 +58,17 @@ function renderBlock(block: ContentBlock): ReactNode {
       </div>
     );
   }
+  const isResumeLink = block.url === "/curriculo.pdf";
   return (
     <a
       className="modal-action"
       href={block.url}
       target={block.external ? "_blank" : undefined}
       rel={block.external ? "noreferrer" : undefined}
+      onClick={isResumeLink ? (event) => {
+        event.preventDefault();
+        onResumeClick();
+      } : undefined}
       key={block.url}
     >
       {block.label} <span>↗</span>
@@ -123,9 +131,11 @@ function ProfileSelection({
 function PortfolioModal({
   item,
   onClose,
+  onResumeClick,
 }: {
   item: ModalItem;
   onClose: () => void;
+  onResumeClick: () => void;
 }): ReactNode {
   return (
     <div
@@ -151,7 +161,7 @@ function PortfolioModal({
           <>
             <p className="modal-kicker">{item.kicker}</p>
             <h2 id="modal-title">{item.title}</h2>
-            <div className="modal-body">{item.blocks.map(renderBlock)}</div>
+            <div className="modal-body">{item.blocks.map((block) => renderBlock(block, onResumeClick))}</div>
           </>
         )}
       </section>
@@ -208,6 +218,11 @@ export function App(): ReactNode {
   const [modalItem, setModalItem] = useState<ModalItem>(null);
   const [recommendationIndex, setRecommendationIndex] = useState<number | null>(null);
   const gameRef = useRef<Phaser.Game | null>(null);
+  const resumeRef = useRef<HTMLElement | null>(null);
+
+  const handleResumeClick = (): void => {
+    if (resumeRef.current) void openResumePdf(resumeRef.current);
+  };
 
   useEffect(() => {
     window.openPortfolioModal = (itemId: string) =>
@@ -306,7 +321,10 @@ export function App(): ReactNode {
         <span>São Paulo, BR</span>
         <span>v. 01 / {activeProfile?.className ?? "escolha inicial"}</span>
       </footer>
-      <PortfolioModal item={modalItem} onClose={() => setModalItem(null)} />
+      <div className="resume-render-source" aria-hidden="true">
+        <ResumePage data={resumeData} pageRef={(element) => { resumeRef.current = element; }} />
+      </div>
+      <PortfolioModal item={modalItem} onClose={() => setModalItem(null)} onResumeClick={handleResumeClick} />
       {recommendationIndex !== null && (
         <RecommendationsModal
           index={recommendationIndex}

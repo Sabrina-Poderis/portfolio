@@ -1,3 +1,5 @@
+import { resumeData } from "./resume";
+
 export type ProfileId = "corporate" | "personal";
 
 export interface Recommendation {
@@ -67,12 +69,10 @@ const corporateItems: PortfolioItem[] = [
     id: "about",
     kicker: "dossiê / 001",
     title: "Sobre mim",
-    blocks: [
-      {
-        type: "paragraph",
-        text: "Desenvolvedora que transforma ideias em experiências digitais claras, cuidadosas e cheias de personalidade.",
-      },
-    ],
+    blocks: resumeData.summary.map((text) => ({
+      type: "paragraph" as const,
+      text,
+    })),
   },
   {
     id: "projects",
@@ -93,8 +93,8 @@ const corporateItems: PortfolioItem[] = [
       {
         type: "project",
         number: "02",
-        title: "Experimento visual",
-        meta: "em breve / laboratório",
+        title: "Salinha interativa",
+        meta: "um cantinho feito à mão (esse site aqui!)",
       },
     ],
   },
