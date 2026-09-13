@@ -23,7 +23,7 @@ export class PortfolioScene extends Phaser.Scene {
 
   preload(): void {
     this.load.tilemapTiledJSON("studio-01", `${import.meta.env.BASE_URL}maps/studio-01.json`);
-    this.load.image("player", `${import.meta.env.BASE_URL}assets/player.svg`);
+    this.load.image("player", `${import.meta.env.BASE_URL}assets/player2.svg`);
   }
 
   init(): void {
@@ -82,7 +82,7 @@ export class PortfolioScene extends Phaser.Scene {
   private createPlayer(): void {
     const startX = this.map.properties.find(({ name }: { name: string }) => name === "playerStartX").value;
     const startY = this.map.properties.find(({ name }: { name: string }) => name === "playerStartY").value;
-    this.player = this.physics.add.sprite(startX, startY, "player").setScale(1.2).setCollideWorldBounds(true);
+    this.player = this.physics.add.sprite(startX, startY, "player").setScale(0.08).setCollideWorldBounds(true);
     this.physics.add.collider(this.player, this.walls);
   }
 
