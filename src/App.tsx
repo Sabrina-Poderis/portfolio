@@ -241,7 +241,7 @@ export function App(): ReactNode {
       type: Phaser.AUTO,
       parent: "game-container",
       width: 960,
-      height: 600,
+      height: 640,
       backgroundColor: "#4b3f72",
       render: { pixelArt: true, antialias: false },
       physics: {
@@ -252,7 +252,7 @@ export function App(): ReactNode {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
         width: 960,
-        height: 600,
+        height: 640,
       },
       scene: [PortfolioScene],
     });

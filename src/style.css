@@ -286,8 +286,8 @@ h1 em {
 /* Game and controls */
 #game-container {
   width: 100%;
-  max-width: min(920px, calc((100dvh - 180px) * 1.6));
-  aspect-ratio: 16 / 10;
+  max-width: min(920px, calc((100dvh - 180px) * 1.5));
+  aspect-ratio: 3 / 2;
   border-radius: 18px;
   box-shadow: 12px 16px 0 color-mix(in srgb, var(--color-ink) 45%, transparent);
   overflow: hidden;
