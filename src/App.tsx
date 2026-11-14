@@ -287,13 +287,14 @@ export function App(): ReactNode {
             <h1>
               Chega aí
               <br />
-              <em>na minha salinha!</em>
+              <em>no parque jurássico!</em>
             </h1>
             <p className="intro-text">
-              Interaja com os objetos para me conhecer melhor
+                Explore as baias e conheça cada dino!
             </p>
           </div>
           <div id="game-container" aria-label="Sala de trabalho interativa" />
+            <div id="game-container" aria-label="Parque jurássico interativo" />
           <div className="touch-controls" aria-label="Controles da sala">
             <div className="touch-pad">
               <button type="button" aria-label="Mover para cima" onPointerDown={() => dispatchTouchEvent("portfolio-touch-move", touchDirections.up)} onPointerUp={() => dispatchTouchEvent("portfolio-touch-stop")} onPointerLeave={() => dispatchTouchEvent("portfolio-touch-stop")}>▲</button>

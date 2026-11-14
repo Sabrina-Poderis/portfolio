@@ -2,11 +2,12 @@ import Phaser from "phaser";
 import type { PortfolioProfile } from "../../types/portfolio";
 
 const COLORS = {
-  wall: 0xd8bd91,
-  wallShadow: 0xa77b5c,
-  floor: 0xb77d5d,
-  floorLight: 0xc98e6b,
-  floorDark: 0x98664e,
+  grass: 0x77955d,
+  grassLight: 0x93aa68,
+  grassDark: 0x58764f,
+  path: 0xc59a65,
+  pathLight: 0xd9b47a,
+  pathDark: 0x9d754e,
   wood: 0x75463b,
   woodLight: 0xc27a4d,
   cream: 0xf3dfa9,
@@ -15,8 +16,8 @@ const COLORS = {
   teal: 0x4c8982,
   rose: 0xc97870,
   paper: 0xf4e7c2,
+  water: 0x6da6a0,
 };
-const PLAYER_FRAME = { width: 32, height: 40 };
 
 export class PortfolioScene extends Phaser.Scene {
   private map: any;
@@ -37,6 +38,11 @@ export class PortfolioScene extends Phaser.Scene {
   preload(): void {
     this.load.tilemapTiledJSON("studio-01", `${import.meta.env.BASE_URL}maps/studio-01.json`);
     this.load.image("player", `${import.meta.env.BASE_URL}assets/player.svg`);
+    this.load.image("dino-triceratops", `${import.meta.env.BASE_URL}assets/dinosaurs/triceratops.svg`);
+    this.load.image("dino-stegosaurus", `${import.meta.env.BASE_URL}assets/dinosaurs/stegosaurus.svg`);
+    this.load.image("dino-brachiosaurus", `${import.meta.env.BASE_URL}assets/dinosaurs/brachiosaurus.svg`);
+    this.load.image("dino-ceratosaurus", `${import.meta.env.BASE_URL}assets/dinosaurs/ceratosaurus.svg`);
+    this.load.image("dino-parasaurolophus", `${import.meta.env.BASE_URL}assets/dinosaurs/parasaurolophus.svg`);
   }
 
   init(): void {
@@ -55,10 +61,10 @@ export class PortfolioScene extends Phaser.Scene {
     window.addEventListener("portfolio-touch-move", this.handleTouchMove);
     window.addEventListener("portfolio-touch-stop", this.handleTouchStop);
     window.addEventListener("portfolio-touch-interact", this.interact);
-    this.prompt = this.add.text(0, 0, "", { fontFamily: "DM Sans", fontSize: "16px", color: "#1f2041", backgroundColor: "#ffc857", padding: { x: 12, y: 8 } }).setDepth(10).setOrigin(0.5).setVisible(false);
+    this.prompt = this.add.text(0, 0, "", { fontFamily: "DM Sans", fontSize: "16px", color: "#493d4c", backgroundColor: "#f3dfa9", padding: { x: 12, y: 8 } }).setDepth(10).setOrigin(0.5).setVisible(false);
     this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
     this.cameras.main.startFollow(this.player, true, 0.08, 0.08);
-    this.physics.world.setBounds(40, 40, this.map.widthInPixels - 80, this.map.heightInPixels - 80);
+    this.physics.world.setBounds(32, 32, this.map.widthInPixels - 64, this.map.heightInPixels - 64);
   }
 
   shutdown(): void {
@@ -79,85 +85,85 @@ export class PortfolioScene extends Phaser.Scene {
   private drawRoom(): void {
     const roomWidth = this.map.widthInPixels;
     const roomHeight = this.map.heightInPixels;
-    const art = this.add.graphics();
-    art.fillStyle(COLORS.wall).fillRect(0, 0, roomWidth, roomHeight);
-    art.fillStyle(COLORS.wallShadow).fillRect(0, 112, roomWidth, 12);
-    art.fillStyle(COLORS.cream).fillRect(0, 120, roomWidth, 8);
+    const art = this.add.graphics().setDepth(0);
+    art.fillStyle(COLORS.grass).fillRect(0, 0, roomWidth, roomHeight);
 
-    art.fillStyle(COLORS.floor).fillRect(40, 128, roomWidth - 80, roomHeight - 168);
-    for (let y = 128, row = 0; y < roomHeight - 40; y += 24, row += 1) {
-      const offset = row % 2 === 0 ? 0 : 48;
-      art.fillStyle(COLORS.floorDark, 0.22).fillRect(40, y + 22, roomWidth - 80, 2);
-      for (let x = 40 - offset; x < roomWidth - 40; x += 96) {
-        if (x >= 40) art.fillStyle(COLORS.floorDark, 0.18).fillRect(x, y, 2, 22);
-        if (x + 48 >= 40 && x + 48 < roomWidth - 40) {
-          art.fillStyle(COLORS.floorLight, 0.28).fillRect(x + 48, y + 3, 2, 16);
-        }
+    for (let y = 24; y < roomHeight; y += 48) {
+      for (let x = 24 + ((y / 48) % 2) * 24; x < roomWidth; x += 48) {
+        art.fillStyle(COLORS.grassLight, 0.22).fillRect(x, y, 3, 3);
+        art.fillStyle(COLORS.grassDark, 0.24).fillRect(x + 8, y + 12, 2, 5);
       }
     }
 
-    art.fillStyle(COLORS.wallShadow).fillRect(32, 32, roomWidth - 64, 8);
-    art.fillStyle(COLORS.wallShadow).fillRect(32, 32, 8, roomHeight - 64);
-    art.fillStyle(COLORS.wallShadow).fillRect(roomWidth - 40, 32, 8, roomHeight - 64);
-    art.fillStyle(COLORS.wallShadow).fillRect(32, roomHeight - 40, roomWidth - 64, 8);
-
-    art.fillStyle(COLORS.wood).fillRect(318, 48, 180, 66);
-    art.fillStyle(0x9bc4bd).fillRect(326, 56, 164, 50);
-    art.fillStyle(0xd6e5c4).fillRect(326, 56, 164, 6);
-    art.fillStyle(COLORS.cream).fillRect(405, 56, 4, 50);
-    art.fillStyle(COLORS.cream).fillRect(326, 80, 164, 4);
-    art.fillStyle(COLORS.woodLight).fillRect(304, 48, 8, 74);
-    art.fillStyle(COLORS.woodLight).fillRect(504, 48, 8, 74);
-    art.fillStyle(COLORS.green).fillRect(298, 84, 8, 24);
-    art.fillStyle(COLORS.green).fillRect(510, 72, 8, 28);
-
-    art.fillStyle(COLORS.ink, 0.22).fillRect(76, 318, 184, 12);
-    art.fillStyle(COLORS.wood).fillRect(72, 198, 176, 122);
-    art.fillStyle(COLORS.woodLight).fillRect(78, 204, 164, 8);
-    art.fillStyle(0xe4d2ab).fillRect(82, 212, 156, 100);
-    art.fillStyle(0x9e7770).fillRect(82, 252, 156, 60);
-    art.fillStyle(0xc59b88).fillRect(88, 218, 66, 34);
-    art.fillStyle(0xf2e5c7).fillRect(94, 222, 54, 26);
-    art.fillStyle(0xd8b99a).fillRect(160, 218, 72, 34);
-    art.fillStyle(COLORS.wood).fillRect(66, 314, 188, 10);
-
-    art.fillStyle(COLORS.ink, 0.18).fillRect(384, 474, 192, 12);
-    art.fillStyle(0x4c7773).fillRect(374, 342, 212, 136);
-    art.fillStyle(0x86a99a).fillRect(382, 350, 196, 120);
-    art.fillStyle(0xa6b7a0).fillRect(390, 358, 180, 104);
-    art.fillStyle(0x86a99a).fillRect(398, 366, 164, 88);
-    for (let x = 406; x < 558; x += 32) {
-      art.fillStyle(0x78998e, 0.7).fillRect(x, 370, 2, 80);
+    art.fillStyle(COLORS.pathDark).fillRect(442, 32, 76, roomHeight - 64);
+    art.fillStyle(COLORS.path).fillRect(446, 32, 68, roomHeight - 64);
+    art.fillStyle(COLORS.pathDark).fillRect(32, 326, roomWidth - 64, 64);
+    art.fillStyle(COLORS.path).fillRect(32, 330, roomWidth - 64, 56);
+    for (let x = 54; x < roomWidth - 48; x += 52) {
+      art.fillStyle(COLORS.pathLight, 0.4).fillRect(x, 344 + (x % 3) * 4, 22, 3);
     }
-    art.fillStyle(0x78998e, 0.7).fillRect(402, 382, 156, 2);
-    art.fillStyle(0x78998e, 0.7).fillRect(402, 434, 156, 2);
+    for (let y = 52; y < roomHeight - 44; y += 48) {
+      art.fillStyle(COLORS.pathLight, 0.35).fillRect(470 + (y % 3) * 4, y, 3, 22);
+    }
 
-    art.fillStyle(COLORS.wood).fillRect(64, 64, 124, 92);
-    art.fillStyle(COLORS.green).fillRect(72, 72, 108, 76);
-    art.fillStyle(COLORS.woodLight).fillRect(80, 84, 18, 54);
-    art.fillStyle(COLORS.rose).fillRect(104, 76, 18, 62);
-    art.fillStyle(0xd9b75e).fillRect(128, 92, 18, 46);
-    art.fillStyle(0x7595a2).fillRect(152, 80, 18, 58);
+    art.fillStyle(COLORS.wood).fillRect(370, 16, 220, 48);
+    art.fillStyle(COLORS.pathLight).fillRect(376, 22, 208, 36);
+    art.fillStyle(COLORS.woodLight).fillRect(380, 26, 200, 3);
+    art.fillStyle(COLORS.woodLight).fillRect(380, 51, 200, 3);
+    this.add.text(480, 40, "PARQUE JURÁSSICO", {
+      fontFamily: "DM Sans",
+      fontSize: "17px",
+      fontStyle: "bold",
+      color: "#332c37",
+    }).setOrigin(0.5).setDepth(2);
 
-    art.fillStyle(COLORS.wood).fillRect(790, 64, 96, 48);
-    art.fillStyle(COLORS.paper).fillRect(798, 72, 38, 32);
-    art.fillStyle(COLORS.rose).fillRect(842, 76, 34, 28);
-    art.fillStyle(COLORS.ink).fillRect(806, 80, 22, 3);
-    art.fillStyle(COLORS.ink).fillRect(806, 88, 18, 3);
+    art.fillStyle(COLORS.water).fillRect(54, 490, 112, 62);
+    art.fillStyle(0x9ac4a7).fillRect(62, 498, 96, 46);
+    art.fillStyle(0x6da6a0).fillRect(70, 506, 30, 8);
+    art.fillStyle(0x6da6a0).fillRect(118, 526, 32, 8);
+    art.fillStyle(COLORS.grassDark).fillRect(50, 482, 16, 10);
+    art.fillStyle(COLORS.grassDark).fillRect(154, 544, 22, 10);
 
-    art.fillStyle(COLORS.green).fillRect(846, 474, 38, 42);
-    art.fillStyle(COLORS.wood).fillRect(842, 508, 46, 14);
-    art.fillStyle(COLORS.green).fillRect(850, 454, 10, 28);
-    art.fillStyle(COLORS.green).fillRect(866, 446, 10, 36);
+    this.drawTree(86, 190, art);
+    this.drawTree(870, 170, art);
+    this.drawTree(80, 438, art);
+    this.drawTree(878, 464, art);
+    this.drawTree(336, 570, art);
+    this.drawTree(632, 572, art);
+    this.drawFossilSign(850, 562, art);
 
-    this.add.text(54, 42, "QUARTO / ESTÚDIO", { fontFamily: "DM Sans", fontSize: "13px", color: "#493d4c" }).setDepth(1);
+    art.fillStyle(COLORS.wood).fillRect(350, 592, 260, 38);
+    art.fillStyle(COLORS.pathLight).fillRect(356, 598, 248, 26);
+    this.add.text(480, 611, "TRILHA DOS FÓSSEIS", {
+      fontFamily: "DM Sans",
+      fontSize: "17px",
+      fontStyle: "bold",
+      color: "#332c37",
+    }).setOrigin(0.5).setDepth(2);
     this.walls = this.physics.add.staticGroup();
+  }
+
+  private drawTree(x: number, y: number, art: Phaser.GameObjects.Graphics): void {
+    art.fillStyle(COLORS.ink, 0.18).fillRect(x - 15, y + 25, 34, 8);
+    art.fillStyle(COLORS.wood).fillRect(x - 5, y + 5, 12, 30);
+    art.fillStyle(COLORS.grassDark).fillRect(x - 20, y - 10, 42, 30);
+    art.fillStyle(COLORS.green).fillRect(x - 16, y - 18, 34, 28);
+    art.fillStyle(COLORS.grassLight).fillRect(x - 8, y - 22, 18, 14);
+    art.fillStyle(0xa7b96d).fillRect(x - 10, y - 12, 7, 5);
+  }
+
+  private drawFossilSign(x: number, y: number, art: Phaser.GameObjects.Graphics): void {
+    art.fillStyle(COLORS.wood).fillRect(x - 3, y, 6, 34);
+    art.fillStyle(COLORS.woodLight).fillRect(x - 26, y - 18, 52, 22);
+    art.fillStyle(COLORS.cream).fillRect(x - 20, y - 14, 40, 14);
+    art.fillStyle(COLORS.ink).fillRect(x - 12, y - 10, 24, 3);
+    art.fillStyle(COLORS.ink).fillRect(x - 8, y - 5, 16, 2);
   }
 
   private createPlayer(): void {
     const startX = this.map.properties.find(({ name }: { name: string }) => name === "playerStartX").value;
     const startY = this.map.properties.find(({ name }: { name: string }) => name === "playerStartY").value;
-    this.player = this.physics.add.sprite(startX, startY, "player").setScale(0.05).setCollideWorldBounds(true);
+    this.player = this.physics.add.sprite(startX, startY, "player").setScale(1.6).setCollideWorldBounds(true);
     this.physics.add.collider(this.player, this.walls);
   }
 
@@ -179,86 +185,111 @@ export class PortfolioScene extends Phaser.Scene {
         const x = object.x + width / 2;
         const y = object.y + height / 2;
         const station = { id: properties.id, label: this.profile?.stations[properties.id] ?? properties.label, x, y };
-        this.drawStationFurniture(properties.id, x, y, width, height);
+        this.drawDinosaurEnclosure(properties.id, x, y, width, height);
         const body = this.add.rectangle(x, y, width, height, 0, 0).setVisible(false);
         this.physics.add.existing(body, true);
         this.walls.add(body);
-        this.add.text(x, object.y + height + 10, station.label, { fontFamily: "DM Sans", fontSize: "12px", color: "#493d4c", backgroundColor: "#f3dfa9", padding: { x: 5, y: 3 } }).setOrigin(0.5).setDepth(3);
+        this.add.text(x, object.y + height + 12, station.label, {
+          fontFamily: "DM Sans",
+          fontSize: "16px",
+          fontStyle: "bold",
+          color: "#332c37",
+          backgroundColor: "#f3dfa9",
+          padding: { x: 9, y: 6 },
+        }).setOrigin(0.5).setDepth(5);
         this.stationObjects.push({ ...station, body });
       }
     });
   }
 
-  private drawStationFurniture(id: string, x: number, y: number, width: number, height: number): void {
-    const art = this.add.graphics().setDepth(2);
+  private drawDinosaurEnclosure(id: string, x: number, y: number, width: number, height: number): void {
+    const art = this.add.graphics().setDepth(1);
     const left = Math.round(x - width / 2);
     const top = Math.round(y - height / 2);
-    const frame = (color = COLORS.wood): void => {
-      art.fillStyle(color).fillRect(left, top, width, height);
-      art.fillStyle(COLORS.woodLight).fillRect(left + 4, top + 4, width - 8, 6);
-      art.fillStyle(COLORS.ink).fillRect(left, top + height - 5, width, 5);
-    };
+    const ground = id === "resume" ? 0x91a36b : id === "contact" ? 0x9a8b61 : 0x9aab6a;
 
-    if (id === "about" || id === "contact") {
-      frame();
-      art.fillStyle(COLORS.woodLight).fillRect(left + 8, top + height - 12, 8, 18);
-      art.fillStyle(COLORS.woodLight).fillRect(left + width - 16, top + height - 12, 8, 18);
-      art.fillStyle(COLORS.ink).fillRect(left + width / 2 - 25, top - 30, 50, 30);
-      art.fillStyle(0x8db7a1).fillRect(left + width / 2 - 21, top - 26, 42, 22);
-      art.fillStyle(0x253d48).fillRect(left + width / 2 - 17, top - 20, 20, 3);
-      art.fillStyle(0xe5bd67).fillRect(left + width / 2 - 17, top - 13, 30, 3);
-      art.fillStyle(COLORS.paper).fillRect(left + width / 2 + 34, top - 14, 14, 14);
-      art.fillStyle(COLORS.rose).fillRect(left + width / 2 + 38, top - 22, 6, 8);
-      if (id === "about") {
-        art.fillStyle(COLORS.ink, 0.18).fillRect(x - 25, top + height + 27, 50, 8);
-        art.fillStyle(COLORS.wood).fillRect(x - 22, top + height + 5, 44, 24);
-        art.fillStyle(0x8c5a4a).fillRect(x - 16, top + height + 9, 32, 15);
-        art.fillStyle(COLORS.woodLight).fillRect(x - 20, top + height + 27, 6, 14);
-        art.fillStyle(COLORS.woodLight).fillRect(x + 14, top + height + 27, 6, 14);
-        art.fillStyle(COLORS.cream).fillRect(left + width - 34, top - 23, 4, 10);
-        art.fillStyle(0xe5bd67).fillRect(left + width - 42, top - 28, 20, 6);
-      }
-      return;
-    }
-
-    if (id === "projects") {
-      frame();
-      for (let shelf = 1; shelf <= 3; shelf += 1) {
-        const shelfY = top + shelf * Math.floor(height / 4);
-        art.fillStyle(COLORS.woodLight).fillRect(left + 5, shelfY, width - 10, 5);
-        const bookColors = [COLORS.rose, 0x66866a, 0x6e8aa0, 0xd9b75e, 0xc58a62];
-        let bookX = left + 10;
-        bookColors.slice(0, 4).forEach((color, index) => {
-          const bookWidth = index % 2 === 0 ? 13 : 17;
-          art.fillStyle(color).fillRect(bookX, shelfY - 22, bookWidth, 22);
-          art.fillStyle(COLORS.paper, 0.7).fillRect(bookX + 3, shelfY - 17, bookWidth - 6, 3);
-          bookX += bookWidth + 4;
-        });
-      }
-      return;
-    }
+    art.fillStyle(COLORS.ink, 0.2).fillRect(left + 5, top + height - 2, width, 8);
+    art.fillStyle(ground).fillRect(left + 5, top + 5, width - 10, height - 10);
+    art.fillStyle(COLORS.grassLight, 0.45).fillRect(left + 12, top + 12, width - 24, height - 24);
+    art.fillStyle(COLORS.path, 0.65).fillRect(left + 18, top + height - 28, width - 36, 12);
+    art.fillStyle(COLORS.pathLight, 0.55).fillRect(left + 28, top + height - 25, width - 56, 3);
 
     if (id === "resume") {
-      frame();
-      for (let drawer = 0; drawer < 3; drawer += 1) {
-        const drawerY = top + 18 + drawer * Math.floor((height - 24) / 3);
-        art.fillStyle(COLORS.woodLight).fillRect(left + 10, drawerY, width - 20, 4);
-        art.fillStyle(COLORS.paper).fillRect(left + width / 2 - 9, drawerY + 9, 18, 3);
-        art.fillStyle(COLORS.ink).fillRect(left + width / 2 - 3, drawerY + 16, 6, 5);
-      }
-      return;
+      art.fillStyle(COLORS.water).fillRect(left + width - 55, top + 18, 34, 20);
+      art.fillStyle(0xa6c9a0).fillRect(left + width - 50, top + 22, 24, 10);
     }
 
-    if (id === "recommendations") {
-      art.fillStyle(COLORS.wood).fillRect(left, top, width, height);
-      art.fillStyle(0xc58a62).fillRect(left + 6, top + 6, width - 12, height - 12);
-      art.fillStyle(COLORS.paper).fillRect(left + 13, top + 12, 34, 28);
-      art.fillStyle(0x9bb7a0).fillRect(left + 55, top + 10, 36, 34);
-      art.fillStyle(0xf4e7c2).fillRect(left + 100, top + 14, 34, 26);
-      art.fillStyle(COLORS.rose).fillRect(left + 24, top + 8, 6, 6);
-      art.fillStyle(0xd9b75e).fillRect(left + 69, top + 6, 6, 6);
-      art.fillStyle(COLORS.rose).fillRect(left + 114, top + 9, 6, 6);
+    this.drawExhibitPlants(left, top, width, height, art);
+    const species = {
+      about: "triceratops",
+      projects: "stegosaurus",
+      resume: "brachiosaurus",
+      contact: "ceratosaurus",
+      recommendations: "parasaurolophus",
+    }[id] ?? "triceratops";
+    this.add.image(x, y - 4, `dino-${species}`).setDisplaySize(116, 87).setDepth(2);
+
+    const fence = this.add.graphics().setDepth(3);
+    this.drawFence(left, top, width, height, fence);
+    this.drawExhibitPlaque(id, x, top, fence);
+  }
+
+  private drawExhibitPlants(left: number, top: number, width: number, height: number, art: Phaser.GameObjects.Graphics): void {
+    const plant = (x: number, y: number, color: number): void => {
+      art.fillStyle(COLORS.grassDark).fillRect(x + 4, y + 10, 4, 8);
+      art.fillStyle(color).fillRect(x, y + 4, 5, 8);
+      art.fillStyle(COLORS.grassLight).fillRect(x + 7, y, 5, 10);
+      art.fillStyle(color).fillRect(x + 11, y + 7, 5, 8);
+    };
+    plant(left + 16, top + 28, COLORS.green);
+    plant(left + width - 34, top + 22, COLORS.teal);
+    plant(left + 24, top + height - 48, 0x9e9a5c);
+  }
+
+  private drawFence(left: number, top: number, width: number, height: number, art: Phaser.GameObjects.Graphics): void {
+    const rail = (x: number, y: number, railWidth: number): void => {
+      art.fillStyle(COLORS.wood).fillRect(x, y, railWidth, 5);
+      art.fillStyle(COLORS.woodLight).fillRect(x, y, railWidth, 2);
+    };
+
+    rail(left, top + 8, width);
+    rail(left, top + 22, width);
+    rail(left, top + height - 23, width);
+    rail(left, top + height - 9, width);
+    for (let x = left + 4; x < left + width; x += 24) {
+      art.fillStyle(COLORS.wood).fillRect(x, top + 3, 5, 27);
+      art.fillStyle(COLORS.woodLight).fillRect(x, top + 3, 2, 27);
+      art.fillStyle(COLORS.wood).fillRect(x, top + height - 30, 5, 27);
+      art.fillStyle(COLORS.woodLight).fillRect(x, top + height - 30, 2, 27);
     }
+    for (let y = top + 24; y < top + height - 24; y += 24) {
+      art.fillStyle(COLORS.wood).fillRect(left + 3, y, 27, 5);
+      art.fillStyle(COLORS.woodLight).fillRect(left + 3, y, 27, 2);
+      art.fillStyle(COLORS.wood).fillRect(left + width - 30, y, 27, 5);
+      art.fillStyle(COLORS.woodLight).fillRect(left + width - 30, y, 27, 2);
+    }
+    art.fillStyle(COLORS.cream).fillRect(left + width / 2 - 3, top + height - 26, 6, 16);
+  }
+
+  private drawExhibitPlaque(id: string, x: number, top: number, art: Phaser.GameObjects.Graphics): void {
+    const speciesNames: Record<string, string> = {
+      about: "TRICERATOPS",
+      projects: "ESTEGOSSAURO",
+      resume: "BRAQUIOSSAURO",
+      contact: "CERATOSAURO",
+      recommendations: "PARASSAURO",
+    };
+    const plaqueWidth = 154;
+    art.fillStyle(COLORS.wood).fillRect(x - plaqueWidth / 2, top - 28, plaqueWidth, 26);
+    art.fillStyle(COLORS.cream).fillRect(x - plaqueWidth / 2 + 4, top - 24, plaqueWidth - 8, 18);
+    art.fillStyle(COLORS.woodLight).fillRect(x - plaqueWidth / 2 + 8, top - 4, 5, 9);
+    art.fillStyle(COLORS.woodLight).fillRect(x + plaqueWidth / 2 - 13, top - 4, 5, 9);
+    this.add.text(x, top - 15, speciesNames[id] ?? "DINOSSAURO", {
+      fontFamily: "DM Sans",
+      fontSize: "14px",
+      fontStyle: "bold",
+      color: "#332c37",
+    }).setOrigin(0.5).setDepth(5);
   }
 
   private interact(): void {
