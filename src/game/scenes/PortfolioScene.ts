@@ -184,7 +184,16 @@ export class PortfolioScene extends Phaser.Scene {
         if (!this.profile?.stations[properties.id]) return;
         const x = object.x + width / 2;
         const y = object.y + height / 2;
-        const station = { id: properties.id, label: this.profile?.stations[properties.id] ?? properties.label, x, y };
+        const station = {
+          id: properties.id,
+          label: this.profile?.stations[properties.id] ?? properties.label,
+          x,
+          y,
+          left: object.x,
+          right: object.x + width,
+          top: object.y,
+          bottom: object.y + height,
+        };
         this.drawDinosaurEnclosure(properties.id, x, y, width, height);
         const body = this.add.rectangle(x, y, width, height, 0, 0).setVisible(false);
         this.physics.add.existing(body, true);
@@ -307,7 +316,12 @@ export class PortfolioScene extends Phaser.Scene {
     velocity.y ||= this.touchDirection.y;
     velocity.normalize().scale(190);
     this.player.setVelocity(velocity.x, velocity.y);
-    this.nearbyStation = this.stationObjects.find((station) => Phaser.Math.Distance.Between(this.player.x, this.player.y, station.x, station.y) < 125);
+    const playerBody = this.player.body;
+    this.nearbyStation = this.stationObjects.find((station) => {
+      const gapX = Math.max(station.left - playerBody.right, playerBody.left - station.right, 0);
+      const gapY = Math.max(station.top - playerBody.bottom, playerBody.top - station.bottom, 0);
+      return Math.hypot(gapX, gapY) <= 4;
+    });
     this.prompt.setVisible(Boolean(this.nearbyStation));
     if (this.nearbyStation) this.prompt.setPosition(this.nearbyStation.x, this.nearbyStation.y - 110).setText(`E  ${this.nearbyStation.label}`);
   }
